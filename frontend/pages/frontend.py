@@ -1,4 +1,5 @@
 import streamlit as st
+from pathlib import Path
 import re
 import pathlib
 import glob
@@ -19,7 +20,10 @@ if not api_key:
 genai.configure(api_key=api_key)
 
 MODEL = os.getenv("MODEL", "gemini-2.5-flash-lite-preview-06-17")
-QUESTIONS_FOLDER = os.getenv("QUESTIONS_GP")
+
+PAGES_DIR = Path(__file__).resolve().parent               # …/Exam_Prep/frontend/pages
+PROJECT_ROOT = PAGES_DIR.parent.parent                    # …/Exam_Prep
+QUESTIONS_FOLDER = PROJECT_ROOT / "questions_md"
 
 # Rate limit: max 15 calls per minute
 SECONDS_BETWEEN_CALLS = 60.0 / 15.0

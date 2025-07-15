@@ -1,10 +1,14 @@
 from pathlib import Path
 import streamlit as st
 from streamlit_pdf_viewer import pdf_viewer
+from pages import page_config
+
+if st.button(label=f"Study: {page_config.module_name}", icon="◀️"):
+    st.switch_page("pages/main_page.py")
 
 st.title('View The Documents')
 
-# __file__ = .../frontend/pages/page1.py
+# __file__ = .../frontend/pages/study_page.py
 PAGES_DIR = Path(__file__).resolve().parent               # …/Exam_Prep/frontend/pages
 PROJECT_ROOT = PAGES_DIR.parent.parent                    # …/Exam_Prep
 DATA_DIR = PROJECT_ROOT / "slides_pdfs"
