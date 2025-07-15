@@ -1,0 +1,162 @@
+[
+  {
+    "question_de": "Wie viele Chunks passen ins Arbeitsgedächtnis? Wie kann man das auf Interaktionsdesign anwenden?",
+    "question_en": "How many chunks fit into working memory? How can you apply this to interaction design?",
+    "answer": "7±2 chunks. In interaction design, limit the number of items (e.g., menu options or form fields) to around seven per group to avoid overloading the user’s working memory. Use grouping or submenus if you need more choices. :contentReference[oaicite:0]{index=0}"
+  },
+  {
+    "question_de": "Was sagt Extended Mind Theory aus? Nenne Beispiel.",
+    "question_en": "What does Extended Mind Theory state? Give an example.",
+    "answer": "Extended Mind Theory proposes that external tools and representations (like smartphones, notebooks, or maps) become part of our cognitive system. Example: relying on your phone’s GPS app instead of memorizing a route. :contentReference[oaicite:1]{index=1}"
+  },
+  {
+    "question_de": "Was beinhaltet Human Information Processing nicht? Nenne zwei Aspekte.",
+    "question_en": "What does Human Information Processing not include? Name two aspects.",
+    "answer": "The classical Human Information Processing model omits the body and emotions (affect). :contentReference[oaicite:2]{index=2}"
+  },
+  {
+    "question_de": "Kritik an Human Centered Design von Norman. Nenne Beispiel für gut und weniger gut geeignete Anwendung.",
+    "question_en": "Criticism of Human Centered Design by Norman. Give an example for well- and less well-suited application.",
+    "answer": "Norman argued that HCD often refines existing interfaces but rarely produces major innovations. It works well for iterative improvements (e.g., tweaking a website’s navigation) but is less suited for inventing groundbreaking products (e.g., the first smartphone). :contentReference[oaicite:3]{index=3}"
+  },
+  {
+    "question_de": "Erkläre die 2 Richtungen der Wahrnehmungsarten \\[gemeint war Bottom Up und Top Down\\]. Erkläre sie ausführlich am Beispiel des Bilds [die 13 aus der Vorlesung].",
+    "question_en": "Explain Bottom-Up and Top-Down perception in detail with the '13' example.",
+    "answer": "Bottom-Up processing builds perception from raw sensory data (you see three horizontal and two vertical lines). Top-Down processing uses prior knowledge and expectations (you interpret those lines as the digit “13” or the letter “B”). :contentReference[oaicite:4]{index=4}"
+  },
+  {
+    "question_de": "Was sagt Helmholtz’s theory of unconscious inference aus? Zeichne ein Beispiel.",
+    "question_en": "What does Helmholtz’s theory of unconscious inference state? Draw an example.",
+    "answer": "Helmholtz’s theory says we make unconscious assumptions to interpret ambiguous retinal images by choosing the most likely real object. Example: a blue rectangle overlapping a red one is usually seen as a blue box in front of a red box, not a strange six-sided red shape behind. :contentReference[oaicite:5]{index=5}"
+  },
+  {
+    "question_de": "Nenne 4 Gestalt Laws. Erkläre zwei und zeige Beispielanwendungen im Design.",
+    "question_en": "Name 4 Gestalt laws. Explain two with example applications in design.",
+    "answer": "Four laws: proximity, similarity, closure, figure-ground. Proximity: items placed close together (e.g., a label next to its input field) are grouped. Similarity: elements with the same style (e.g., buttons of the same shape) are perceived as related. :contentReference[oaicite:6]{index=6} :contentReference[oaicite:7]{index=7}"
+  },
+  {
+    "question_de": "Welche 2 Gestalt Laws verletzt dieses Bild? [\"Keep Red Off Line\" aus der Vorlesung]",
+    "question_en": "Which 2 Gestalt laws does the 'Keep Red Off Line' image violate?",
+    "answer": "It violates continuity (the red segment cuts other lines abruptly) and figure-ground (the red element fails to stand out as a separate shape). :contentReference[oaicite:8]{index=8}"
+  },
+  {
+    "question_de": "Was sind Affordances?",
+    "question_en": "What are affordances?",
+    "answer": "Affordances are properties of an object that indicate how it can be used, e.g., a door handle suggests pulling. :contentReference[oaicite:9]{index=9}"
+  },
+  {
+    "question_de": "Nenne zwei und erkläre sie anhand eines Bildes. [Auf dem Bild waren 2 weiße Tassen und eine Tee Kanne]",
+    "question_en": "Name two affordance types and explain them using an image of two white cups and a teapot.",
+    "answer": "Perceptible affordance: the cup’s handle clearly suggests gripping. Hidden affordance: clicking on the teapot icon might open a tea-ordering dialog, but no visual cue shows it until you hover. :contentReference[oaicite:10]{index=10}"
+  },
+  {
+    "question_de": "Gibt ein Beispiel für False Affordance.",
+    "question_en": "Give an example of a false affordance.",
+    "answer": "Underlined text that looks like a link but isn’t clickable is a false affordance. :contentReference[oaicite:11]{index=11}"
+  },
+  {
+    "question_de": "Was sind Constraints? Nenne 2 Arten. Wie stehen sie in Zusammenhang mit Affordances?",
+    "question_en": "What are constraints? Name 2 types and how they relate to affordances.",
+    "answer": "Constraints limit possible actions: physical constraints (e.g., a USB plug only fits one way) and logical constraints (e.g., jigsaw pieces only fit correctly). They work with affordances by preventing incorrect uses. :contentReference[oaicite:12]{index=12}"
+  },
+  {
+    "question_de": "Nenne 3 Dark Patterns und erkläre 2\\.",
+    "question_en": "Name 3 Dark Patterns and explain 2.",
+    "answer": "Nagging: persistent prompts for permission (e.g., 'Enable notifications?'). Obstruction: hiding options (e.g., a hard-to-find unsubscribe link). Sneaking: disguising ads as content. :contentReference[oaicite:13]{index=13} :contentReference[oaicite:14]{index=14}"
+  },
+  {
+    "question_de": "Bennene jeweils eine Dark Pattern welche bei den folgenden Bildern genutzt wurde. [Einmal das \"Nagging\" Beispiel aus der Vorlesung und das \"Obstruction\" Beispiel aus der Vorelsung]",
+    "question_en": "Which Dark Pattern is used in the 'Nagging' and 'Obstruction' lecture examples?",
+    "answer": "The first is Nagging (repeated prompts without a decline option), the second is Obstruction (unsubscribe link hidden as white text on white background). :contentReference[oaicite:15]{index=15}"
+  },
+  {
+    "question_de": "Welche 2 Arten von Fehlern gibt es und was unterscheidet sie?",
+    "question_en": "Which 2 types of errors exist and how do they differ?",
+    "answer": "Mistakes: wrong intention (e.g., misunderstanding how a feature works). Slips: correct intention but wrong execution (e.g., misclick). :contentReference[oaicite:16]{index=16}"
+  },
+  {
+    "question_de": "Was ist Transparenz?",
+    "question_en": "What is transparency?",
+    "answer": "Transparency means changes in a system’s internals don’t alter its external interface, so users aren’t disrupted. :contentReference[oaicite:17]{index=17}"
+  },
+  {
+    "question_de": "Was sind die 7 Stages of Action, zeichene den Graph aus der Vorlesung? Was sind die beiden Gulfs (“Schranken”)? Setze die Gulfs in Beziehung zu den 7 Stages.",
+    "question_en": "What are the 7 Stages of Action? What are the two gulfs, and how do they relate?",
+    "answer": "Stages: 1) Form goal 2) Form intention 3) Specify action 4) Execute action 5) Perceive state 6) Interpret state 7) Evaluate outcome. Gulf of Execution: gap between intention and available actions; Gulf of Evaluation: gap between system state and user’s understanding. :contentReference[oaicite:18]{index=18}"
+  },
+  {
+    "question_de": "Was sind die 4 Bestandteile von User Centered Design? Nenne das Ziel von jedem. Nenne eine praktische Methode zu jedem Bestandteil und erkläre diese.",
+    "question_en": "What are the 4 components of User-Centered Design? State each goal and a practical method.",
+    "answer": "1) Understand context (goal: know user needs; method: ethnography). 2) Specify requirements (goal: define features; method: personas). 3) Design solutions (goal: explore ideas; method: paper prototyping). 4) Evaluate (goal: test usability; method: lab study). :contentReference[oaicite:19]{index=19}"
+  },
+  {
+    "question_de": "Was sind Horizontal und Vertical Prototypes?",
+    "question_en": "What are horizontal and vertical prototypes?",
+    "answer": "Horizontal prototypes cover many features at low fidelity; vertical prototypes cover a few features in high fidelity. :contentReference[oaicite:20]{index=20}"
+  },
+  {
+    "question_de": "Erkläre den Unterschied zwischen “Getting the design right” und “Getting the right design”.",
+    "question_en": "Explain the difference between 'Getting the design right' and 'Getting the right design.'",
+    "answer": "'Getting the design right' focuses on building the interface correctly; 'Getting the right design' ensures you solve the correct user problems. :contentReference[oaicite:21]{index=21}"
+  },
+  {
+    "question_de": "Die Ergebnisse zeigen, dass die verschiedenen Level der unabhängigen Variable keinen nennenswerten Einfluss auf Fingerbeschwerden haben.. Kann daraus auf das Gegenteil geschlossen werden? Begründe. \\[meine Erinnerung an die genaue Frage ist leider etwas schief\\]  (Ich glaub da war noch irgendwas den Beziehung zwischen den Level oder so)",
+    "question_en": "Can you conclude the opposite if no significant effect of IV levels on finger complaints is found?",
+    "answer": "No. A non-significant result means you found no evidence of an effect, but you cannot prove there is no effect at all."
+  },
+  {
+    "question_de": "Erkläre Within-Subject- und Between-Subject-Design. Nenne je einen Nachteil.",
+    "question_en": "Explain Within-Subject and Between-Subject design and name one disadvantage each.",
+    "answer": "Within-Subject: participants experience all conditions (disadvantage: learning or fatigue effects). Between-Subject: each participant experiences one condition (disadvantage: requires more participants). :contentReference[oaicite:22]{index=22}"
+  },
+  {
+    "question_de": "Erkläre den Unterschied zwischen Labor- und Feldstudie.",
+    "question_en": "Explain the difference between lab and field study.",
+    "answer": "Lab study: controlled environment to isolate variables. Field study: real-world setting observing natural behavior. :contentReference[oaicite:23]{index=23}"
+  },
+  {
+    "question_de": "Sind mit einer Likert-Skala ermittelte Daten quantitativ oder qualitativ? Begründe.",
+    "question_en": "Are Likert-scale data quantitative or qualitative? Justify.",
+    "answer": "Quantitative: they assign numeric values to levels of agreement, enabling statistical analysis."
+  },
+  {
+    "question_de": "Ein neues Keyboard-Layout wurdeööö entwickelt, das die am häufigsten getippten Tasten nebeneinander hat. Das Entwicklungsteam behauptet, man könne damit schneller schreiben und die Ermüdung der Finger ist geringer. Dies soll nun überprüft werden. Benenne die unabhängige Variable und nenne 3 mögliche Werte, welche sie annehmen kann.",
+    "question_en": "A new keyboard layout has been developed that places the most frequently typed keys next to each other. The development team claims this allows faster typing and reduces finger fatigue. This now needs to be tested. \n a) Name the IV and 3 possible levels.\n",
+    "answer": "IV: keyboard layout. Levels: QWERTY (baseline), optimized-layout A (grouped frequent keys), optimized-layout B (alternative grouping)."
+  },
+  {
+    "question_de": "Wie kann man die abhängigen Variablen messen?",
+    "question_en": "How can dependent variables be measured?",
+    "answer": "Measure typing speed (words per minute), error rate (mistyped characters), and subjective fatigue via a questionnaire."
+  },
+  {
+    "question_de": "Wie kann die Aufgabe im Experiment aussehen, um die abhängige Variable zu messen?",
+    "question_en": "Describe the experimental task to measure the dependent variables.",
+    "answer": "Participants type standardized text passages for a fixed time; software logs speed and errors, then they rate fatigue on a scale."
+  },
+  {
+    "question_de": "Stelle zwei Hypothesen auf.",
+    "question_en": "Formulate two hypotheses.",
+    "answer": "H1: Typing speed is higher with optimized-layout A than QWERTY. H2: Finger fatigue is lower with optimized-layout B than QWERTY."
+  },
+  {
+    "question_de": "Nenne jeweils eine Kontroll, Zufalls- und Störvariable.",
+    "question_en": "Name one control, one random, and one confounding variable.",
+    "answer": "Control: same sample text for all. Random: time of day when participants test. Confounding: participants’ prior typing experience."
+  },
+  {
+    "question_de": "Sollte man Within-Subject- oder Between-Subject-Design verwenden? Begründe.",
+    "question_en": "Should you use within- or between-subject design? Justify.",
+    "answer": "Within-subject, to compare layouts on the same participants and reduce variability, mitigating effects with counter-balancing."
+  },
+  {
+    "question_de": "Wie sollte ein häufig geklicktes UI-Element in einer PC-Anwendung nach Fitt’s Law platziert werden? Begründe.",
+    "question_en": "Where should a frequently clicked UI element be placed in a PC application according to Fitts’s Law? Justify.",
+    "answer": "Place it at screen edges or corners where the target effectively has infinite width or height, minimizing movement time."
+  },
+  {
+    "question_de": "Ändert sich dies bei Touch- statt Mausinput? Begründe.",
+    "question_en": "Does placement change for touch input? Justify.",
+    "answer": "Yes. On touch devices, edges still help but screen size and hand posture matter; place frequent targets within easy thumb reach rather than extreme corners."
+  }
+]

@@ -1,0 +1,1149 @@
+[
+  {
+    "question": "How many chunks can working memory hold? How can this be applied to interaction design?",
+    "answer": "Working memory can hold approximately 7 +/- 2 chunks of information.\n\nThis knowledge can be applied to interaction design by ensuring that the amount of information presented to users at any one time is no more than 7 items. This is particularly relevant when designing elements like menus and lists, where the number of options should ideally be kept within this limit to leverage the user's short-term memory capacity.",
+    "sources": [
+      {
+        "topic": "02_Cognition",
+        "slide": 81,
+        "score": 0.7373557090759277
+      },
+      {
+        "topic": "02_Cognition",
+        "slide": 65,
+        "score": 0.5586223006248474
+      },
+      {
+        "topic": "02_Cognition",
+        "slide": 87,
+        "score": 0.5455504655838013
+      },
+      {
+        "topic": "03_Design_Process SS25 Complete",
+        "slide": 0,
+        "score": 0.5328227281570435
+      },
+      {
+        "topic": "03_Design_Process SS25 Complete",
+        "slide": 624,
+        "score": 0.5360346436500549
+      }
+    ]
+  },
+  {
+    "question": "What does the Extended Mind Theory state? Provide an example.",
+    "answer": "The Extended Mind Theory states that cognitive processes are not confined to the brain but can extend into the environment through the use of external tools and resources.\n\nAn example of this is **navigating with a map**. The map acts as an external memory, allowing you to offload the task of remembering routes and instead focus your cognitive resources on other aspects of navigation, such as situational awareness.",
+    "sources": [
+      {
+        "topic": "02_Cognition",
+        "slide": 108,
+        "score": 0.7557576894760132
+      },
+      {
+        "topic": "02_Cognition",
+        "slide": 103,
+        "score": 0.6569665670394897
+      },
+      {
+        "topic": "02_Cognition",
+        "slide": 107,
+        "score": 0.6135332584381104
+      },
+      {
+        "topic": "02_Cognition",
+        "slide": 266,
+        "score": 0.5317762494087219
+      },
+      {
+        "topic": "02_Cognition",
+        "slide": 25,
+        "score": 0.5867698192596436
+      }
+    ]
+  },
+  {
+    "question": "What is *not* included in Human Information Processing? Name two aspects.",
+    "answer": "Based on the provided context, the following are not included in Human Information Processing:\n\n*   **Non-numeric information** (although it is mentioned in relation to the human as an information processing machine, the context focuses on the processing aspect and not the specific *types* of information processed).\n*   **Human involvement in every step of the process** (this is described as part of Human-Computer Interaction, not human information processing).",
+    "sources": [
+      {
+        "topic": "02_Cognition",
+        "slide": 37,
+        "score": 0.6174328327178955
+      },
+      {
+        "topic": "04_Evaluation SS25 Complete",
+        "slide": 266,
+        "score": 0.5896222591400146
+      },
+      {
+        "topic": "02_Cognition",
+        "slide": 34,
+        "score": 0.5631585121154785
+      },
+      {
+        "topic": "03_Design_Process SS25 Complete",
+        "slide": 10,
+        "score": 0.512817919254303
+      },
+      {
+        "topic": "03_Design_Process SS25 Complete",
+        "slide": 69,
+        "score": 0.5152209401130676
+      }
+    ]
+  },
+  {
+    "question": "Critique Norman’s Human-Centered Design. Give an example of a well-suited and a less well-suited application.",
+    "answer": "The provided context focuses on defining Human-Centered Design (HCD) as an approach to interactive systems development that prioritizes users, their needs, and requirements, and utilizes human factors/ergonomics and usability knowledge. It highlights the benefits of HCD, such as enhanced effectiveness, efficiency, user satisfaction, accessibility, and sustainability.\n\nHowever, the context *does not offer any criticism of Norman's Human-Centered Design* or provide specific examples of well-suited or less well-suited applications. Therefore, to answer your question comprehensively, I will draw on my knowledge outside of the given context.\n\n**Critique of Human-Centered Design (General):**\n\nWhile HCD is widely praised, some critiques exist:\n\n*   **Potential for \"Tyranny of the User\":** In some interpretations, a strict focus on current user needs can stifle innovation or lead to designs that are overly simplistic or cater to the lowest common denominator. Designers might be hesitant to introduce novel or challenging concepts if they fear immediate user rejection.\n*   **Difficulty in Understanding Future Needs:** HCD often focuses on existing user behaviors and expressed needs. It can be challenging to predict or design for needs that users themselves may not yet be aware of or articulate.\n*   **Resource Intensiveness:** Thorough user research, prototyping, and iterative testing, which are core to HCD, can be time-consuming and expensive, potentially posing a barrier for smaller projects or organizations with limited resources.\n*   **Subjectivity of \"User\":** Defining \"the user\" can be complex. If not carefully considered, HCD can inadvertently exclude or misrepresent certain user groups, leading to biased or inequitable designs.\n*   **Balancing User Needs with Business/Technical Constraints:** There can be a tension between what users want and what is feasible from a business or technical perspective. A purely user-centric approach might overlook critical constraints.\n\n**Examples of Applications:**\n\n*   **Well-Suited Application: A mobile banking application.**\n    *   **Reasoning:** Banking is a highly personal and frequent activity. Users have clear needs for managing their finances, making transactions, and checking balances. An HCD approach is crucial to ensure ease of use, security, and accessibility for a diverse user base. Understanding user mental models of banking, common tasks, and potential pain points (e.g., confusion with transfer processes, need for clear transaction histories) allows for the creation of an intuitive and efficient application. Features like clear navigation, simple authentication methods, and readily available support would be prioritized based on user research.\n\n*   **Less Well-Suited Application (or requiring careful augmentation): A foundational scientific research tool for highly specialized fields.**\n    *   **Reasoning:** While user needs are still important, the \"users\" in this context might be experts in a niche scientific domain. Their needs might be highly technical, abstract, and driven by theoretical exploration rather than immediate practical usability in a broad sense. They might also be willing to tolerate a steeper learning curve for advanced functionality that enables groundbreaking discovery. In such cases, a purely HCD approach focused on ease of use for a general audience could hinder the development of powerful, albeit complex, tools. Here, the \"user needs\" might lean more towards computational power, data visualization capabilities, and the flexibility to adapt the tool to novel experimental procedures, rather than immediate intuitiveness. A more technically driven or even a \"expert-centric\" design approach might be more appropriate, or HCD would need to be very deeply informed by the specific, advanced needs of these expert users.",
+    "sources": [
+      {
+        "topic": "03_Design_Process SS25 Complete",
+        "slide": 745,
+        "score": 0.7149741649627686
+      },
+      {
+        "topic": "03_Design_Process SS25 Complete",
+        "slide": 67,
+        "score": 0.6132797002792358
+      },
+      {
+        "topic": "03_Design_Process SS25 Complete",
+        "slide": 734,
+        "score": 0.5807600617408752
+      },
+      {
+        "topic": "03_Design_Process SS25 Complete",
+        "slide": 618,
+        "score": 0.5807600617408752
+      },
+      {
+        "topic": "03_Design_Process SS25 Complete",
+        "slide": 247,
+        "score": 0.5807600617408752
+      }
+    ]
+  },
+  {
+    "question": "Explain the two directions of perception (Bottom-Up and Top-Down). Describe them in detail using the example of the image [figure 13 from the lecture].",
+    "answer": "Perception is a complex process that involves two primary directions: **bottom-up processing** and **top-down processing**. These two processes work together, often in combination, to help us make sense of the information our senses receive.\n\n**Bottom-Up Processing (Gestalt Laws of Perception):**\n\nBottom-up processing starts with the raw sensory information received by our senses, working from the smallest, simplest elements upwards to form more complex perceptions. The Gestalt laws of perception are a prime example of this. They explain how our brains organize incoming visual information by perceiving individual elements as a whole, creating \"order in disorder.\"\n\nFor example, the Gestalt laws describe principles like proximity (objects close together are seen as a group), similarity (similar objects are seen as a group), and closure (we tend to perceive complete figures even when parts are missing). These laws demonstrate how our minds automatically group and organize visual elements without conscious effort, starting with the basic features of what we see and building up a coherent perception.\n\n**Top-Down Processing (Visual Perception):**\n\nTop-down processing, on the other hand, involves using our existing knowledge, experiences, expectations, and context to interpret sensory information. Our mind \"informs\" what the eye sees by applying prior knowledge to the incoming data. This processing is driven by our internal mental models.\n\nA key aspect of top-down processing is the **likelihood principle** and **unconscious inference**. The likelihood principle suggests we perceive the object that is most likely to have caused the pattern of stimuli we receive. This is based on **unconscious assumptions** we make, which are rooted in our past experiences. We don't consciously analyze every single pixel; instead, our brain makes rapid, often unconscious, inferences about what we are seeing based on what it has learned from previous encounters.\n\n**Applying to the Example (Figure 3.14):**\n\nLet's consider the example of Figure 3.14. The image in (a) presents a visual stimulus that can be interpreted in multiple ways.\n\n*   **Bottom-up processing** would be involved in detecting the basic shapes and colors present: lines, corners, and areas of blue and red. The Gestalt laws would help us group these elements. For instance, we might perceive the collection of lines forming a rectangle, and the adjacent colors.\n\n*   **Top-down processing** comes into play when we interpret these shapes and colors. The display in (a) is usually interpreted as (b) a blue rectangle in front of a red rectangle. This interpretation is heavily influenced by our past experiences with how objects overlap. We *expect* objects to be solid and continuous. Therefore, based on our prior knowledge, our brain makes an unconscious inference that the blue shape is a complete rectangle occluding a portion of a red rectangle.\n\nHowever, as shown in (c), it *could* also be interpreted as a blue rectangle and an appropriately positioned six-sided red figure. This alternative interpretation is less likely based on our typical experiences and our unconscious assumptions about how objects are formed. Our top-down processing, driven by the likelihood principle, leads us to favor the more common and plausible interpretation (b) over the more complex and less probable one (c). Our mind, using our existing knowledge about objects and their arrangements, \"informs\" what the eye sees, leading to the more common perception of two overlapping rectangles.",
+    "sources": [
+      {
+        "topic": "02_Cognition",
+        "slide": 208,
+        "score": 0.6081850528717041
+      },
+      {
+        "topic": "02_Cognition",
+        "slide": 266,
+        "score": 0.5476394891738892
+      },
+      {
+        "topic": "02_Cognition",
+        "slide": 213,
+        "score": 0.6173368096351624
+      },
+      {
+        "topic": "02_Cognition",
+        "slide": 264,
+        "score": 0.5833529829978943
+      },
+      {
+        "topic": "02_Cognition",
+        "slide": 236,
+        "score": 0.5115483403205872
+      }
+    ]
+  },
+  {
+    "question": "What does Helmholtz’s theory of unconscious inference state? Draw an example.",
+    "answer": "Helmholtz's theory of unconscious inference states that our perception is not a direct representation of reality, but rather an active process of **unconscious inference**. Essentially, our brains use past experiences and prior knowledge to interpret sensory information and construct a model of the world. This process happens automatically and without conscious awareness.\n\n**Example:**\n\nImagine you're walking through a dimly lit room and see a coiled shape on the floor. Your brain, based on past experiences, might unconsciously infer that this shape is a snake. This inference leads to a feeling of alarm. However, upon closer inspection, you realize it's just a coiled rope. In this scenario, your brain made an unconscious inference about the coiled shape being a snake, which was an error caused by the limited sensory information (dim lighting) and the influence of your prior knowledge about what coiled shapes can represent.",
+    "sources": [
+      {
+        "topic": "02_Cognition",
+        "slide": 234,
+        "score": 0.875552237033844
+      },
+      {
+        "topic": "04_Evaluation SS25 Complete",
+        "slide": 122,
+        "score": 0.4824657738208771
+      },
+      {
+        "topic": "02_Cognition",
+        "slide": 653,
+        "score": 0.5444109439849854
+      },
+      {
+        "topic": "04_Evaluation SS25 Complete",
+        "slide": 514,
+        "score": 0.512346088886261
+      },
+      {
+        "topic": "04_Evaluation SS25 Complete",
+        "slide": 224,
+        "score": 0.512346088886261
+      }
+    ]
+  },
+  {
+    "question": "Name four Gestalt laws. Explain two and show design example applications.",
+    "answer": "I can name four Gestalt laws, but I need more context to explain them and provide design examples. The provided context mentions that Gestalt Principles were devised by German psychologists and describe how humans group similar elements, recognize patterns, and simplify complex images. However, it does not list specific Gestalt laws or provide examples of their application in design.",
+    "sources": [
+      {
+        "topic": "02_Cognition",
+        "slide": 266,
+        "score": 0.5420483946800232
+      },
+      {
+        "topic": "02_Cognition",
+        "slide": 347,
+        "score": 0.49259236454963684
+      },
+      {
+        "topic": "02_Cognition",
+        "slide": 340,
+        "score": 0.49259236454963684
+      },
+      {
+        "topic": "02_Cognition",
+        "slide": 333,
+        "score": 0.49259236454963684
+      },
+      {
+        "topic": "02_Cognition",
+        "slide": 322,
+        "score": 0.49259236454963684
+      }
+    ]
+  },
+  {
+    "question": "Which two Gestalt laws are violated by this image? [\"Keep Red Off Line\" from the lecture]",
+    "answer": "Based on the provided context, which solely lists \"Gestalt Laws of Perception\" multiple times without any specific details about the laws themselves or the content of the \"Keep Red Off Line\" image, I cannot determine which two Gestalt laws are violated.\n\nTo answer your question, I would need information about the specific Gestalt laws (e.g., Proximity, Similarity, Closure, Continuity, Common Fate, Figure/Ground, Symmetry, etc.) and a description or visual representation of the \"Keep Red Off Line\" image.",
+    "sources": [
+      {
+        "topic": "02_Cognition",
+        "slide": 347,
+        "score": 0.544217586517334
+      },
+      {
+        "topic": "02_Cognition",
+        "slide": 340,
+        "score": 0.544217586517334
+      },
+      {
+        "topic": "02_Cognition",
+        "slide": 333,
+        "score": 0.544217586517334
+      },
+      {
+        "topic": "02_Cognition",
+        "slide": 322,
+        "score": 0.544217586517334
+      },
+      {
+        "topic": "02_Cognition",
+        "slide": 314,
+        "score": 0.544217586517334
+      }
+    ]
+  },
+  {
+    "question": "What are affordances?",
+    "answer": "Affordances are properties or features of an artefact that indicate a certain type of usage. They are what an environment offers or provides. Some affordances are based on our physiology, body, or nature. If affordances are good, they can eliminate the need for labels for easy or trivial functions.",
+    "sources": [
+      {
+        "topic": "02_Cognition",
+        "slide": 482,
+        "score": 0.5897067785263062
+      },
+      {
+        "topic": "02_Cognition",
+        "slide": 120,
+        "score": 0.6162084937095642
+      },
+      {
+        "topic": "02_Cognition",
+        "slide": 476,
+        "score": 0.5851141214370728
+      },
+      {
+        "topic": "02_Cognition",
+        "slide": 471,
+        "score": 0.6785882711410522
+      },
+      {
+        "topic": "02_Cognition",
+        "slide": 118,
+        "score": 0.5917690992355347
+      }
+    ]
+  },
+  {
+    "question": "Name two and explain them using an image. [The image showed two white cups and a teapot]",
+    "answer": "The image shows two white cups and a teapot. These are examples of **physical objects** that people interact with in their daily lives.\n\nHere are two ways these objects can be understood in HCI:\n\n1.  **Physical Interface:** The cups and teapot are physical objects that serve as interfaces for the activity of drinking tea. Their design (shape, material, handle placement) influences how easily and pleasantly a person can pour, hold, and drink from them. For example, a well-designed teapot handle would be comfortable to grip, and the spout would pour without dripping.",
+    "sources": [
+      {
+        "topic": "04_Evaluation SS25 Complete",
+        "slide": 349,
+        "score": 0.5037574768066406
+      },
+      {
+        "topic": "04_Evaluation SS25 Complete",
+        "slide": 339,
+        "score": 0.5037574768066406
+      },
+      {
+        "topic": "04_Evaluation SS25 Complete",
+        "slide": 333,
+        "score": 0.5037574768066406
+      },
+      {
+        "topic": "03_Design_Process SS25 Complete",
+        "slide": 781,
+        "score": 0.4201943576335907
+      },
+      {
+        "topic": "04_Evaluation SS25 Complete",
+        "slide": 350,
+        "score": 0.4201943576335907
+      }
+    ]
+  },
+  {
+    "question": "Give an example of a false affordance.",
+    "answer": "Based on the provided context, I cannot provide an example of a false affordance. The text focuses on explaining what affordances are and the importance of perceived affordances.",
+    "sources": [
+      {
+        "topic": "02_Cognition",
+        "slide": 156,
+        "score": 0.7168523669242859
+      },
+      {
+        "topic": "02_Cognition",
+        "slide": 122,
+        "score": 0.6413052082061768
+      },
+      {
+        "topic": "02_Cognition",
+        "slide": 482,
+        "score": 0.4825189709663391
+      },
+      {
+        "topic": "02_Cognition",
+        "slide": 477,
+        "score": 0.5821244120597839
+      },
+      {
+        "topic": "02_Cognition",
+        "slide": 120,
+        "score": 0.5319356918334961
+      }
+    ]
+  },
+  {
+    "question": "What are constraints? Name two types. How are they related to affordances?",
+    "answer": "Constraints are features of an artefact that limit the alternatives for usage.\n\nThe provided context does not name specific types of constraints.\n\nAffordances suggest the range of possibilities, while constraints limit the alternatives. In essence, affordances indicate what actions *can* be performed, and constraints restrict which of those actions *are* possible.",
+    "sources": [
+      {
+        "topic": "02_Cognition",
+        "slide": 533,
+        "score": 0.6327558755874634
+      },
+      {
+        "topic": "02_Cognition",
+        "slide": 490,
+        "score": 0.5516316890716553
+      },
+      {
+        "topic": "02_Cognition",
+        "slide": 482,
+        "score": 0.5040872693061829
+      },
+      {
+        "topic": "02_Cognition",
+        "slide": 120,
+        "score": 0.5241681933403015
+      },
+      {
+        "topic": "02_Cognition",
+        "slide": 477,
+        "score": 0.5642621517181396
+      }
+    ]
+  },
+  {
+    "question": "Name three dark patterns and explain two.",
+    "answer": "Based on the provided context, I can identify what dark patterns are but not specific examples.\n\nDark patterns are tricks used in websites and apps that make users do things they didn't intend to, such as buying or signing up for something. Designers employ their knowledge of human behavior and user desires to implement deceptive functionality that is not in the user's best interest.",
+    "sources": [
+      {
+        "topic": "02_Cognition",
+        "slide": 359,
+        "score": 0.5073039531707764
+      },
+      {
+        "topic": "02_Cognition",
+        "slide": 396,
+        "score": 0.5582003593444824
+      },
+      {
+        "topic": "02_Cognition",
+        "slide": 354,
+        "score": 0.5582003593444824
+      },
+      {
+        "topic": "02_Cognition",
+        "slide": 395,
+        "score": 0.7035687565803528
+      },
+      {
+        "topic": "02_Cognition",
+        "slide": 353,
+        "score": 0.7035687565803528
+      }
+    ]
+  },
+  {
+    "question": "For each of the following images, identify which dark pattern is used. [The “Nagging” example from the lecture and the “Obstruction” example from the lecture]",
+    "answer": "Based on the provided contexts, I cannot identify the specific dark patterns used in the images you are referring to. The contexts define dark patterns as deceptive functionalities that manipulate users into unintended actions, often by leveraging knowledge of human behavior. However, they do not provide descriptions or examples of specific dark patterns like \"Nagging\" or \"Obstruction\" that would allow me to analyze images.",
+    "sources": [
+      {
+        "topic": "02_Cognition",
+        "slide": 396,
+        "score": 0.4391000270843506
+      },
+      {
+        "topic": "02_Cognition",
+        "slide": 354,
+        "score": 0.4391000270843506
+      },
+      {
+        "topic": "02_Cognition",
+        "slide": 359,
+        "score": 0.503014862537384
+      },
+      {
+        "topic": "02_Cognition",
+        "slide": 395,
+        "score": 0.6355332732200623
+      },
+      {
+        "topic": "02_Cognition",
+        "slide": 353,
+        "score": 0.6355332732200623
+      }
+    ]
+  },
+  {
+    "question": "What are the two types of errors, and how do they differ?",
+    "answer": "The two types of errors are Type I and Type II errors.\n\nA **Type I error** (also called an α error or a 'false positive') is the mistake of rejecting the null hypothesis when it is true.\n\nA **Type II error** (also called a β error or a 'false negative') is the mistake of not rejecting the null hypothesis when it is false and should be rejected.",
+    "sources": [
+      {
+        "topic": "02_Cognition",
+        "slide": 649,
+        "score": 0.9052015542984009
+      },
+      {
+        "topic": "02_Cognition",
+        "slide": 642,
+        "score": 0.613613486289978
+      },
+      {
+        "topic": "04_Evaluation SS25 Complete",
+        "slide": 487,
+        "score": 0.5542923808097839
+      },
+      {
+        "topic": "04_Evaluation SS25 Complete",
+        "slide": 496,
+        "score": 0.4650724530220032
+      },
+      {
+        "topic": "04_Evaluation SS25 Complete",
+        "slide": 480,
+        "score": 0.4650724530220032
+      }
+    ]
+  },
+  {
+    "question": "What is transparency?",
+    "answer": "Transparency in HCI is about hiding or delaying the divulging of information relevant to the user. However, the provided Wikipedia definition offers a contrasting perspective, stating that a change to a computing system is transparent if it adheres as much as possible to the previous external interface while altering internal behavior. The goal of this transparency is to shield other systems or human users from the change.\n\nConsidering the provided context, the definition of transparency seems to have two conflicting interpretations. The first one, \"Attempting to hide, disguise, or delay the divulging of information that is relevant to the user,\" suggests a negative connotation, implying a lack of openness. The second one, from Wikipedia, describes transparency as a way to maintain a consistent external interface despite internal changes, which aims to protect users from disruption.\n\nIn the context of HCI principles, transparency is often associated with making the system's operations and the user's actions clear and understandable. This aligns more with the Wikipedia definition, where maintaining a consistent interface means users don't have to relearn how to interact with the system when internal changes occur. The goal is to allow users to focus on their tasks rather than on understanding the intricacies of the system's internal workings.\n\nTherefore, while one provided definition suggests transparency is about withholding information, the broader context of HCI principles, as implied by the association of transparency with flexibility, affordances, constraints, and mapping towards the goal of a \"most simple model possible,\" points to transparency as a design principle that aims to make the system's behavior understandable and predictable for the user, even when internal mechanisms change.",
+    "sources": [
+      {
+        "topic": "02_Cognition",
+        "slide": 452,
+        "score": 0.5223047733306885
+      },
+      {
+        "topic": "02_Cognition",
+        "slide": 451,
+        "score": 0.6812487840652466
+      },
+      {
+        "topic": "02_Cognition",
+        "slide": 450,
+        "score": 0.528752326965332
+      },
+      {
+        "topic": "03_Design_Process SS25 Complete",
+        "slide": 264,
+        "score": 0.35059046745300293
+      },
+      {
+        "topic": "02_Cognition",
+        "slide": 379,
+        "score": 0.4225151836872101
+      }
+    ]
+  },
+  {
+    "question": "What are the seven stages of action? Draw the graph from the lecture. What are the two gulfs? Relate the gulfs to the seven stages.",
+    "answer": "The seven stages of action are:\n\n1.  **Goal Setting:** The user decides what they want to accomplish.\n2.  **Planning:** The user figures out how to achieve the goal.\n3.  **Specification of Action:** The user determines the specific sequence of actions needed.\n4.  **Execution of Action:** The user carries out the planned actions.\n5.  **Perception of World State:** The user observes the results of their actions on the environment.\n6.  **Interpretation of World State:** The user understands what the perceived state means in relation to their goal.\n7.  **Evaluation:** The user assesses whether their goal has been met.\n\nThe lecture did not provide a graph.\n\nThe two gulfs are:\n\n*   **Gulf of Execution:** This is the gap between the user's intentions and the actions required by the system to achieve those intentions. It occurs when the user doesn't know how to perform the necessary actions or when the system's interface doesn't make the required actions clear.\n*   **Gulf of Evaluation:** This is the gap between the system's state and the user's ability to perceive, interpret, and evaluate that state in terms of their goals. It occurs when the system's feedback is not clear, understandable, or directly related to the user's goals.\n\nRelating the gulfs to the seven stages:\n\n*   The **Gulf of Execution** primarily spans stages 2 (Planning) and 3 (Specification of Action). If the system's design makes it difficult to plan how to achieve a goal or to specify the correct actions, the user experiences the Gulf of Execution. Stage 4 (Execution of Action) is where the user *tries* to bridge this gulf by performing the actions.\n\n*   The **Gulf of Evaluation** primarily spans stages 5 (Perception of World State), 6 (Interpretation of World State), and 7 (Evaluation). If the system's feedback (the \"world state\") is not easily perceived, interpreted, or evaluated against the user's goal, the user experiences the Gulf of Evaluation.",
+    "sources": [
+      {
+        "topic": "02_Cognition",
+        "slide": 671,
+        "score": 0.5397348403930664
+      },
+      {
+        "topic": "02_Cognition",
+        "slide": 666,
+        "score": 0.5397348403930664
+      },
+      {
+        "topic": "02_Cognition",
+        "slide": 704,
+        "score": 0.5500573515892029
+      },
+      {
+        "topic": "02_Cognition",
+        "slide": 695,
+        "score": 0.5500573515892029
+      },
+      {
+        "topic": "02_Cognition",
+        "slide": 691,
+        "score": 0.48891815543174744
+      }
+    ]
+  },
+  {
+    "question": "What are the four components of user-centered design? Name the goal of each. Provide one practical method for each component and explain it.",
+    "answer": "Based on the provided contexts, there isn't a direct breakdown of \"four components of user-centered design\" with specific goals and methods. However, I can infer and explain the core principles and common practices associated with User-Centered Design (UCD) and Human-Centered Design (HCD), which are very closely related.\n\nUCD and HCD are iterative processes that prioritize users and their needs. The overarching **goal** of these approaches is to create products that are **highly usable, useful, accessible, and enhance user satisfaction and well-being**.\n\nWhile not explicitly stated as \"four components,\" the following are essential aspects of a user-centered approach, along with potential practical methods:\n\n1.  **Understanding Users and Their Context:**\n    *   **Goal:** To gain a deep understanding of who the users are, their tasks, their goals, and the environment in which they will use the product.\n    *   **Practical Method: User Interviews**\n        *   **Explanation:** User interviews involve direct, one-on-one conversations with potential or existing users. This allows designers to ask open-ended questions about their experiences, challenges, motivations, and preferences related to a particular domain or product. It's a qualitative method for gathering rich, in-depth insights into user needs and behaviors.\n\n2.  **Defining User Requirements:**\n    *   **Goal:** To translate the understanding of users into concrete, actionable requirements that will guide the design and development process, ensuring the product meets user needs.\n    *   **Practical Method: Persona Development**\n        *   **Explanation:** A persona is a semi-fictional representation of a target user group, based on research. It includes demographic information, goals, needs, motivations, pain points, and typical behaviors. Personas help the design team empathize with users and make design decisions that are relevant to their target audience.\n\n3.  **Designing Solutions Based on User Needs:**\n    *   **Goal:** To create design solutions (e.g., interfaces, workflows, features) that directly address the identified user requirements and support their goals.\n    *   **Practical Method: Prototyping**\n        *   **Explanation:** Prototyping involves creating preliminary versions or mock-ups of the product. These can range from low-fidelity sketches and wireframes to interactive, high-fidelity simulations. Prototyping allows designers to visualize and test design ideas early in the process, facilitating feedback and iteration before full development.\n\n4.  **Evaluating Designs with Users:**\n    *   **Goal:** To assess the usability, utility, and overall effectiveness of the design solutions by observing how users interact with them and gathering their feedback. This is a crucial part of the iterative cycle.\n    *   **Practical Method: Usability Testing**\n        *   **Explanation:** Usability testing involves observing representative users as they attempt to complete specific tasks using a prototype or the actual product. Researchers typically record user actions, listen to their think-aloud commentary, and ask follow-up questions to identify usability problems, areas of confusion, and opportunities for improvement.",
+    "sources": [
+      {
+        "topic": "03_Design_Process SS25 Complete",
+        "slide": 41,
+        "score": 0.5735877752304077
+      },
+      {
+        "topic": "03_Design_Process SS25 Complete",
+        "slide": 58,
+        "score": 0.5638742446899414
+      },
+      {
+        "topic": "03_Design_Process SS25 Complete",
+        "slide": 34,
+        "score": 0.5638742446899414
+      },
+      {
+        "topic": "03_Design_Process SS25 Complete",
+        "slide": 67,
+        "score": 0.5797721147537231
+      },
+      {
+        "topic": "03_Design_Process SS25 Complete",
+        "slide": 734,
+        "score": 0.5944086313247681
+      }
+    ]
+  },
+  {
+    "question": "What are horizontal and vertical prototypes?",
+    "answer": "Based on the provided context, the specific definitions of \"horizontal\" and \"vertical\" prototypes are not explicitly given.\n\nHowever, the context does describe aspects that can be associated with different prototyping approaches:\n\n*   **\"Create a large amount of different designs using sketching, paper prototypes and later first interactive wireframes and finally a first iteration of a potential tool using your computer science skillset.\"** This suggests an approach that explores a broad range of design ideas at different fidelities, which could be related to a horizontal exploration.\n*   **\"A functional prototype that can be later used in a study...\"** This highlights a prototype that focuses on a specific set of functionalities and can be used for testing or evaluation, which is characteristic of a vertical approach.\n\nIf you're looking for a more general understanding of horizontal and vertical prototypes in HCI, a **horizontal prototype** typically explores a broad range of features at a low level of detail, allowing for exploration of the overall user flow and interaction. A **vertical prototype**, on the other hand, focuses on a deep dive into a specific feature or set of functionalities, providing a more detailed and functional experience for that particular aspect.",
+    "sources": [
+      {
+        "topic": "03_Design_Process SS25 Complete",
+        "slide": 269,
+        "score": 0.7566568851470947
+      },
+      {
+        "topic": "03_Design_Process SS25 Complete",
+        "slide": 22,
+        "score": 0.5951058864593506
+      },
+      {
+        "topic": "03_Design_Process SS25 Complete",
+        "slide": 420,
+        "score": 0.4770762026309967
+      },
+      {
+        "topic": "03_Design_Process SS25 Complete",
+        "slide": 622,
+        "score": 0.4784543216228485
+      },
+      {
+        "topic": "03_Design_Process SS25 Complete",
+        "slide": 476,
+        "score": 0.5472502708435059
+      }
+    ]
+  },
+  {
+    "question": "Explain the difference between “getting the design right” and “getting the right design.”",
+    "answer": "\"Getting the design right\" means ensuring that the design is executed correctly and functions as intended. This implies that the design itself has been proven to be effective and suitable for the problem it's meant to solve.\n\n\"Getting the right design\" refers to the process of finding a design that is appropriate and effective for a particular problem or user needs. This is often an iterative process, especially when dealing with complex or critical problems early in the design process. It's about identifying the correct solution, even if it hasn't been perfectly implemented yet.",
+    "sources": [
+      {
+        "topic": "03_Design_Process SS25 Complete",
+        "slide": 279,
+        "score": 0.6661409139633179
+      },
+      {
+        "topic": "03_Design_Process SS25 Complete",
+        "slide": 274,
+        "score": 0.6661409139633179
+      },
+      {
+        "topic": "03_Design_Process SS25 Complete",
+        "slide": 425,
+        "score": 0.6616001725196838
+      },
+      {
+        "topic": "03_Design_Process SS25 Complete",
+        "slide": 310,
+        "score": 0.4964711666107178
+      },
+      {
+        "topic": "03_Design_Process SS25 Complete",
+        "slide": 347,
+        "score": 0.519184947013855
+      }
+    ]
+  },
+  {
+    "question": "The results indicate that the different levels of the independent variable had no significant effect on finger discomfort. Can one conclude from this that there is definitely no effect? Justify your reasoning.",
+    "answer": "No, you cannot definitively conclude that there is no effect.\n\nThe provided context states that \"Different distributions assumed if the significance is below 5% (p<0.05) - again, which means, there is a significant difference!\" This implies that if the significance level is *not* below 5% (i.e., p >= 0.05), then there is no *statistically significant* difference detected.\n\nHowever, the context also mentions: \"What correlates with the independent + dependent variable - Extra variable(s) you didn't account for - Might suggest correlation when there isn't one.\" This highlights that there could be **confounding variables** (extra variables not accounted for) that are influencing the relationship between the independent and dependent variable.\n\nTherefore, even if no significant effect is found, it's possible that:\n*   The effect is very small and wasn't detectable with the current study design or sample size.\n*   Other unmeasured factors are masking or interacting with the effect of the independent variable.\n\nIn essence, a lack of statistically significant findings doesn't necessarily mean an effect is entirely absent, just that it wasn't strong enough to be detected as significant within the parameters of the study.",
+    "sources": [
+      {
+        "topic": "04_Evaluation SS25 Complete",
+        "slide": 462,
+        "score": 0.4062536060810089
+      },
+      {
+        "topic": "04_Evaluation SS25 Complete",
+        "slide": 428,
+        "score": 0.4062536060810089
+      },
+      {
+        "topic": "04_Evaluation SS25 Complete",
+        "slide": 107,
+        "score": 0.5082335472106934
+      },
+      {
+        "topic": "04_Evaluation SS25 Complete",
+        "slide": 99,
+        "score": 0.5082335472106934
+      },
+      {
+        "topic": "04_Evaluation SS25 Complete",
+        "slide": 82,
+        "score": 0.5082335472106934
+      }
+    ]
+  },
+  {
+    "question": "Explain within-subject and between-subject designs. Name one disadvantage of each.",
+    "answer": "Within-subject designs involve participants experiencing all experimental conditions. A disadvantage is that practice or fatigue effects can influence results.\n\nBetween-subject designs involve different groups of participants for each experimental condition. A disadvantage is the potential for individual differences between groups to affect the outcomes.",
+    "sources": [
+      {
+        "topic": "04_Evaluation SS25 Complete",
+        "slide": 542,
+        "score": 0.6189658641815186
+      },
+      {
+        "topic": "04_Evaluation SS25 Complete",
+        "slide": 162,
+        "score": 0.5844709873199463
+      },
+      {
+        "topic": "04_Evaluation SS25 Complete",
+        "slide": 419,
+        "score": 0.6258058547973633
+      },
+      {
+        "topic": "03_Design_Process SS25 Complete",
+        "slide": 703,
+        "score": 0.6139094233512878
+      },
+      {
+        "topic": "03_Design_Process SS25 Complete",
+        "slide": 696,
+        "score": 0.6139094233512878
+      }
+    ]
+  },
+  {
+    "question": "Explain the difference between a laboratory study and a field study.",
+    "answer": "A laboratory study is conducted in a controlled environment, often used to isolate variables and establish cause-and-effect relationships. In contrast, a field study takes place in a real, natural environment where people use the interface in question, utilizing actual tasks rather than experimenter-created ones to observe phenomena within their actual context. While a field study offers a more natural setting, participants might still alter their behavior due to being observed, which can threaten the external validity of the results.",
+    "sources": [
+      {
+        "topic": "04_Evaluation SS25 Complete",
+        "slide": 158,
+        "score": 0.6124351620674133
+      },
+      {
+        "topic": "03_Design_Process SS25 Complete",
+        "slide": 644,
+        "score": 0.6087220907211304
+      },
+      {
+        "topic": "03_Design_Process SS25 Complete",
+        "slide": 636,
+        "score": 0.5607617497444153
+      },
+      {
+        "topic": "04_Evaluation SS25 Complete",
+        "slide": 156,
+        "score": 0.53581702709198
+      },
+      {
+        "topic": "04_Evaluation SS25 Complete",
+        "slide": 360,
+        "score": 0.4950524568557739
+      }
+    ]
+  },
+  {
+    "question": "Are data collected via a Likert scale quantitative or qualitative? Justify.",
+    "answer": "Data collected via a Likert scale are **quantitative**.\n\n**Justification:**\n\nWhile Likert scales capture subjective perceptions (like \"ease-of-use\" or \"enjoyment\"), the responses are typically assigned numerical values (e.g., 1-5 or 1-6). These numerical values allow for statistical analysis and can be treated as interval data. As the provided context states, \"For subjective factors, like ease-of-use, fatigue , … , use questionnaires to quantify the perception. Subjective data can still be quantitative (e.g., measuring subjective perception of pain on a Likert scale).\" This directly supports the classification of Likert scale data as quantitative.",
+    "sources": [
+      {
+        "topic": "04_Evaluation SS25 Complete",
+        "slide": 276,
+        "score": 0.6105322241783142
+      },
+      {
+        "topic": "03_Design_Process SS25 Complete",
+        "slide": 116,
+        "score": 0.6021339893341064
+      },
+      {
+        "topic": "04_Evaluation SS25 Complete",
+        "slide": 527,
+        "score": 0.6298811435699463
+      },
+      {
+        "topic": "04_Evaluation SS25 Complete",
+        "slide": 265,
+        "score": 0.5893329977989197
+      },
+      {
+        "topic": "04_Evaluation SS25 Complete",
+        "slide": 251,
+        "score": 0.6455790996551514
+      }
+    ]
+  },
+  {
+    "question": "A new keyboard layout has been developed that places the most frequently typed keys next to each other. The development team claims this allows faster typing and reduces finger fatigue. This now needs to be tested.",
+    "answer": "The new keyboard layout, called ChattBoard, is designed to optimize key arrangement based on letter frequency in casual chatting. The development team claims this leads to faster typing and reduced finger fatigue compared to alternative layouts. To test these claims, an experiment needs to be designed.\n\n**Experiment Design:**\n\n**Objective:** To evaluate whether the ChattBoard layout results in faster typing speeds and reduced finger fatigue compared to existing keyboard layouts.\n\n**Participants:**\n*   Recruit a diverse group of participants, ideally representing the target user base for casual chatting.\n*   Consider recruiting from Germany, as the new layout's data is based on 10,000 individuals from Germany collected over the last 10 years.\n*   Ensure participants have varying levels of typing proficiency to assess the layout's impact across different skill sets.\n\n**Independent Variable:**\n*   Keyboard Layout (ChattBoard vs. a control layout).\n\n**Dependent Variables:**\n*   **Typing Speed:** Measured in Words Per Minute (WPM) or Characters Per Minute (CPM).\n*   **Finger Fatigue/Discomfort:** Measured using a subjective rating scale (e.g., a Likert scale from 1 to 5, where 1 is \"no fatigue\" and 5 is \"significant fatigue\").\n\n**Control Layout:**\n*   Select a widely used and established keyboard layout as the control group. The QWERTY layout is a common choice for comparison.\n\n**Experimental Procedure:**\n\n1.  **Pre-Experiment Assessment:**\n    *   Gather demographic information from participants.\n    *   Administer a baseline typing test using the control layout to establish their current typing speed and comfort levels. This helps to understand individual differences.\n\n2.  **Training and Familiarization:**\n    *   **Control Group:** Participants continue using their familiar layout.\n    *   **ChattBoard Group:** Participants should be given adequate time to familiarize themselves with the new ChattBoard layout. This could involve a dedicated training session or a period of practice before the main data collection begins. This is important to mitigate the learning curve effect. Templates could be used for quick iterations and multiple design familiarization if further variations are explored.\n\n3.  **Data Collection:**\n    *   Participants will be asked to perform a series of typing tasks. These tasks should mimic casual chatting content as much as possible.\n    *   **Typing Speed:** Record the time taken to complete standardized typing tests for both layouts.\n    *   **Finger Fatigue:** After completing a set of typing tasks for each layout, participants should rate their level of finger fatigue/discomfort.\n\n4.  **Within-Subjects or Between-Subjects Design:**\n    *   **Within-Subjects:** Each participant uses both the control layout and the ChattBoard layout. This helps control for individual differences but requires counterbalancing the order of layout exposure to avoid order effects.\n    *   **Between-Subjects:** Participants are randomly assigned to either the control group or the ChattBoard group. This simplifies the design but requires a larger sample size to account for individual variability.\n\n5.  **Task Design:**\n    *   The typing tasks should consist of short, representative phrases or sentences common in casual chatting.\n    *   The \"words Key7\" context might be a hint to consider specific word length or key groupings in the test material.\n\n6.  **Data Analysis:**\n    *   Compare the average typing speeds between the ChattBoard group and the control group using appropriate statistical tests (e.g., t-tests or ANOVA).\n    *   Compare the average finger fatigue ratings between the two groups.\n    *   Analyze if there are significant differences in typing speed and finger fatigue between the layouts.\n\n**Ethical Considerations:**\n*   Obtain informed consent from all participants.\n*   Ensure participants understand the purpose of the study and their right to withdraw at any time.\n*   Maintain participant anonymity and data confidentiality.\n\n**Potential Challenges and Mitigation:**\n*   **Learning Curve:** The ChattBoard layout might initially be slower due to unfamiliarity. The training/familiarization phase aims to mitigate this.\n*   **Individual Differences:** Typing skills and physical comfort vary greatly. Using a within-subjects design or controlling for baseline typing speed can help.\n*   **Task Relevance:** Ensuring the typing tasks accurately reflect \"casual chatting\" is crucial.\n\nBy implementing this experimental design, the development team can gather empirical evidence to support or refute their claims about the ChattBoard layout's performance and user experience benefits.",
+    "sources": [
+      {
+        "topic": "04_Evaluation SS25 Complete",
+        "slide": 535,
+        "score": 0.7959166765213013
+      },
+      {
+        "topic": "04_Evaluation SS25 Complete",
+        "slide": 534,
+        "score": 0.41757071018218994
+      },
+      {
+        "topic": "03_Design_Process SS25 Complete",
+        "slide": 361,
+        "score": 0.43758565187454224
+      },
+      {
+        "topic": "03_Design_Process SS25 Complete",
+        "slide": 222,
+        "score": 0.40745484828948975
+      },
+      {
+        "topic": "04_Evaluation SS25 Complete",
+        "slide": 338,
+        "score": 0.47669529914855957
+      }
+    ]
+  },
+  {
+    "question": "Identify the independent variable and name three possible values it could take.",
+    "answer": "The independent variable is the **display type** (1 point).\n\nThree possible levels for the display type could be:\n\n1.  **Text-based display:** This is a common and fundamental display type. It's important to include it as a baseline to compare other, potentially more advanced, display types against.\n2.  **Icon-based display:** Icons offer a visual representation that can be quicker to process and more intuitive for users than pure text, especially for common actions or categories. Including this level allows us to assess the benefits of visual cues.\n3.  **Voice-based display:** A voice interface offers a hands-free and eyes-free interaction method. This is crucial for evaluating accessibility and usability in contexts where visual attention is not possible or desirable.",
+    "sources": [
+      {
+        "topic": "04_Evaluation SS25 Complete",
+        "slide": 536,
+        "score": 0.6519255638122559
+      },
+      {
+        "topic": "04_Evaluation SS25 Complete",
+        "slide": 129,
+        "score": 0.6071550846099854
+      },
+      {
+        "topic": "03_Design_Process SS25 Complete",
+        "slide": 670,
+        "score": 0.6349740028381348
+      },
+      {
+        "topic": "04_Evaluation SS25 Complete",
+        "slide": 53,
+        "score": 0.6021700501441956
+      },
+      {
+        "topic": "04_Evaluation SS25 Complete",
+        "slide": 35,
+        "score": 0.6021700501441956
+      }
+    ]
+  },
+  {
+    "question": "How can the dependent variables be measured?",
+    "answer": "The dependent variables are often measured through quantitative measurements.",
+    "sources": [
+      {
+        "topic": "04_Evaluation SS25 Complete",
+        "slide": 521,
+        "score": 0.5602622628211975
+      },
+      {
+        "topic": "04_Evaluation SS25 Complete",
+        "slide": 541,
+        "score": 0.6457168459892273
+      },
+      {
+        "topic": "03_Design_Process SS25 Complete",
+        "slide": 669,
+        "score": 0.6925281882286072
+      },
+      {
+        "topic": "04_Evaluation SS25 Complete",
+        "slide": 52,
+        "score": 0.5830028057098389
+      },
+      {
+        "topic": "04_Evaluation SS25 Complete",
+        "slide": 34,
+        "score": 0.5830028057098389
+      }
+    ]
+  },
+  {
+    "question": "What experimental task could be used to measure the dependent variable?",
+    "answer": "Based on the provided context, an experimental task used to measure a dependent variable (DV) could be:\n\n*   **Measuring time in seconds from the first click until a stable connection is established locally and remotely.**",
+    "sources": [
+      {
+        "topic": "04_Evaluation SS25 Complete",
+        "slide": 521,
+        "score": 0.6735067367553711
+      },
+      {
+        "topic": "03_Design_Process SS25 Complete",
+        "slide": 665,
+        "score": 0.6196945905685425
+      },
+      {
+        "topic": "04_Evaluation SS25 Complete",
+        "slide": 516,
+        "score": 0.6524141430854797
+      },
+      {
+        "topic": "04_Evaluation SS25 Complete",
+        "slide": 541,
+        "score": 0.660460889339447
+      },
+      {
+        "topic": "04_Evaluation SS25 Complete",
+        "slide": 47,
+        "score": 0.6091948747634888
+      }
+    ]
+  },
+  {
+    "question": "Formulate two hypotheses.",
+    "answer": "As an HCI teaching assistant, I can help you formulate hypotheses. However, the provided context only contains the word \"Hypotheses\" repeated multiple times and does not offer any specific information or scenarios from which to draw.\n\nTherefore, I will formulate two general hypotheses that are common in Human-Computer Interaction (HCI) research, drawing on my knowledge outside the given context:\n\n1.  **Hypothesis 1 (Usability-focused):** Increasing the discoverability of advanced features through a guided onboarding tutorial will lead to a statistically significant increase in the overall task completion rate and a decrease in the average time to complete complex tasks for novice users.\n\n2.  **Hypothesis 2 (Engagement-focused):** Incorporating gamification elements, such as progress bars and achievement badges, into a learning application will result in a statistically significant increase in user engagement, measured by session duration and frequency of return visits.",
+    "sources": [
+      {
+        "topic": "04_Evaluation SS25 Complete",
+        "slide": 514,
+        "score": 0.7078250050544739
+      },
+      {
+        "topic": "04_Evaluation SS25 Complete",
+        "slide": 224,
+        "score": 0.7078250050544739
+      },
+      {
+        "topic": "04_Evaluation SS25 Complete",
+        "slide": 204,
+        "score": 0.7078250050544739
+      },
+      {
+        "topic": "04_Evaluation SS25 Complete",
+        "slide": 121,
+        "score": 0.7078250050544739
+      },
+      {
+        "topic": "04_Evaluation SS25 Complete",
+        "slide": 59,
+        "score": 0.7078250050544739
+      }
+    ]
+  },
+  {
+    "question": "Name one control variable, one random variable, and one nuisance variable.",
+    "answer": "Based on the provided context, I can identify control variables and random variables. However, the context does not mention or define \"nuisance variables.\"\n\nTherefore, I will answer the parts I can from the context and use my knowledge for the rest:\n\n*   **Control Variable:** Controlled Random\n*   **Random Variable:** Random Variables\n*   **Nuisance Variable:** A nuisance variable is a variable that is not of primary interest to the researcher but can affect the dependent variable. Therefore, it needs to be controlled or accounted for in the experimental design.",
+    "sources": [
+      {
+        "topic": "04_Evaluation SS25 Complete",
+        "slide": 110,
+        "score": 0.49072694778442383
+      },
+      {
+        "topic": "04_Evaluation SS25 Complete",
+        "slide": 104,
+        "score": 0.5462666749954224
+      },
+      {
+        "topic": "04_Evaluation SS25 Complete",
+        "slide": 96,
+        "score": 0.5462666749954224
+      },
+      {
+        "topic": "04_Evaluation SS25 Complete",
+        "slide": 79,
+        "score": 0.5462666749954224
+      },
+      {
+        "topic": "04_Evaluation SS25 Complete",
+        "slide": 102,
+        "score": 0.4859216809272766
+      }
+    ]
+  },
+  {
+    "question": "Should a within-subject or between-subject design be used? Justify.",
+    "answer": "In your experiment with ChattBoard, a **between-subject design** would be more appropriate.\n\n**Justification:**\n\nA between-subject design is suitable when you want to compare the performance or experience of different groups of participants on a system. For ChattBoard, you are likely interested in seeing how different users, or groups of users with specific characteristics, interact with and benefit from the platform.\n\nHere's why:\n\n*   **Avoids learning/carryover effects:** If you used a within-subject design (where the same participants experience all conditions), participants might learn from one condition and apply that learning to the next, potentially influencing the results. For example, if one condition involves a new feature and another involves the existing one, participants might become familiar with the system in the first condition, which could bias their performance in the second.\n*   **Focuses on independent comparisons:** A between-subject design allows for a clear comparison between distinct groups without the influence of prior exposure to different system configurations. You can present different versions of ChattBoard or different interaction paradigms to separate groups and directly measure their differences.\n\n**Disadvantage of Between-Subject Design:**\n\nOne disadvantage of a between-subject design is that it requires **more participants**. Since each participant only experiences one condition, you need a larger sample size to achieve the same statistical power as a within-subject design.\n\n**Advantages of Between-Subject Design (as requested in the context):**\n\n*   **No learning or carryover effects:** Participants are not influenced by previous experimental conditions.\n*   **Simpler procedure:** Participants only need to go through one experimental condition.\n\n**Disadvantage of Within-Subject Design (as requested in the context):**\n\n*   **Potential for learning or carryover effects:** Participants may learn from one condition and this learning can influence their performance in subsequent conditions.\n\n**Controlled, Random, and Confounding Variables for ChattBoard Experiment:**\n\n*   **Controlled Variable:** The **user interface design** of ChattBoard (e.g., font size, color scheme, layout). This is kept constant for all participants in a given condition to ensure that differences in performance are attributable to the independent variable, not variations in the visual presentation.\n*   **Random Variable:** The **order of tasks** presented to participants. If participants perform multiple tasks within ChattBoard, randomizing the order ensures that no specific task order systematically influences the results.\n*   **Confounding Variable:** **Prior experience with similar collaboration tools**. If some participants have extensive experience with other chat or collaboration platforms, this could influence their performance and learning on ChattBoard, potentially confounding the results if not accounted for or controlled.",
+    "sources": [
+      {
+        "topic": "04_Evaluation SS25 Complete",
+        "slide": 162,
+        "score": 0.5757280588150024
+      },
+      {
+        "topic": "04_Evaluation SS25 Complete",
+        "slide": 542,
+        "score": 0.5284548997879028
+      },
+      {
+        "topic": "04_Evaluation SS25 Complete",
+        "slide": 419,
+        "score": 0.5378033518791199
+      },
+      {
+        "topic": "03_Design_Process SS25 Complete",
+        "slide": 715,
+        "score": 0.6573254466056824
+      },
+      {
+        "topic": "03_Design_Process SS25 Complete",
+        "slide": 703,
+        "score": 0.6710246801376343
+      }
+    ]
+  },
+  {
+    "question": "How should a frequently clicked UI element be placed in a PC application according to Fitts’ Law? Provide justification.",
+    "answer": "According to Fitts' Law, a frequently clicked UI element (used multiple times per hour) in a PC application should be positioned in a location on the screen that minimizes the time and effort required to reach it. This typically means placing it in areas that are easily accessible and have a larger target size.\n\n**Placement:** The ideal placement would be in a **prominent and easily reachable area of the screen.** This could include:\n\n*   **Corners:** Especially the corners of the screen, as they represent the furthest points a mouse cursor can travel, but once reached, movement is limited, effectively making them large targets.\n*   **Edges:** Similar to corners, edges also offer a degree of constraint to cursor movement, aiding in faster acquisition.\n*   **Within easy reach of the user's typical mouse position:** While not explicitly stated in the context, common user interaction patterns suggest placing frequently used elements closer to the center or in areas frequently visited by the cursor.\n\n**Explanation (Justification based on Fitts' Law):**\n\nFitts' Law states that the time required to move a pointer to a target is a function of the distance to the target and the size of the target. The law can be expressed as:\n\n$T = a + b \\log_2(D/W + 1)$\n\nWhere:\n*   $T$ is the time to move the pointer.\n*   $D$ is the distance to the target.\n*   $W$ is the width of the target.\n*   $a$ and $b$ are constants that depend on the physical characteristics of the pointer and the user.\n\nFor a frequently used button, we want to **minimize the movement time (T)**. This can be achieved by:\n\n1.  **Minimizing the distance (D):** Placing the button closer to where the user's cursor is likely to be.\n2.  **Maximizing the width (W):** Making the button larger.\n\nTherefore, positioning an important, frequently used button in a corner or edge of the screen makes it a effectively larger target due to the screen boundaries, thus reducing the distance and increasing the likelihood of faster and more accurate selection.",
+    "sources": [
+      {
+        "topic": "04_Evaluation SS25 Complete",
+        "slide": 527,
+        "score": 0.6661988496780396
+      },
+      {
+        "topic": "02_Cognition",
+        "slide": 483,
+        "score": 0.3941769301891327
+      },
+      {
+        "topic": "02_Cognition",
+        "slide": 543,
+        "score": 0.4399881362915039
+      },
+      {
+        "topic": "02_Cognition",
+        "slide": 167,
+        "score": 0.4435545802116394
+      },
+      {
+        "topic": "02_Cognition",
+        "slide": 656,
+        "score": 0.387373685836792
+      }
+    ]
+  },
+  {
+    "question": "Does this change for touch input instead of a mouse? Explain.",
+    "answer": "Based on the provided context, participants will receive higher scores using mouse input compared to touch input when playing X minutes of Game Y. Therefore, it does change for touch input instead of a mouse, and touch input results in lower scores.",
+    "sources": [
+      {
+        "topic": "04_Evaluation SS25 Complete",
+        "slide": 70,
+        "score": 0.6871786117553711
+      },
+      {
+        "topic": "04_Evaluation SS25 Complete",
+        "slide": 137,
+        "score": 0.5339562296867371
+      },
+      {
+        "topic": "04_Evaluation SS25 Complete",
+        "slide": 126,
+        "score": 0.5339562296867371
+      },
+      {
+        "topic": "04_Evaluation SS25 Complete",
+        "slide": 64,
+        "score": 0.7075013518333435
+      },
+      {
+        "topic": "02_Cognition",
+        "slide": 207,
+        "score": 0.45020487904548645
+      }
+    ]
+  },
+  {
+    "question": "A total of 90 points were possible.",
+    "answer": "Based on the information provided, a score of 70 falls within the range of 76-90, which corresponds to a Grade 2.",
+    "sources": [
+      {
+        "topic": "04_Evaluation SS25 Complete",
+        "slide": 238,
+        "score": 0.3784382939338684
+      },
+      {
+        "topic": "02_Cognition",
+        "slide": 368,
+        "score": 0.49411141872406006
+      },
+      {
+        "topic": "02_Cognition",
+        "slide": 351,
+        "score": 0.4613569974899292
+      },
+      {
+        "topic": "04_Evaluation SS25 Complete",
+        "slide": 550,
+        "score": 0.3857768177986145
+      },
+      {
+        "topic": "02_Cognition",
+        "slide": 583,
+        "score": 0.2686651647090912
+      }
+    ]
+  },
+  {
+    "question": "When both naming and explanation were required, points were awarded for each.",
+    "answer": "The question seems to be asking for clarification on how points were awarded in a previous assessment, specifically when both naming and explanation were required.\n\nBased on the provided context, points were awarded individually for each part of a requirement. For instance:\n\n*   **Naming an independent variable (IV)** was worth 1 point.\n*   **Proposing three levels of the IV with explanations** was worth 3 points (presumably 1 point per level/explanation).\n*   **Naming dependent variables (DVs)** was worth 1 point.\n*   **Explaining how to measure the DVs** was worth 2 points.\n*   **Placing a PC application button and explaining why** was worth 3 points (1 for placement, 2 for explanation).\n\nThis indicates a granular approach to point allocation, where each component of a question, whether it's identification (naming) or elaboration (explanation), was assessed separately.",
+    "sources": [
+      {
+        "topic": "04_Evaluation SS25 Complete",
+        "slide": 536,
+        "score": 0.4434480667114258
+      },
+      {
+        "topic": "04_Evaluation SS25 Complete",
+        "slide": 527,
+        "score": 0.3943370580673218
+      },
+      {
+        "topic": "04_Evaluation SS25 Complete",
+        "slide": 369,
+        "score": 0.38767945766448975
+      },
+      {
+        "topic": "04_Evaluation SS25 Complete",
+        "slide": 542,
+        "score": 0.4804472327232361
+      },
+      {
+        "topic": "04_Evaluation SS25 Complete",
+        "slide": 536,
+        "score": 0.4119158685207367
+      }
+    ]
+  },
+  {
+    "question": "In the exam, it is recommended to work very quickly, perhaps writing only bullet points at first to cover everything in time, rather than drawing pictures of cats.",
+    "answer": "Early in the design process, it is recommended to move fast, break things, and fail fast by creating and iterating multiple prototypes. This approach works well for very complex and/or critical problems. In an exam setting, this translates to working very quickly, perhaps writing only bullet points at first to cover everything in time, rather than drawing pictures of cats.",
+    "sources": [
+      {
+        "topic": "03_Design_Process SS25 Complete",
+        "slide": 310,
+        "score": 0.42156898975372314
+      },
+      {
+        "topic": "03_Design_Process SS25 Complete",
+        "slide": 258,
+        "score": 0.4597572982311249
+      },
+      {
+        "topic": "02_Cognition",
+        "slide": 76,
+        "score": 0.42811691761016846
+      },
+      {
+        "topic": "03_Design_Process SS25 Complete",
+        "slide": 347,
+        "score": 0.45155632495880127
+      },
+      {
+        "topic": "03_Design_Process SS25 Complete",
+        "slide": 95,
+        "score": 0.45155632495880127
+      }
+    ]
+  },
+  {
+    "question": "The topics were divided into seven questions, roughly in the order they were covered in the lecture.",
+    "answer": "The statement indicates that the topics were divided into seven questions, and these questions were presented in an order that generally followed the sequence in which the lecture material was presented.",
+    "sources": [
+      {
+        "topic": "03_Design_Process SS25 Complete",
+        "slide": 107,
+        "score": 0.49657586216926575
+      },
+      {
+        "topic": "04_Evaluation SS25 Complete",
+        "slide": 29,
+        "score": 0.42371708154678345
+      },
+      {
+        "topic": "04_Evaluation SS25 Complete",
+        "slide": 329,
+        "score": 0.4340566098690033
+      },
+      {
+        "topic": "03_Design_Process SS25 Complete",
+        "slide": 132,
+        "score": 0.4423300325870514
+      },
+      {
+        "topic": "04_Evaluation SS25 Complete",
+        "slide": 325,
+        "score": 0.4341994822025299
+      }
+    ]
+  }
+]
