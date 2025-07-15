@@ -1,0 +1,14 @@
+# Environment files
+.env
+.env.*
+
+# Python virtual env
+.venv/
+venv/
+
+# macOS
+.DS_Store
+
+# Byte-compiled / cache
+__pycache__/
+*.py[cod]

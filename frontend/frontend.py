@@ -117,6 +117,8 @@ def grade_with_llm(question: str, correct: str, student: str) -> str:
 # questions_de = load_questions_GP(QUESTIONS_FOLDER)
 questions = load_qna(f"{QUESTIONS_FOLDER}/updated_QnA_pairs.json")
 
+st.title("MOCK EXAM")
+
 for idx, qna_pair in enumerate(questions) :
     st.markdown(f"**{idx+1} )**")
     st.markdown(f"**🇩🇪 : {qna_pair['question_de']}**") #German questions
