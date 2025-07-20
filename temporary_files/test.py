@@ -1,4 +1,6 @@
 import google.generativeai as genai
+import pathlib
+import cv2
 
 genai.configure(api_key="AIzaSyD_zK_-MrOgNAtML2MuiRZW4ibbXt83G1I")
 
@@ -75,6 +77,29 @@ Grade this answer based on the actual defintion that is given. As a professor ho
 The maximum grade for this question is 2 points.
 """
 
+with open("90A4F2A9-E845-466B-8B68-E98044F43DD8_1_201_a.jpeg", "rb") as f:
+    img_bytes = f.read()
+    plate_image = {
+    "mime_type": "image/jpeg",
+    "data": img_bytes
+}
+
+prompt = (
+    "Here is a picture of a plate of food. "
+    "Can you tell what kind of dish is it?"
+    "Estimate both the maximum and minimum weight (in grams) of each component on this plate, "
+    "and return a list like:\n"
+    "- Chicken: min XXX g, max YYY g\n"
+    "- Rice: min AAA g, max BBB g\n"
+    "- Vegetables: min CCC g, max DDD g"
+    "Additionally calculate the estimation of the amount of calories and protein"
+)
+
 model = genai.GenerativeModel("gemini-2.5-flash-lite-preview-06-17") 
-response = model.generate_content(question3)
+
+response = model.generate_content(
+    contents=[prompt, plate_image]
+)
+
+# response = model.generate_content(prompt2)
 print(response.text)

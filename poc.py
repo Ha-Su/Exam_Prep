@@ -95,21 +95,6 @@ def load_questions(q_folder):
 # ──────────────────────────────────────────────────────────────────────────────
 #   Retrieve top-k relevant chunks for a question
 # ──────────────────────────────────────────────────────────────────────────────
-# def retrieve(question, index, passages, metadata, embedder, k=5):
-#     q_emb = embedder.encode([question], convert_to_numpy=True)
-#     faiss.normalize_L2(q_emb)
-#     D, I = index.search(q_emb, k)
-#     results = []
-#     for score, idx in zip(D[0], I[0]):
-#         topic, slide_idx = metadata[idx]
-#         results.append({
-#             "score": float(score),
-#             "topic": topic,
-#             "slide": slide_idx,
-#             "text": passages[idx]
-#         })
-#     return results
-
 def retrieve_and_rerank(
     question,
     faiss_index,
@@ -118,7 +103,7 @@ def retrieve_and_rerank(
     embedder,       # your SentenceTransformer for dense retrieval
     cross_encoder,
     initial_k=20,   # how many to pull from FAISS
-    final_k=5       # how many to return after rerank
+    final_k=10       # how many to return after rerank
 ):
     # --- Stage 1: dense retrieval ---
     q_emb = embedder.encode([question], convert_to_numpy=True)
@@ -165,7 +150,7 @@ def generate_answer(question, contexts):
     )
     resp = gemini_model.generate_content(prompt)
     
-    time.sleep(SECONDS_BETWEEN_CALLS)
+    time.sleep(SECONDS_BETWEEN_CALLS)   
     return resp.text.strip()
 
 # ──────────────────────────────────────────────────────────────────────────────
