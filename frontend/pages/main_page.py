@@ -7,7 +7,11 @@ MODULE_MAP = {
 }
 
 def get_module(module: str) -> str | None:
-    return MODULE_MAP.get(module)
+    if module in MODULE_MAP:
+        return MODULE_MAP[module]
+    if module in MODULE_MAP.values():
+        return module
+    return None
 
 if st.button(label="Go Back To Landing Page", icon="◀️"):
     st.switch_page("app.py")
