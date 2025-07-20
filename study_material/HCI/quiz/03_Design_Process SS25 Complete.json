@@ -1,0 +1,86 @@
+[
+  {
+    "question": "What is human-centered design (HCD)?",
+    "answer": "An approach to interactive systems development that makes systems usable and useful by focusing on users, their needs, and applying human factors, ergonomics, and usability techniques."
+  },
+  {
+    "question": "How does user-centered design (UCD) differ from HCD?",
+    "answer": "UCD focuses on end users and their needs in each design phase, while HCD emphasizes all humans involved (e.g., maintenance, sales) and preserves the emotional, human context."
+  },
+  {
+    "question": "What are the four main steps of the ISO 9241-210 HCD process?",
+    "answer": "1) Specify context of use, 2) Specify user requirements, 3) Design solutions, 4) Evaluate against requirements."
+  },
+  {
+    "question": "What methods are used to specify the context of use?",
+    "answer": "Ethnography (observations), interviews (structured, semi-structured, unstructured), and focus groups."
+  },
+  {
+    "question": "What is the difference between qualitative and quantitative methods in HCD?",
+    "answer": "Qualitative methods are inductive, holistic, non-standardized, and use small samples; quantitative methods are deductive, precise, standardized, statistical, and use larger samples."
+  },
+  {
+    "question": "What are personas and why are they used?",
+    "answer": "Fictional characters based on research that represent different user types to understand needs, behaviors, and goals, and to step outside the designer’s perspective."
+  },
+  {
+    "question": "What is a user scenario?",
+    "answer": "A story that shows how a persona acts to achieve goals in a system, including background, motivations, tasks, context, environment, and challenges."
+  },
+  {
+    "question": "What is the goal of prototyping in HCD?",
+    "answer": "To quickly create preliminary versions of a design for learning, exploration, and communication, enabling fast iteration and failure."
+  },
+  {
+    "question": "What are low-fidelity prototypes and examples?",
+    "answer": "Simple, fast prototypes focusing on key interactions: sketches, storyboards, paper prototypes, roleplay, and Wizard-of-Oz simulations."
+  },
+  {
+    "question": "What distinguishes horizontal from vertical prototypes?",
+    "answer": "Horizontal prototypes cover broad functionality at low detail; vertical prototypes cover a narrow slice of functionality in depth."
+  },
+  {
+    "question": "What are high-fidelity prototypes?",
+    "answer": "Prototypes that closely resemble the final product in look and/or functionality, such as interactive wireframes, software builds, hardware mockups, or digital fabrications."
+  },
+  {
+    "question": "When should Wizard-of-Oz prototyping be used?",
+    "answer": "To simulate complex functionality that is costly or time-consuming to build fully, giving users the illusion of a working system."
+  },
+  {
+    "question": "What is the purpose of evaluation in HCD?",
+    "answer": "To collect data on real user interaction, testing whether design solutions meet specified requirements using quantitative and qualitative methods."
+  },
+  {
+    "question": "What characterizes a lab study versus a field study?",
+    "answer": "Lab studies are controlled, artificial experiments comparing interfaces; field studies observe real tasks in natural environments."
+  },
+  {
+    "question": "How are independent and dependent variables defined in an HCI experiment?",
+    "answer": "The independent variable is what the experimenter manipulates (e.g., system version); the dependent variable is what is measured (e.g., task completion time)."
+  },
+  {
+    "question": "What is the difference between between-subjects and within-subjects designs?",
+    "answer": "Between-subjects: each participant experiences only one condition; within-subjects: each participant experiences all conditions, with potential ordering effects."
+  },
+  {
+    "question": "What are internal validity, external validity, and reliability?",
+    "answer": "Internal validity: the observed effect is due to manipulated variables; external validity: findings generalize beyond the lab; reliability: results are consistent if repeated."
+  },
+  {
+    "question": "What is thematic analysis in qualitative evaluation?",
+    "answer": "A six-step method to analyze unstructured data: familiarize, code, search for themes, review themes, define/names themes, and produce the report."
+  },
+  {
+    "question": "What is a common criticism of human-centered design?",
+    "answer": "That it rarely produces major, radical innovations and may hinder more disruptive, technology-driven breakthroughs."
+  },
+  {
+    "question": "What is design thinking and when is it used?",
+    "answer": "A non-linear, iterative process (e.g., empathize, define, ideate, prototype, test) for tackling wicked, ill-defined problems focused on radical innovation."
+  },
+  {
+    "question": "Name three ideation techniques in design thinking.",
+    "answer": "Brainstorming, worst-possible-idea sessions, and ideation hexagon (methods like combine, invert, generalize)."
+  }
+]

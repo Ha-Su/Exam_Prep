@@ -1,7 +1,6 @@
 import streamlit as st
 from pages import page_config
 
-
 st.title("Welcome!")
 
 st.markdown("Please choose the module you want to study and click the button\n")

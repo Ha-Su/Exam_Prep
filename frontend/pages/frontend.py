@@ -5,6 +5,7 @@ import glob
 import json
 import time
 import google.generativeai as genai
+from pages import page_config
 from dotenv import load_dotenv
 import os
 
@@ -20,8 +21,10 @@ genai.configure(api_key=api_key)
 
 MODEL = os.getenv("MODEL", "gemini-2.5-flash-lite-preview-06-17")
 
+MODULE = page_config.module_name
+
 PAGES_DIR = pathlib.Path(__file__).resolve().parent               # …/Exam_Prep/frontend/pages
-PROJECT_ROOT = PAGES_DIR.parent.parent                    # …/Exam_Prep
+PROJECT_ROOT = PAGES_DIR.parent.parent                            # …/Exam_Prep
 QUESTIONS_FOLDER = PROJECT_ROOT / "questions_md"
 
 # Rate limit: max 15 calls per minute
@@ -63,7 +66,7 @@ def grade_with_llm(question: str, correct: str, student: str) -> str:
     global total_score, total_max_score
 
     prompt = f"""
-        You are an HCI professor grading a short-answer exam.  For each question:
+        You are an {MODULE} professor grading a short-answer exam.  For each question:
 
         1. **Determine the maximum score** from the question text:
             - “Name N items” → 0.5 pt each → max = N × 0.5 (e.g., *Name 2 parts of…*)
@@ -157,7 +160,8 @@ def grade_with_llm(question: str, correct: str, student: str) -> str:
 # Load questions
 questions = load_qna(f"{QUESTIONS_FOLDER}/updated_QnA_pairs.json")
 
-st.title("MOCK EXAM")
+st.title("📝 MOCK EXAM 💯")
+st.divider()
 
 for idx, qna_pair in enumerate(questions):
     st.markdown(f"**{idx + 1} )**")

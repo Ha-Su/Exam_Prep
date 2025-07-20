@@ -1,0 +1,94 @@
+[
+  {
+    "question": "What is a research question in experimental evaluation?",
+    "answer": "A research question describes or explains a relationship between variables and proposes what will be tested in a study :contentReference[oaicite:0]{index=0}."
+  },
+  {
+    "question": "How should a good research question be formulated?",
+    "answer": "It should invite complex answers, be focused (not too general), and be specific and precise about participants and conditions :contentReference[oaicite:1]{index=1}."
+  },
+  {
+    "question": "What is the difference between independent and dependent variables?",
+    "answer": "Independent variables (IV) are manipulated factors; dependent variables (DV) are the outcomes measured to assess effects :contentReference[oaicite:2]{index=2}."
+  },
+  {
+    "question": "What are controlled, random, and confounding variables?",
+    "answer": "Controlled variables are held constant; random variables vary unpredictably; confounding variables correlate with IV and DV and can bias results :contentReference[oaicite:3]{index=3}."
+  },
+  {
+    "question": "What is a hypothesis in study design?",
+    "answer": "A hypothesis is a concrete, testable claim predicting the outcome of an experiment, specifying IVs and DVs, and set against a null hypothesis :contentReference[oaicite:4]{index=4}."
+  },
+  {
+    "question": "What are the main steps to go from hypothesis to running a study?",
+    "answer": "Identify questions and hypotheses, specify experiment design, run pilot, recruit participants, conduct study, and analyze data :contentReference[oaicite:5]{index=5}."
+  },
+  {
+    "question": "What distinguishes lab (controlled) studies and field studies?",
+    "answer": "Lab studies isolate variables in artificial settings for cause–effect; field studies observe real tasks in natural environments :contentReference[oaicite:6]{index=6}."
+  },
+  {
+    "question": "What is the difference between within-subjects and between-subjects designs?",
+    "answer": "Within-subjects expose each participant to all conditions (fewer participants, learning effects); between-subjects assign each to one condition (more participants, less carry-over) :contentReference[oaicite:7]{index=7}."
+  },
+  {
+    "question": "Why and how is counterbalancing used?",
+    "answer": "Counterbalancing (e.g., balanced Latin square) varies condition order across participants to cancel learning and carry-over effects :contentReference[oaicite:8]{index=8}."
+  },
+  {
+    "question": "How do you determine the required number of participants?",
+    "answer": "Use power-analysis tools based on expected effect sizes, as too few participants underpowers and too many can show trivial significances :contentReference[oaicite:9]{index=9}."
+  },
+  {
+    "question": "What are the main types of quantitative data?",
+    "answer": "Categorical (nominal, ordinal) and numerical (interval, ratio), distinguished by ordering and presence of true zero :contentReference[oaicite:10]{index=10}."
+  },
+  {
+    "question": "What is the difference between qualitative and quantitative data logging?",
+    "answer": "Quantitative data are numeric measures logged or counted; qualitative data are non-numeric, like interviews and observations :contentReference[oaicite:11]{index=11}."
+  },
+  {
+    "question": "What should you log in an experiment?",
+    "answer": "Log measures tied to your research question—task completion times, errors, movement data—and also save raw data for reproducibility :contentReference[oaicite:12]{index=12}."
+  },
+  {
+    "question": "What are questionnaires used for, and what scale is common?",
+    "answer": "Questionnaires quantify subjective factors (e.g., usability) often via Likert scales (5–7 point agreement scales) :contentReference[oaicite:13]{index=13}."
+  },
+  {
+    "question": "When should you use standardized versus custom questionnaires?",
+    "answer": "Use standardized ones when available for validity; develop custom questionnaires only to capture factors not covered by existing instruments :contentReference[oaicite:14]{index=14}."
+  },
+  {
+    "question": "What is the Hawthorne effect and its impact?",
+    "answer": "Participants alter behavior because they know they’re observed, threatening external validity in both lab and field studies :contentReference[oaicite:15]{index=15}."
+  },
+  {
+    "question": "What are descriptive statistics, and why use them?",
+    "answer": "Descriptives (mean, median, SD, IQR, etc.) summarize data distributions for initial insight but cannot confirm significance :contentReference[oaicite:16]{index=16}."
+  },
+  {
+    "question": "What is the p-value in significance testing?",
+    "answer": "The p-value quantifies the probability of observing data under the null hypothesis; p<0.05 typically denotes statistical significance :contentReference[oaicite:17]{index=17}."
+  },
+  {
+    "question": "When are t-tests and ANOVA appropriate?",
+    "answer": "Use t-tests to compare two group means; use ANOVA to compare three or more groups, with post-hoc tests and error corrections for multiple comparisons :contentReference[oaicite:18]{index=18}."
+  },
+  {
+    "question": "What are the assumptions of parametric tests?",
+    "answer": "Parametric tests assume continuous data, normal distribution, homogeneity of variance, and for repeated measures, sphericity :contentReference[oaicite:19]{index=19}."
+  },
+  {
+    "question": "What are Type I and Type II errors?",
+    "answer": "Type I error is falsely rejecting a true null hypothesis (false positive); Type II error is failing to reject a false null hypothesis (false negative) :contentReference[oaicite:20]{index=20}."
+  },
+  {
+    "question": "What limitations exist in experimental research?",
+    "answer": "Requires testable hypotheses, controlled variables, may lack real-world validity, and bias or errors can never be fully eliminated :contentReference[oaicite:21]{index=21}."
+  },
+  {
+    "question": "What defines a true experimental study?",
+    "answer": "It tests specific hypotheses with treatment and control conditions, uses quantitative measures, applies proper statistical tests, and is replicable :contentReference[oaicite:22]{index=22}."
+  }
+]
