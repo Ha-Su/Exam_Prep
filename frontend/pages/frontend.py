@@ -1,5 +1,4 @@
 import streamlit as st
-from pathlib import Path
 import re
 import pathlib
 import glob
@@ -21,12 +20,34 @@ genai.configure(api_key=api_key)
 
 MODEL = os.getenv("MODEL", "gemini-2.5-flash-lite-preview-06-17")
 
-PAGES_DIR = Path(__file__).resolve().parent               # …/Exam_Prep/frontend/pages
+PAGES_DIR = pathlib.Path(__file__).resolve().parent               # …/Exam_Prep/frontend/pages
 PROJECT_ROOT = PAGES_DIR.parent.parent                    # …/Exam_Prep
 QUESTIONS_FOLDER = PROJECT_ROOT / "questions_md"
 
 # Rate limit: max 15 calls per minute
 SECONDS_BETWEEN_CALLS = 60.0 / 15.0
+
+total_score = 0.0
+total_max_score = 0.0
+
+
+def note(final_score):
+    grade_map = [
+        (95, "1.0"),
+        (90, "1.3"),
+        (85, "1.7"),
+        (80, "2.0"),
+        (75, "2.3"),
+        (70, "2.7"),
+        (65, "3.0"),
+        (60, "3.3"),
+        (55, "3.7"),
+        (50, "4.0"),
+    ]
+    for score, grade in grade_map:
+        if final_score >= score:
+            return grade
+    return "5.0"
 
 
 # Load QnA
@@ -36,36 +57,29 @@ def load_qna(folder_path):
         raise FileNotFoundError(f"{folder_path} not found")
     return json.loads(p.read_text(encoding="utf-8"))
 
-# Load questions in MD format (questions only, no answer)
-# def load_questions_GP(q_folder):
-#     qs = []
-#     bullet_re = re.compile(r'^\s*(?:[\*\-]|\d+\.)\s+(.*\S.*)$')
-#     for md_path in pathlib.Path(q_folder).glob("*.md"):
-#         for line in md_path.read_text(encoding="utf-8").splitlines():
-#             m = bullet_re.match(line)
-#             if m:
-#                 text = m.group(1).strip()
-#                 # skip very short lines
-#                 if len(text) > 5:
-#                     qs.append(text)
-#     return qs
 
 # Call the LLM for grading given specific prompt for grading
 def grade_with_llm(question: str, correct: str, student: str) -> str:
+    global total_score, total_max_score
+
     prompt = f"""
         You are an HCI professor grading a short-answer exam.  For each question:
 
-        1.  **Determine the maximum score** by reading the question:
-            - Naming N items → 0.5 pts each → max = N*0.5.  
-            - Defining M items → 1 pts each → max = M.  
-            - Definition + Example → 1 pt for definition, 1 pt for example → max = 2.  
-            - Mix and match as needed (e.g. “Name 4 Laws and define 2” → naming max = 4*0.5=2; definitions max = 2*0.5=1; total max = 3).
+        1. **Determine the maximum score** from the question text:
+            - “Name N items” → 0.5 pt each → max = N × 0.5 (e.g., *Name 2 parts of…*)
+            - “Define M items” → 1 pt each → max = M
+            - “Give examples of X things” → 1 pt each → max = X
+            - Mixed tasks (definition + example, etc.) → add the relevant point values.  
+                • Example: *Define an item (1 pt) and give an example (1 pt)* → max = 2 pts.  
+                • Example: *Name 4 laws and define 2* → naming = 4 × 0.5 = 2 pts; definitions = 2 pts → total = 4 pts.
 
-        2.  **Grade** the student's answer out of that inferred maximum. Be fair. If the given answer somehow includes / summarizes the main idea of the model answer / key, full score may be given.
+        2. **Grade** the student’s answer out of the calculated maximum.  
+            - Full credit may be given if the answer captures the concept in the model answer.  
+            - If a student lists more than requested, cap their credit at the maximum.
 
         3.  **Explain** briefly what's missing or incorrect.
 
-        4.  **Format your output** like this:
+        4. **Format your output exactly like this** (omit lines that don’t apply to the question):
             ```
             Grade: <score>/<max>
 
@@ -76,6 +90,7 @@ def grade_with_llm(question: str, correct: str, student: str) -> str:
             ```
             Only include the lines for parts the question actually asks.
             Output should be in text format!
+            If the student leaves a part blank, award 0 for that part but keep the maximum.
 
         5. GRADING EXAMPLE :
             ```
@@ -91,6 +106,21 @@ def grade_with_llm(question: str, correct: str, student: str) -> str:
             Feedback:
             - You named the parts correctly (2/2)
             - Definition for X is correct, but the definition of Y is missing something <explain what is missing> (1/2)
+
+            Question 2 :
+            Name 2 type of ABC, give explanation for 2 of them and lastly give an example of their implementations.
+
+            Given/Student's answer :
+            Parts of ABC are A and B. A is a and B is b. Example of A is X.
+
+            Output :
+            Grade: 4/5
+
+            Feedback:
+            - You named the parts correctly (1/1)
+            - Definition for A is correct, B is a little bit of the mark but still accepted <explain what is missing> (2/2)
+            - Example of A is correct, but B is missing (1/2)            
+
             ```
 
         Here is the question, key, and given answer:
@@ -107,10 +137,17 @@ def grade_with_llm(question: str, correct: str, student: str) -> str:
 
     model = genai.GenerativeModel(MODEL)
     response = model.generate_content(prompt)
-    time.sleep(SECONDS_BETWEEN_CALLS)
-    return response.text.strip()
+    text = response.text.strip()
 
-# print(load_questions(QUESTIONS_FOLDER))
+    m = re.search(r"Grade:\s*([\d.]+)\s*/\s*([\d.]+)", text)
+    if m:
+        score = float(m.group(1))
+        max_score = float(m.group(2))
+        total_score += score
+        total_max_score += max_score
+
+    time.sleep(SECONDS_BETWEEN_CALLS)
+    return text
 
 
 # ──────────────────────────────────────────────────────────────────────────────
@@ -118,15 +155,14 @@ def grade_with_llm(question: str, correct: str, student: str) -> str:
 # ──────────────────────────────────────────────────────────────────────────────
 
 # Load questions
-# questions_de = load_questions_GP(QUESTIONS_FOLDER)
 questions = load_qna(f"{QUESTIONS_FOLDER}/updated_QnA_pairs.json")
 
 st.title("MOCK EXAM")
 
-for idx, qna_pair in enumerate(questions) :
-    st.markdown(f"**{idx+1} )**")
-    st.markdown(f"**🇩🇪 : {qna_pair['question_de']}**") #German questions
-    st.markdown(f"**🇬🇧 : {qna_pair['question_en']}**") #English questions
+for idx, qna_pair in enumerate(questions):
+    st.markdown(f"**{idx + 1} )**")
+    st.markdown(f"**🇩🇪 : {qna_pair['question_de']}**")  # German questions
+    st.markdown(f"**🇬🇧 : {qna_pair['question_en']}**")  # English questions
 
     st.text_area("Answer : ", key=f"ans_{idx}", height=100)
     st.divider()
@@ -135,20 +171,25 @@ if st.button("Submit", type="primary"):
     st.header("Grades")
     for idx, pair in enumerate(questions):
         student_ans = st.session_state[f"ans_{idx}"].strip()
-        if not student_ans:
-            st.warning(f"Q{idx+1}: No answer provided.")
-            continue
+        # if not student_ans:
+        #     st.warning(f"Q{idx+1}: No answer provided.")
+        #     st.divider()
+        #     continue
 
-        with st.spinner(f"Grading Q{idx+1}..."):
+        with st.spinner(f"Grading Q{idx + 1}..."):
             result = grade_with_llm(
                 question=pair["question_en"],
                 correct=pair["answer"],
                 student=student_ans,
             )
-        st.markdown(f"**Q{idx+1} Grade & Feedback:**  \n{result}")
+        st.markdown(f"**Q{idx + 1} Grade & Feedback:**  \n{result}")
         expander = st.expander("See actual answer")
-        expander.write(f"**{pair['question_en']}**")
+        expander.write(f"**Q : {pair['question_en']}**")
         expander.divider()
-        expander.write(f"{pair['answer']}")
-        
+        expander.write(f"A : {pair['answer']}")
+
         st.divider()
+    score_percentage = (total_score / total_max_score) * 100
+    final_grade = note(score_percentage)
+    st.success(f"🏆 **Total Score: {total_score:.1f} / {total_max_score:.1f}**")
+    st.success(f"💯 **Note : {final_grade}**")
