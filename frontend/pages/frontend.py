@@ -232,10 +232,10 @@ if st.session_state.auto_submit or st.session_state.manual_submit:
     st.header("Grades")
     for idx, pair in enumerate(questions):
         student_ans = st.session_state[f"ans_{idx}"].strip()
-        # if not student_ans:
-        #     st.warning(f"Q{idx+1}: No answer provided.")
-        #     st.divider()
-        #     continue
+        if not student_ans:
+            st.warning(f"Q{idx+1}: No answer provided.")
+            st.divider()
+            continue
 
         with st.spinner(f"Grading Q{idx + 1}..."):
             result = grade_with_llm(

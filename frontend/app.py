@@ -19,7 +19,7 @@ st.markdown(landing_style.TITLE_LANDING, unsafe_allow_html=True)
 
 st.markdown(landing_style.MARKDOWN_LANDING, unsafe_allow_html=True)
 
-choice = st.selectbox(label="Module Selection", options=["Human Computer Interaction", "Serious Games"])
+choice = st.selectbox(label=" ", options=["Human Computer Interaction", "Serious Games"])
 
 st.markdown(landing_style.BUTTON_LANDING, unsafe_allow_html=True)
 

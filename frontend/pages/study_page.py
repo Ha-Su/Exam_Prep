@@ -6,7 +6,7 @@ import random
 import json
 
 # Config
-MODULE = page_config.module_name
+MODULE = page_config.module_name_ab
 
 @st.cache_data
 def load_markdown(path: str) -> str:
