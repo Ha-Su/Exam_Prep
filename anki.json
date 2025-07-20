@@ -1,0 +1,90 @@
+[
+  {
+    "question": "What is cognition?",
+    "answer": "Cognition refers to the mental processes—such as perception, attention, and memory—that constitute what the mind does."
+  },
+  {
+    "question": "How is the mind defined in cognitive psychology?",
+    "answer": "The mind is a system that creates representations of the world, enabling us to act to achieve goals and controlling functions like perception, memory, language, and reasoning."
+  },
+  {
+    "question": "What is the Model Human Processor (MHP)?",
+    "answer": "The MHP is a three-component model of human interaction with computers—sensory input subsystem, central information processor, and motor output subsystem—analogous to computer architecture."
+  },
+  {
+    "question": "What are the three stages of human memory?",
+    "answer": "Sensory memory (icons, echoes, haptic traces), working/short-term memory (scratch-pad, ~200 ms decay, capacity 7±2 chunks), and long-term memory (large capacity, slower access)."
+  },
+  {
+    "question": "What is the 7±2 rule in working memory, and how does it inform design?",
+    "answer": "Short-term memory holds about 7±2 chunks of information; interfaces should limit simultaneous items or group information to avoid overload."
+  },
+  {
+    "question": "Why is the basic MHP insufficient for HCI?",
+    "answer": "It omits body, context, emotions, and social factors, oversimplifying human complexity beyond input-processing-output."
+  },
+  {
+    "question": "What does Situated Action propose?",
+    "answer": "Human behavior is not strictly plan-based; it must be observed in context, emphasizing real-world circumstances over formal models."
+  },
+  {
+    "question": "What is Distributed Cognition?",
+    "answer": "Cognitive processes and knowledge are shared across people, tools, and representations, distinguishing internal memory from external representations like maps."
+  },
+  {
+    "question": "What is the Extended Mind Theory?",
+    "answer": "Technology (e.g., smartphones) acts as extensions of our memory and cognitive processes, replacing internal tasks with external tools."
+  },
+  {
+    "question": "What is Embodied Cognition?",
+    "answer": "Cognition arises from brain, body, and bodily experiences; the body’s structure and sensorimotor systems shape reasoning."
+  },
+  {
+    "question": "What are affordances in HCI?",
+    "answer": "Affordances are properties of an artifact indicating how it can be used; perceived affordances guide user actions."
+  },
+  {
+    "question": "What types of affordances did Gaver identify?",
+    "answer": "Perceptible (obvious use), hidden (learned by trial/error), and false (suggesting unavailable actions)."
+  },
+  {
+    "question": "What distinguishes top-down from bottom-up perception?",
+    "answer": "Top-down uses knowledge, expectations, and memory; bottom-up relies on raw sensory input to build perceptions."
+  },
+  {
+    "question": "What is Helmholtz’s theory of unconscious inference?",
+    "answer": "Perception results from unconscious assumptions about the most likely cause of sensory input, guided by past experiences."
+  },
+  {
+    "question": "What are the main Gestalt laws of perception?",
+    "answer": "Principles like proximity, similarity, common region, continuity, closure, figure-ground, and common fate describe how we group elements into wholes."
+  },
+  {
+    "question": "What are dark design patterns?",
+    "answer": "Deceptive UI techniques—such as nagging, obstruction, sneaking, and interface interference—that exploit cognitive shortcuts to mislead users."
+  },
+  {
+    "question": "What is the difference between a mental model and a conceptual model?",
+    "answer": "A mental model is the user’s belief about how a system works; a conceptual model is the designer’s high-level description of the system’s organization and operation."
+  },
+  {
+    "question": "What are constraints in HCI and their types?",
+    "answer": "Constraints limit possible actions to prevent errors, including physical (shape, placement), logical (natural fits), semantic (world knowledge), and cultural (conventions)."
+  },
+  {
+    "question": "What are mappings in HCI?",
+    "answer": "Mappings define the relationship between controls and their effects, which can use spatial, physical, cultural, or perceptual analogies to align user intent and system behavior."
+  },
+  {
+    "question": "What are slips and mistakes in HCI?",
+    "answer": "Slips are unconscious, attentional errors by experienced users (e.g., wrong hotkey); mistakes are conscious errors from mismatched mental and conceptual models."
+  },
+  {
+    "question": "What are Norman’s seven stages of action?",
+    "answer": "1) Form goal, 2) Form intention, 3) Specify action, 4) Execute action, 5) Perceive state, 6) Interpret state, 7) Evaluate outcome against goal."
+  },
+  {
+    "question": "What are the gulfs of execution and evaluation?",
+    "answer": "The Gulf of Execution is the gap between user goals and available actions; the Gulf of Evaluation is the gap between system feedback and user interpretation of goal attainment."
+  }
+]
