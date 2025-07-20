@@ -19,13 +19,17 @@ if not api_key:
 genai.configure(api_key=api_key)
 
 MODEL = os.getenv("MODEL", "gemini-2.5-flash-lite-preview-06-17")
-QUESTIONS_FOLDER = os.getenv("QUESTIONS_GP")
+
+PAGES_DIR = pathlib.Path(__file__).resolve().parent               # …/Exam_Prep/frontend/pages
+PROJECT_ROOT = PAGES_DIR.parent.parent                    # …/Exam_Prep
+QUESTIONS_FOLDER = PROJECT_ROOT / "questions_md"
 
 # Rate limit: max 15 calls per minute
 SECONDS_BETWEEN_CALLS = 60.0 / 15.0
 
 total_score = 0.0
 total_max_score = 0.0
+
 
 def note(final_score):
     grade_map = [
@@ -45,12 +49,14 @@ def note(final_score):
             return grade
     return "5.0"
 
+
 # Load QnA
 def load_qna(folder_path):
     p = pathlib.Path(folder_path)
     if not p.is_file:
         raise FileNotFoundError(f"{folder_path} not found")
     return json.loads(p.read_text(encoding="utf-8"))
+
 
 # Call the LLM for grading given specific prompt for grading
 def grade_with_llm(question: str, correct: str, student: str) -> str:
@@ -134,15 +140,15 @@ def grade_with_llm(question: str, correct: str, student: str) -> str:
     text = response.text.strip()
 
     m = re.search(r"Grade:\s*([\d.]+)\s*/\s*([\d.]+)", text)
-    if m :
+    if m:
         score = float(m.group(1))
         max_score = float(m.group(2))
         total_score += score
         total_max_score += max_score
 
-
     time.sleep(SECONDS_BETWEEN_CALLS)
     return text
+
 
 # ──────────────────────────────────────────────────────────────────────────────
 #  UI Shenanigans
@@ -153,10 +159,10 @@ questions = load_qna(f"{QUESTIONS_FOLDER}/updated_QnA_pairs.json")
 
 st.title("MOCK EXAM")
 
-for idx, qna_pair in enumerate(questions) :
-    st.markdown(f"**{idx+1} )**")
-    st.markdown(f"**🇩🇪 : {qna_pair['question_de']}**") #German questions
-    st.markdown(f"**🇬🇧 : {qna_pair['question_en']}**") #English questions
+for idx, qna_pair in enumerate(questions):
+    st.markdown(f"**{idx + 1} )**")
+    st.markdown(f"**🇩🇪 : {qna_pair['question_de']}**")  # German questions
+    st.markdown(f"**🇬🇧 : {qna_pair['question_en']}**")  # English questions
 
     st.text_area("Answer : ", key=f"ans_{idx}", height=100)
     st.divider()
@@ -170,20 +176,20 @@ if st.button("Submit", type="primary"):
         #     st.divider()
         #     continue
 
-        with st.spinner(f"Grading Q{idx+1}..."):
+        with st.spinner(f"Grading Q{idx + 1}..."):
             result = grade_with_llm(
                 question=pair["question_en"],
                 correct=pair["answer"],
                 student=student_ans,
             )
-        st.markdown(f"**Q{idx+1} Grade & Feedback:**  \n{result}")
+        st.markdown(f"**Q{idx + 1} Grade & Feedback:**  \n{result}")
         expander = st.expander("See actual answer")
         expander.write(f"**Q : {pair['question_en']}**")
         expander.divider()
         expander.write(f"A : {pair['answer']}")
-        
+
         st.divider()
-    score_percentage = (total_score/total_max_score)*100
+    score_percentage = (total_score / total_max_score) * 100
     final_grade = note(score_percentage)
     st.success(f"🏆 **Total Score: {total_score:.1f} / {total_max_score:.1f}**")
     st.success(f"💯 **Note : {final_grade}**")
