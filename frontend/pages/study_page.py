@@ -30,7 +30,7 @@ for doc in DATA_DIR_PDFs.iterdir():
         docs.append(doc.name.removesuffix(".pdf"))
 
 if len(docs) == 0:
-    st.markdown("There are no contents for this module!")
+    st.warning("There are no contents for this module!")
 else:
     chapter = st.selectbox(label="Please select the module chapter", options=docs)
     viewer, summary, quiz = st.tabs(tabs=["PDF Viewer", "Summary", "Quiz"])

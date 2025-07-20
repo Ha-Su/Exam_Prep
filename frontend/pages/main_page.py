@@ -1,28 +1,23 @@
 import streamlit as st
+from style import main_style
 from pages import page_config
 
-MODULE_MAP = {
-    "Human Computer Interaction": "HCI",
-    "Serious Games": "SG",
-}
+st.markdown(main_style.HOME_BUTTON, unsafe_allow_html=True)
 
-def get_module(module: str) -> str | None:
-    if module in MODULE_MAP:
-        return MODULE_MAP[module]
-    if module in MODULE_MAP.values():
-        return module
-    return None
-
-if st.button(label="Go Back To Landing Page", icon="◀️"):
+if st.button(label="🏠", key="home-button", type="primary"):
     st.switch_page("app.py")
 
-module_name = page_config.module_name
-st.title(module_name)
+main_title = main_style.make_main_title(page_config.module_name)
 
-if st.button(label="See the study materials", icon="📖"):
-    st.switch_page("pages/study_page.py")
+st.markdown(main_title, unsafe_allow_html=True)
 
-if st.button(label="Mock Exams", icon="📣"):
-    st.switch_page("pages/frontend.py")
+column1, column2 = st.columns(2, gap="large")
 
-page_config.module_name = get_module(module_name)
+with column1:
+    st.markdown(main_style.STUDY_BUTTON, unsafe_allow_html=True)
+    if st.button(label="See the study materials", icon="📖", use_container_width=True, key="study-button", type="secondary"):
+        st.switch_page("pages/study_page.py")
+with column2:
+    st.markdown(main_style.EXAM_BUTTON, unsafe_allow_html=True)
+    if st.button(label="Mock Exams", icon="📣", use_container_width=True, key="exam-button", type="tertiary"):
+        st.switch_page("pages/frontend.py")
