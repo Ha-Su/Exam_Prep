@@ -4,6 +4,7 @@ import pathlib
 import glob
 import json
 import time
+from streamlit_autorefresh import st_autorefresh
 import google.generativeai as genai
 from pages import page_config
 from dotenv import load_dotenv
@@ -32,7 +33,7 @@ SECONDS_BETWEEN_CALLS = 60.0 / 15.0
 
 total_score = 0.0
 total_max_score = 0.0
-
+final_grade = 0.0
 
 def note(final_score):
     grade_map = [
@@ -156,22 +157,78 @@ def grade_with_llm(question: str, correct: str, student: str) -> str:
 # ──────────────────────────────────────────────────────────────────────────────
 #  UI Shenanigans
 # ──────────────────────────────────────────────────────────────────────────────
+if "start_time" not in st.session_state:
+    st.session_state.start_time = None
+if "auto_submit" not in st.session_state:
+    st.session_state.auto_submit = False
+if "manual_submit" not in st.session_state:
+    st.session_state.manual_submit = False
+if "grading_done" not in st.session_state:
+    st.session_state.grading_done = False
+
+#--------------------- Back button -------------------------------------------------
+exam_in_progress = st.session_state.start_time is not None 
+study_disabled     = exam_in_progress and not st.session_state.grading_done
+
+if st.button(label=f"Study: {page_config.module_name}", icon="◀️", disabled= study_disabled):
+    st.switch_page("pages/main_page.py")
+
+#--------------------- Disable Timer -------------------------------------------------
+disabled = st.session_state.manual_submit or st.session_state.auto_submit
+if not disabled:
+    st_autorefresh(interval=3000, limit=None, key="timer_refresh")
 
 # Load questions
 questions = load_qna(f"{QUESTIONS_FOLDER}/updated_QnA_pairs.json")
 
-st.title("📝 MOCK EXAM 💯")
-st.divider()
+#--------------------- Exam Introduction -------------------------------------------------
+if st.session_state.start_time is None :
+    st.title("📝 MOCK EXAM 💯")
+    st.divider()
+    st.markdown(f"""
+                **Instructions**
 
+                - Duration: **90 minutes**
+                - Questions will appear once you press **Start Exam**.
+                - The timer will begin immediately and cannot be paused.
+                - **DO NOT** Refresh / Reload the page.
+                """)
+    if st.button("Start Exam", type="primary"):
+        st.session_state.start_time = time.time()
+    st.stop()
+
+if st.session_state.start_time:
+    elapsed = time.time() - st.session_state.start_time
+    remaining_seconds = max(0, 90*60 - int(elapsed))
+    remaining_minutes = remaining_seconds // 60
+    if remaining_seconds == 0:
+        st.session_state.auto_submit = True
+
+#--------------------------- Sidebar Shenanigans --------------------------------------------------
+timer_slot = st.empty
+if not disabled and st.session_state.start_time:
+    timer_slot = st.sidebar.markdown(f"## ⏱ Time Remaining : **{remaining_minutes} minutes**")
+elif disabled and not st.session_state.grading_done:
+    timer_slot = st.sidebar.success("**🎉Answer Submitted, Grading in Progress🎉**")
+else:
+    timer_slot = st.sidebar.empty()
+
+#--------------------------- Load questions -------------------------------------------------
 for idx, qna_pair in enumerate(questions):
     st.markdown(f"**{idx + 1} )**")
     st.markdown(f"**🇩🇪 : {qna_pair['question_de']}**")  # German questions
     st.markdown(f"**🇬🇧 : {qna_pair['question_en']}**")  # English questions
 
-    st.text_area("Answer : ", key=f"ans_{idx}", height=100)
+    st.text_area("Answer : ", key=f"ans_{idx}", height=100, disabled=disabled)
     st.divider()
 
+#--------------------------- Time is up / Submit Button -------------------------------------------------
 if st.button("Submit", type="primary"):
+    st.session_state.manual_submit = True
+
+if st.session_state.auto_submit or st.session_state.manual_submit:
+    if st.session_state.auto_submit:
+        st.warning("⏳ Time is up! Your answers have been submitted automatically.")
     st.header("Grades")
     for idx, pair in enumerate(questions):
         student_ans = st.session_state[f"ans_{idx}"].strip()
@@ -193,7 +250,21 @@ if st.button("Submit", type="primary"):
         expander.write(f"A : {pair['answer']}")
 
         st.divider()
-    score_percentage = (total_score / total_max_score) * 100
-    final_grade = note(score_percentage)
+    
+    #--------------------------- Grading Done -----------------------------------------------------
+    st.session_state.grading_done = True
+    if isinstance(total_score, float) and isinstance(total_max_score, float):
+        if total_max_score == 0:
+                final_grade = 5.0
+        else:
+            score_percentage = (total_score / total_max_score) * 100
+            final_grade = note(score_percentage)
+    
+    #------------------------ Final Sidebar and Grades ------------------------------------------------
+    st_autorefresh(interval=1, limit=2, key="last_refresh")
+    st.sidebar.markdown(f"""
+                        🏆 **Total Score: {total_score:.1f} / {total_max_score:.1f}** \n
+                        💯 **Note : {final_grade}
+                        """)
     st.success(f"🏆 **Total Score: {total_score:.1f} / {total_max_score:.1f}**")
     st.success(f"💯 **Note : {final_grade}**")
