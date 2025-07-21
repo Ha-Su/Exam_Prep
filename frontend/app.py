@@ -1,4 +1,3 @@
-import streamlit as st
 from pages import page_config
 from style import landing_style
 import streamlit as st

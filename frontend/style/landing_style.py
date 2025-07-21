@@ -26,7 +26,6 @@ TITLE_LANDING = """<link href="https://fonts.googleapis.com/css2?family=Great+Vi
   50%  { background-position: 100% 50%; }
   100% { background-position: 0% 50%; }
 }
-/* ✨ Many small sparkles */
 .welcome-title::after {
   content: '';
   position: absolute;
@@ -64,7 +63,6 @@ TITLE_LANDING = """<link href="https://fonts.googleapis.com/css2?family=Great+Vi
 
 MARKDOWN_LANDING = """<link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Montserrat:wght@400;600&display=swap" rel="stylesheet">
 <style>
-  /* Sub‐heading under the title */
   .subtext {
     font-family: 'Montserrat', sans-serif !important;
     font-size: 1.25rem     !important;
@@ -122,7 +120,6 @@ div.stButton > button:first-child:focus {
   box-shadow: 0 0 0 3px rgba(255,110,196,0.5) !important;
 }
 
-/* Avoid styling nested text elements */
 div.stButton button > p {
   background: none !important;
   box-shadow: none !important;

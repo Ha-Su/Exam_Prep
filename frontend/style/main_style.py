@@ -103,7 +103,6 @@ div.stButton > button[kind="primary"]:focus {
   box-shadow: 0 0 0 3px rgba(190, 140, 160, 1) !important;
 }
 
-/* Avoid styling nested text elements */
 div.stButton button > p {
   background: none !important;
   box-shadow: none !important;
@@ -153,7 +152,6 @@ div.stButton > button[kind="secondary"]:focus {
   box-shadow: 0 0 0 3px rgba(207, 220, 240, 1) !important;
 }
 
-/* Avoid styling nested text elements */
 div.stButton button > p {
   background: none !important;
   box-shadow: none !important;
@@ -203,7 +201,6 @@ div.stButton > button[kind="tertiary"]:focus {
   box-shadow: 0 0 0 3px rgba(207, 220, 240, 1) !important;
 }
 
-/* Avoid styling nested text elements */
 div.stButton button > p {
   background: none !important;
   box-shadow: none !important;
@@ -212,5 +209,62 @@ div.stButton button > p {
   margin: 0 !important;
   transform: none !important;
 }
+</style>
+"""
+
+TEXT_NO_EXAM = """
+<!-- load Poppins from Google Fonts -->
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+
+<style>
+  .spacer-20  { margin-top:60px !important; }
+
+  /* our “you haven’t taken it” message */
+  .exam-prompt {
+    font-family: 'Poppins', sans-serif !important;
+    /* scale between 1.2rem–2rem depending on viewport */
+    font-size: clamp(0.9rem, 1.5vw, 1.1rem) !important;
+    font-weight: 600 !important;
+    color: #f0f0f0 !important;        /* light grey on dark bg */
+    text-align: center !important;
+    margin: 1rem auto 1.5rem auto !important; /* some breathing room */
+    max-width: 80%;                   /* don’t let it run full width */
+  }
+</style>
+
+<div class="spacer-20"></div>
+<div class="exam-prompt">
+  You haven’t done your mock exam
+</div>
+"""
+
+METRIC_CSS = """
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+
+<style>
+.custom-metric-wrapper {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+
+.custom-metric-wrapper .metric-container {
+  background-color: #E6E6FA;
+  border-radius: 8px;
+  padding: 1rem 1.5rem;
+  /* you wanted “span width” instead of height: */
+  width: 100%;
+  max-width: 240px;
+  /* top-margin was your spacer; bottom-margin gives gap to GIF */
+  margin: 60px 0 20px 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-family: 'Poppins', sans-serif;
+}
+
+.metric-label  { font-size: 0.9rem; color: #555; margin-bottom: 0.25rem; }
+.metric-value  { font-size: 2.5rem; font-weight: 600; color: #333; margin-bottom: 0.25rem; }
+.metric-delta  { font-size: 1rem; color: #9370DB; }
 </style>
 """
