@@ -2,7 +2,7 @@ import google.generativeai as genai
 import pathlib
 import cv2
 
-genai.configure(api_key="AIzaSyD_zK_-MrOgNAtML2MuiRZW4ibbXt83G1I")
+genai.configure(api_key="AIzaSyD_zK_")
 
 question1 = """
 I have a pair of question and answer :
@@ -77,13 +77,6 @@ Grade this answer based on the actual defintion that is given. As a professor ho
 The maximum grade for this question is 2 points.
 """
 
-with open("90A4F2A9-E845-466B-8B68-E98044F43DD8_1_201_a.jpeg", "rb") as f:
-    img_bytes = f.read()
-    plate_image = {
-    "mime_type": "image/jpeg",
-    "data": img_bytes
-}
-
 prompt = (
     "Here is a picture of a plate of food. "
     "Can you tell what kind of dish is it?"
@@ -95,11 +88,18 @@ prompt = (
     "Additionally calculate the estimation of the amount of calories and protein"
 )
 
+test = "Please simply answer with 'valid'."
+
 model = genai.GenerativeModel("gemini-2.5-flash-lite-preview-06-17") 
 
-response = model.generate_content(
-    contents=[prompt, plate_image]
-)
+result = None
 
 # response = model.generate_content(prompt2)
-print(response.text)
+def test():
+    try:
+        response = model.generate_content(test)
+        return True
+    except Exception as e:
+        return False
+result = test()
+print(result)
