@@ -30,6 +30,8 @@ total_max_score = 0.0
 final_grade = 0.0
 
 def check_key_validity() -> bool:
+    if not st.session_state.api_key.strip():
+        return False
     model = genai.GenerativeModel(MODEL)
     try:
         response = model.generate_content("Hello")
@@ -201,27 +203,24 @@ questions = load_qna(f"{QUESTIONS_FOLDER}/updated_QnA_pairs.json")
 if st.session_state.start_time is None :
     st.title("📝 MOCK EXAM 💯")
     st.divider()
-    KEY_IS_INVALID = page_config.API_KEY_INVALID
+    KEY_IS_INVALID = True
     #================================= API Key configuration =====================================================
     with st.form("api"):
         st.markdown("**Get your Gemini API key** [here](%s)." % page_config.API_KEY_URL) 
         USER_API_KEY = st.text_input("**Enter API Key :**", placeholder="API Key Please", key="api_key", help=api_key_help)
         col1,col2,col3 = st.columns(3)
         with col2:
-            check_valid = st.form_submit_button("Check Key Validity", use_container_width=True)
+            check_valid = st.form_submit_button("Set Key", use_container_width=True)
             page_config.API_KEY = st.session_state.api_key
             genai.configure(api_key=st.session_state.api_key)
     if check_valid:
         with st.spinner("Checking validity…"):
             if check_key_validity():
-                st.success("✅ Key is valid!")
+                st.success(f"✅ Key is valid!")
                 KEY_IS_INVALID = False
-                page_config.API_KEY_INVALID = False
             else:
                 st.warning("⚠️ Key is invalid!")
                 KEY_IS_INVALID = True
-    elif not page_config.API_KEY_INVALID:
-        st.success("✅ Key is valid!")
 
     #================================= Exam Intro ==================================================
     st.markdown(f"""
@@ -232,17 +231,18 @@ if st.session_state.start_time is None :
                 - The timer will begin immediately and cannot be paused.
                 - **DO NOT** Refresh / Reload the page.
                 """)  
+    def start_exam():
+        st.session_state.start_time = time.time()
 
-    if st.button("Start Exam", type="primary", use_container_width=True, disabled=KEY_IS_INVALID):
+    if st.button("Start Exam", type="primary", use_container_width=True, disabled=KEY_IS_INVALID, on_click=start_exam):
         st.session_state.start_time = time.time()
     st.stop()
 
-if st.session_state.start_time:
-    elapsed = time.time() - st.session_state.start_time
-    remaining_seconds = max(0, 90*60 - int(elapsed))
-    remaining_minutes = remaining_seconds // 60
-    if remaining_seconds == 0:
-        st.session_state.auto_submit = True
+elapsed = time.time() - st.session_state.start_time
+remaining_seconds = max(0, 90*60 - int(elapsed))
+remaining_minutes = remaining_seconds // 60
+if remaining_seconds == 0:
+    st.session_state.auto_submit = True
 
 #--------------------------- Sidebar Shenanigans --------------------------------------------------
 timer_slot = st.empty

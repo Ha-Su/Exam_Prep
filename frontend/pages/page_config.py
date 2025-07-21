@@ -13,6 +13,6 @@ LATEST_GRADE = None
 LATEST_SCORE = None
 
 #API related
-API_KEY = None
+API_KEY = ""
 API_KEY_URL = "https://aistudio.google.com/app/apikey"
 API_KEY_INVALID = True
