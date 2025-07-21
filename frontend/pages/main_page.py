@@ -21,3 +21,5 @@ with column2:
     st.markdown(main_style.EXAM_BUTTON, unsafe_allow_html=True)
     if st.button(label="Mock Exams", icon="📣", use_container_width=True, key="exam-button", type="tertiary"):
         st.switch_page("pages/frontend.py")
+    if page_config.EXAM_DONE:
+        st.metric(page_config.LATEST_SCORE, page_config.LATEST_GRADE, border=True)

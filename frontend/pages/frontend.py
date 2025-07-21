@@ -87,6 +87,9 @@ def grade_with_llm(question: str, correct: str, student: str) -> str:
             ```
             Grade: <score>/<max>
 
+            Your Answer:\n
+            {student!r}
+
             Feedback:
             - Feedback <what is good or what is missing from the given answer> on one question point<naming, defining, example, etc> **Score/max**(refer to point 1)
             - Feedback <what is good or what is missing from the given answer> on another question point<naming, defining, example, etc>, !!IF APPLICABLE!!, **Score/max**(refer to point 1)
@@ -119,6 +122,9 @@ def grade_with_llm(question: str, correct: str, student: str) -> str:
 
             Output :
             Grade: 4/5
+
+            Your Answer:\n
+            {student!r}
 
             Feedback:
             - You named the parts correctly (1/1)
@@ -223,12 +229,12 @@ for idx, qna_pair in enumerate(questions):
     st.divider()
 
 #--------------------------- Time is up / Submit Button -------------------------------------------------
-if st.button("Submit", type="primary"):
-    st.session_state.manual_submit = True
-
-if st.session_state.auto_submit or st.session_state.manual_submit:
+if st.session_state.auto_submit or st.button("Submit", type="primary"):
     if st.session_state.auto_submit:
         st.warning("⏳ Time is up! Your answers have been submitted automatically.")
+    st.session_state.manual_submit = True
+
+if st.session_state.manual_submit:
     st.header("Grades")
     for idx, pair in enumerate(questions):
         student_ans = st.session_state[f"ans_{idx}"].strip()
@@ -268,3 +274,8 @@ if st.session_state.auto_submit or st.session_state.manual_submit:
                         """)
     st.success(f"🏆 **Total Score: {total_score:.1f} / {total_max_score:.1f}**")
     st.success(f"💯 **Note : {final_grade}**")
+
+    if st.session_state.grading_done:
+        page_config.EXAM_DONE = True
+        page_config.LATEST_GRADE = final_grade
+        page_config.LATEST_SCORE = f"Score: {total_score}/{total_max_score}"
