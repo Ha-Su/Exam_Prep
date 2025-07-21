@@ -5,6 +5,7 @@ import glob
 import json
 import time
 from streamlit_autorefresh import st_autorefresh
+from streamlit_js_eval import streamlit_js_eval
 import google.generativeai as genai
 from pages import page_config
 from dotenv import load_dotenv
@@ -15,10 +16,10 @@ import os
 # ──────────────────────────────────────────────────────────────────────────────
 load_dotenv()
 
-api_key = os.getenv("GOOGLE_API_KEY")
-if not api_key:
-    raise RuntimeError("Missing GOOGLE_API_KEY in environment")
-genai.configure(api_key=api_key)
+USER_API_KEY = None
+if USER_API_KEY is None :
+    USER_API_KEY = os.getenv("GOOGLE_API_KEY")
+genai.configure(api_key=USER_API_KEY)
 
 MODEL = os.getenv("MODEL", "gemini-2.5-flash-lite-preview-06-17")
 
@@ -172,12 +173,22 @@ if "manual_submit" not in st.session_state:
 if "grading_done" not in st.session_state:
     st.session_state.grading_done = False
 
-#--------------------- Back button -------------------------------------------------
+api_key_help = st.page_link
+
+#--------------------- Back & Retake button -------------------------------------------------
 exam_in_progress = st.session_state.start_time is not None 
 study_disabled     = exam_in_progress and not st.session_state.grading_done
 
-if st.button(label=f"Study: {page_config.module_name}", icon="◀️", disabled= study_disabled):
-    st.switch_page("pages/main_page.py")
+back_col, retake_col = st.columns(2)
+
+with back_col:
+    if st.button(label=f"Study: {page_config.module_name}", icon="◀️", disabled= study_disabled):
+        st.switch_page("pages/main_page.py")
+
+with retake_col:
+    if st.button("Retake Exam", type="primary", icon="🔁" ,disabled= study_disabled, use_container_width=True):
+        streamlit_js_eval(js_expressions="parent.window.location.reload()")
+
 
 #--------------------- Disable Timer -------------------------------------------------
 disabled = st.session_state.manual_submit or st.session_state.auto_submit
@@ -189,19 +200,21 @@ questions = load_qna(f"{QUESTIONS_FOLDER}/updated_QnA_pairs.json")
 
 #--------------------- Exam Introduction -------------------------------------------------
 if st.session_state.start_time is None :
-    st.title("📝 MOCK EXAM 💯")
-    st.divider()
-    st.markdown(f"""
-                **Instructions**
+    with st.form("intro"):
+        st.title("📝 MOCK EXAM 💯")
+        st.divider()
+        st.text_input("**Enter API Key :**",value=None, placeholder="API Key Please", key="api_key_input")
+        st.markdown(f"""
+                    **Instructions :**
 
-                - Duration: **90 minutes**
-                - Questions will appear once you press **Start Exam**.
-                - The timer will begin immediately and cannot be paused.
-                - **DO NOT** Refresh / Reload the page.
-                """)
-    if st.button("Start Exam", type="primary"):
-        st.session_state.start_time = time.time()
-    st.stop()
+                    - Duration: **90 minutes**
+                    - Questions will appear once you press **Start Exam**.
+                    - The timer will begin immediately and cannot be paused.
+                    - **DO NOT** Refresh / Reload the page.
+                    """)
+        if st.form_submit_button("Start Exam", type="primary", use_container_width=True):
+            st.session_state.start_time = time.time()
+        st.stop()
 
 if st.session_state.start_time:
     elapsed = time.time() - st.session_state.start_time
@@ -220,6 +233,7 @@ else:
     timer_slot = st.sidebar.empty()
 
 #--------------------------- Load questions -------------------------------------------------
+st.markdown(f"API Key :{USER_API_KEY}")
 for idx, qna_pair in enumerate(questions):
     st.markdown(f"**{idx + 1} )**")
     st.markdown(f"**🇩🇪 : {qna_pair['question_de']}**")  # German questions
