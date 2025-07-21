@@ -2,20 +2,27 @@ from pathlib import Path
 import streamlit as st
 from streamlit_pdf_viewer import pdf_viewer
 from pages import page_config
+from style import study_style
 import random
 import json
 
 # Config
 MODULE = page_config.module_name_ab
 
+
 @st.cache_data
 def load_markdown(path: str) -> str:
     return Path(path).read_text(encoding="utf-8")
 
-if st.button(label=f"Study: {page_config.module_name}", icon="◀️"):
+
+st.markdown(study_style.BACK_BUTTON, unsafe_allow_html=True)
+
+if st.button(label=f"Study: {page_config.module_name}", icon="◀️", type="primary"):
     st.switch_page("pages/main_page.py")
 
-st.title('View The Documents')
+main_title = study_style.make_main_title(page_config.module_name_ab)
+
+st.markdown(main_title, unsafe_allow_html=True)
 
 # __file__ = .../frontend/pages/study_page.py
 PAGES_DIR = Path(__file__).resolve().parent  # …/Exam_Prep/frontend/pages
@@ -33,6 +40,7 @@ if len(docs) == 0:
     st.warning("There are no contents for this module!")
 else:
     chapter = st.selectbox(label="Please select the module chapter", options=docs)
+    st.markdown(study_style.CUSTOM_TAB, unsafe_allow_html=True)
     viewer, summary, quiz = st.tabs(tabs=["PDF Viewer", "Summary", "Quiz"])
 
     pdf_opts = dict(width=700, height=1000, viewer_align="center", show_page_separator=True)
@@ -96,6 +104,3 @@ else:
                     st.session_state.__setitem__('index', (st.session_state.index + 1) % len(st.session_state.cards))
                 ]
             )
-
-
-
