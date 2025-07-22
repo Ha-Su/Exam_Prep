@@ -2,136 +2,338 @@
   {
     "question_de": "Wie viele Chunks kann das Arbeitsgedächtnis halten? Wie kann dies auf das Interaktionsdesign angewendet werden?",
     "question_en": "How many chunks can working memory hold? How can this be applied to interaction design?",
-    "answer": "Working memory can hold 7±2 chunks. This can be applied to interaction design by limiting menu items to 7±2 options to avoid cognitive overload. For command-line interfaces, avoid requiring users to remember more than 7±2 parameters at once. Design should leverage environmental cues rather than relying solely on memory."
+    "answer": "Working memory can hold 7±2 chunks. This can be applied to interaction design by limiting menu items to 7±2 options to avoid cognitive overload. For command-line interfaces, avoid requiring users to remember more than 7±2 parameters at once. Design should leverage environmental cues rather than relying solely on memory.",
+    "scoring": {
+      "max_score": 2,
+      "components": [
+        {"description": "State memory limit (7±2 chunks)", "score": 1},
+        {"description": "Design application (menu/parameter limits)", "score": 1}
+      ]
+    }
   },
   {
     "question_de": "Was besagt die erweiterte Geisttheorie? Nennen Sie ein Beispiel.",
     "question_en": "What does the Extended Mind Theory state? Provide an example.",
-    "answer": "The Extended Mind Theory states that cognitive processes and knowledge are distributed across people, tools, and representations. Example: Using a smartphone for navigation (extended memory) or a calculator for math (extended processing), where the device augments cognitive functions."
+    "answer": "The Extended Mind Theory states that cognitive processes and knowledge are distributed across people, tools, and representations. Example: Using a smartphone for navigation (extended memory) or a calculator for math (extended processing), where the device augments cognitive functions.",
+    "scoring": {
+      "max_score": 2,
+      "components": [
+        {"description": "Core theory statement", "score": 1},
+        {"description": "Valid example", "score": 1}
+      ]
+    }
   },
   {
     "question_de": "Was ist *nicht* in der menschlichen Informationsverarbeitung enthalten? Nennen Sie zwei Aspekte.",
     "question_en": "What is *not* included in Human Information Processing? Name two aspects.",
-    "answer": "Human Information Processing (HIP) does not include: 1) The body (embodiment), and 2) Context (physical/social environment). HIP focuses narrowly on input-processing-output cycles, ignoring bodily, contextual, emotional, and social aspects of cognition."
+    "answer": "Human Information Processing (HIP) does not include: 1) The body (embodiment), and 2) Context (physical/social environment). HIP focuses narrowly on input-processing-output cycles, ignoring bodily, contextual, emotional, and social aspects of cognition.",
+    "scoring": {
+      "max_score": 2,
+      "components": [
+        {"description": "First excluded aspect", "score": 1},
+        {"description": "Second excluded aspect", "score": 1}
+      ]
+    }
   },
   {
     "question_de": "Kritisieren Sie Normans menschenzentriertes Design. Geben Sie ein Beispiel für eine gut geeignete und eine weniger gut geeignete Anwendung.",
     "question_en": "Critique Norman’s Human-Centered Design. Give an example of a well-suited and a less well-suited application.",
-    "answer": "Critique: Human-Centered Design (HCD) focuses on incremental improvements but stifles radical innovation. Well-suited application: Redesigning a microwave interface for better usability. Less well-suited: Developing fundamental new technologies (e.g., quantum computing interfaces), where HCD's iterative approach may limit visionary breakthroughs."
+    "answer": "Critique: Human-Centered Design (HCD) focuses on incremental improvements but stifles radical innovation. Well-suited application: Redesigning a microwave interface for better usability. Less well-suited: Developing fundamental new technologies (e.g., quantum computing interfaces), where HCD's iterative approach may limit visionary breakthroughs.",
+    "scoring": {
+      "max_score": 3,
+      "components": [
+        {"description": "Core critique", "score": 1},
+        {"description": "Well-suited example", "score": 1},
+        {"description": "Less-suited example", "score": 1}
+      ]
+    }
   },
   {
     "question_de": "Erklären Sie die zwei Richtungen der Wahrnehmung (Bottom-Up und Top-Down). Beschreiben Sie sie detailliert am Beispiel des Bildes [Abbildung 13 aus der Vorlesung].",
     "question_en": "Explain the two directions of perception (Bottom-Up and Top-Down). Describe them in detail using the example of the image [figure 13 from the lecture].",
-    "answer": "Bottom-Up processing starts with sensory input (e.g., light patterns on the retina) and builds perception from raw data. Top-Down processing uses prior knowledge/expectations to interpret input. In figure 13 (ambiguous rectangles), Bottom-Up detects edges/colors, while Top-Down infers depth (e.g., blue rectangle occluding red) based on experience with overlapping objects."
+    "answer": "Bottom-Up processing starts with sensory input (e.g., light patterns on the retina) and builds perception from raw data. Top-Down processing uses prior knowledge/expectations to interpret input. In figure 13 (ambiguous rectangles), Bottom-Up detects edges/colors, while Top-Down infers depth (e.g., blue rectangle occluding red) based on experience with overlapping objects.",
+    "scoring": {
+      "max_score": 4,
+      "components": [
+        {"description": "Bottom-Up explanation", "score": 1.5},
+        {"description": "Top-Down explanation", "score": 1.5},
+        {"description": "Image application", "score": 1}
+      ]
+    }
   },
   {
     "question_de": "Was besagt Helmholtzs Theorie der unbewussten Schlussfolgerung? Zeichnen Sie ein Beispiel.",
     "question_en": "What does Helmholtz’s theory of unconscious inference state? Draw an example.",
-    "answer": "Helmholtz's theory states that perception results from unconscious assumptions based on past experiences. We interpret ambiguous stimuli as the most probable real-world cause. Example: Seeing a blue rectangle in front of a red one (figure 13) rather than a blue rectangle and a disconnected red shape, because occlusion is statistically more likely."
+    "answer": "Helmholtz's theory states that perception results from unconscious assumptions based on past experiences. We interpret ambiguous stimuli as the most probable real-world cause. Example: Seeing a blue rectangle in front of a red one (figure 13) rather than a blue rectangle and a disconnected red shape, because occlusion is statistically more likely.",
+    "scoring": {
+      "max_score": 2,
+      "components": [
+        {"description": "Theory statement", "score": 1},
+        {"description": "Valid example", "score": 1}
+      ]
+    }
   },
   {
     "question_de": "Nennen Sie vier Gestaltgesetze. Erklären Sie zwei und zeigen Sie Designbeispielanwendungen.",
     "question_en": "Name four Gestalt laws. Explain two and show design example applications.",
-    "answer": "All Gestalt laws:\n1. Proximity: Elements close together perceived as related (e.g., form labels near input fields)\n2. Similarity: Similar elements grouped (e.g., same-colored buttons for related actions)\n3. Common Region: Elements in same bounded area grouped (e.g., cards with borders grouping content)\n4. Continuity: Elements arranged linearly perceived as continuous (e.g., horizontal navigation menus)\n5. Closure: Mind completes incomplete shapes (e.g., WWF panda logo using negative space)\n6. Figure-Ground: Distinguishing foreground from background (e.g., modal dialogs over dimmed backgrounds)\n7. Common Fate: Elements moving together perceived as related (e.g., synchronized animations)\n\nDetailed explanations:\n- Closure: Users perceive complete shapes from partial visual cues. Example: LinkedIn logo where 'in' is formed through negative space.\n- Figure-Ground: Design must clearly distinguish interactive elements (figure) from background. Example: Dropdown menus with strong contrast against page background."
+    "answer": "All Gestalt laws:\n1. Proximity: Elements close together perceived as related (e.g., form labels near input fields)\n2. Similarity: Similar elements grouped (e.g., same-colored buttons for related actions)\n3. Common Region: Elements in same bounded area grouped (e.g., cards with borders grouping content)\n4. Continuity: Elements arranged linearly perceived as continuous (e.g., horizontal navigation menus)\n5. Closure: Mind completes incomplete shapes (e.g., WWF panda logo using negative space)\n6. Figure-Ground: Distinguishing foreground from background (e.g., modal dialogs over dimmed backgrounds)\n7. Common Fate: Elements moving together perceived as related (e.g., synchronized animations)\n\nDetailed explanations:\n- Closure: Users perceive complete shapes from partial visual cues. Example: LinkedIn logo where 'in' is formed through negative space.\n- Figure-Ground: Design must clearly distinguish interactive elements (figure) from background. Example: Dropdown menus with strong contrast against page background.",
+    "scoring": {
+      "max_score": 6,
+      "components": [
+        {"description": "Name four laws", "score": 2},
+        {"description": "First law explanation + example", "score": 2},
+        {"description": "Second law explanation + example", "score": 2}
+      ]
+    }
   },
   {
     "question_de": "Welche zwei Gestaltgesetze werden von diesem Bild verletzt? [\"Keep Red Off Line\" aus der Vorlesung]",
     "question_en": "Which two Gestalt laws are violated by this image? [\"Keep Red Off Line\" from the lecture]",
-    "answer": "The \"Keep Red Off Line\" image violates: 1) Law of Proximity (inappropriate spacing causes \"Keep Republicans Off the Line\" to misread as \"Keep Red Off Line\"), and 2) Law of Similarity (identical font/color fails to distinguish word groups)."
+    "answer": "The \"Keep Red Off Line\" image violates: 1) Law of Proximity (inappropriate spacing causes \"Keep Republicans Off the Line\" to misread as \"Keep Red Off Line\"), and 2) Law of Similarity (identical font/color fails to distinguish word groups).",
+    "scoring": {
+      "max_score": 2,
+      "components": [
+        {"description": "First violated law", "score": 1},
+        {"description": "Second violated law", "score": 1}
+      ]
+    }
   },
   {
     "question_de": "Was sind Affordanzen?",
     "question_en": "What are affordances?",
-    "answer": "Affordances are properties of an artifact that indicate how it can be used (e.g., a handle affords pulling). Gibson defined them as environmental offerings; Norman emphasized perceived affordances (cues visible to users)."
+    "answer": "Affordances are properties of an artifact that indicate how it can be used (e.g., a handle affords pulling). Gibson defined them as environmental offerings; Norman emphasized perceived affordances (cues visible to users).",
+    "scoring": {
+      "max_score": 1,
+      "components": [
+        {"description": "Core definition", "score": 1}
+      ]
+    }
   },
   {
     "question_de": "Nennen Sie zwei und erklären Sie sie anhand eines Bildes. [Das Bild zeigte zwei weiße Tassen und eine Teekanne]",
     "question_en": "Name two and explain them using an image. [The image showed two white cups and a teapot]",
-    "answer": "1) Perceptible affordance: The cup handle signals gripping. 2) Hidden affordance: The teapot lid’s removability isn’t visually obvious. In the image, handles and spouts provide clear cues for use, but secondary features (e.g., lid) require exploration."
+    "answer": "1) Perceptible affordance: The cup handle signals gripping. 2) Hidden affordance: The teapot lid’s removability isn’t visually obvious. In the image, handles and spouts provide clear cues for use, but secondary features (e.g., lid) require exploration.",
+    "scoring": {
+      "max_score": 2,
+      "components": [
+        {"description": "First affordance type + explanation", "score": 1},
+        {"description": "Second affordance type + explanation", "score": 1}
+      ]
+    }
   },
   {
     "question_de": "Geben Sie ein Beispiel für eine falsche Affordanz.",
     "question_en": "Give an example of a false affordance.",
-    "answer": "A false affordance suggests non-existent actions. Example: Underlined text that isn’t a hyperlink, misleading users into clicking it."
+    "answer": "A false affordance suggests non-existent actions. Example: Underlined text that isn’t a hyperlink, misleading users into clicking it.",
+    "scoring": {
+      "max_score": 1,
+      "components": [
+        {"description": "Valid example", "score": 1}
+      ]
+    }
   },
   {
     "question_de": "Was sind Einschränkungen? Nennen Sie zwei Arten. Wie hängen sie mit Affordanzen zusammen?",
     "question_en": "What are constraints? Name two types. How are they related to affordances?",
-    "answer": "Constraints limit possible interactions:\n1. Physical: Tangible limitations (e.g., USB plug shape preventing wrong insertion)\n2. Logical: Inherent operational logic (e.g., puzzle pieces fitting only correct spots)\n3. Cultural: Convention-based (e.g., red=stop, green=go)\n4. Semantic: Meaning-based (e.g., car seat facing forward)\n\nRelationship to affordances:\nAffordances suggest possible actions (e.g., handle affords pulling), while constraints prevent incorrect actions (e.g., plate on push door prevents pulling). Together they form a system where:\n- Affordances invite interaction\n- Constraints guide proper use\nExample: Scrollbar affords dragging (affordance) but constrains movement to vertical axis (constraint)."
+    "answer": "Constraints limit possible interactions:\n1. Physical: Tangible limitations (e.g., USB plug shape preventing wrong insertion)\n2. Logical: Inherent operational logic (e.g., puzzle pieces fitting only correct spots)\n3. Cultural: Convention-based (e.g., red=stop, green=go)\n4. Semantic: Meaning-based (e.g., car seat facing forward)\n\nRelationship to affordances:\nAffordances suggest possible actions (e.g., handle affords pulling), while constraints prevent incorrect actions (e.g., plate on push door prevents pulling). Together they form a system where:\n- Affordances invite interaction\n- Constraints guide proper use\nExample: Scrollbar affords dragging (affordance) but constrains movement to vertical axis (constraint).",
+    "scoring": {
+      "max_score": 3,
+      "components": [
+        {"description": "Definition", "score": 1},
+        {"description": "Two constraint types", "score": 1},
+        {"description": "Relationship explanation", "score": 1}
+      ]
+    }
   },
   {
     "question_de": "Nennen Sie drei Dark Patterns und erklären Sie zwei.",
     "question_en": "Name three dark patterns and explain two.",
-    "answer": "All dark pattern types:\n1. Nagging: Persistent pressure (e.g., repeated notification prompts with no permanent opt-out)\n2. Obstruction: Intentionally difficult processes (e.g., hidden unsubscribe links)\n3. Sneaking: Hidden actions/consequences (e.g., pre-checked premium options)\n4. Interface Interference: Manipulating UI to privilege certain actions (e.g., highlighted 'Accept All' cookies vs hidden custom settings)\n5. Forced Action: Requiring unrelated actions (e.g., 'Share contacts to continue')\n\nDetailed explanations:\n- Sneaking: Concealing information/actions. Example: Subscription forms with pre-selected paid upgrades in small print.\n- Interface Interference: Designing UI to bias decisions. Example: Uber's driver app highlighting 'Keep Driving' when trying to stop, with earnings goal counter."
+    "answer": "All dark pattern types:\n1. Nagging: Persistent pressure (e.g., repeated notification prompts with no permanent opt-out)\n2. Obstruction: Intentionally difficult processes (e.g., hidden unsubscribe links)\n3. Sneaking: Hidden actions/consequences (e.g., pre-checked premium options)\n4. Interface Interference: Manipulating UI to privilege certain actions (e.g., highlighted 'Accept All' cookies vs hidden custom settings)\n5. Forced Action: Requiring unrelated actions (e.g., 'Share contacts to continue')\n\nDetailed explanations:\n- Sneaking: Concealing information/actions. Example: Subscription forms with pre-selected paid upgrades in small print.\n- Interface Interference: Designing UI to bias decisions. Example: Uber's driver app highlighting 'Keep Driving' when trying to stop, with earnings goal counter.",
+    "scoring": {
+      "max_score": 5,
+      "components": [
+        {"description": "Three patterns named", "score": 1.5},
+        {"description": "First pattern explained", "score": 1.5},
+        {"description": "Second pattern explained", "score": 2}
+      ]
+    }
   },
   {
     "question_de": "Identifizieren Sie für jedes der folgenden Bilder, welches Dark Pattern verwendet wird. [Das „Nagging“-Beispiel aus der Vorlesung und das „Obstruction“-Beispiel aus der Vorlesung]",
     "question_en": "For each of the following images, identify which dark pattern is used. [The “Nagging” example from the lecture and the “Obstruction” example from the lecture]",
-    "answer": "1) Nagging: Image showing persistent notifications requests (e.g., \"Allow notifications?\" with only \"Not now\" and \"OK\"). 2) Obstruction: Image with a hidden \"Unsubscribe\" link (e.g., white text on white background)."
+    "answer": "1) Nagging: Image showing persistent notifications requests (e.g., \"Allow notifications?\" with only \"Not now\" and \"OK\"). 2) Obstruction: Image with a hidden \"Unsubscribe\" link (e.g., white text on white background).",
+    "scoring": {
+      "max_score": 2,
+      "components": [
+        {"description": "First image correct", "score": 1},
+        {"description": "Second image correct", "score": 1}
+      ]
+    }
   },
   {
     "question_de": "Was sind die beiden Fehlerarten und wie unterscheiden sie sich?",
     "question_en": "What are the two types of errors, and how do they differ?",
-    "answer": "1) Mistakes: Conscious errors from mental-model mismatches (e.g., saving a file to cloud storage but unable to find it later). 2) Slips: Unconscious errors from inattention (e.g., pressing \"Quick Save\" instead of \"Quick Load\"). Mistakes stem from cognition; slips from execution."
+    "answer": "1) Mistakes: Conscious errors from mental-model mismatches (e.g., saving a file to cloud storage but unable to find it later). 2) Slips: Unconscious errors from inattention (e.g., pressing \"Quick Save\" instead of \"Quick Load\"). Mistakes stem from cognition; slips from execution.",
+    "scoring": {
+      "max_score": 2,
+      "components": [
+        {"description": "Mistakes definition", "score": 1},
+        {"description": "Slips definition + differentiation", "score": 1}
+      ]
+    }
   },
   {
     "question_de": "Was ist Transparenz?",
     "question_en": "What is transparency?",
-    "answer": "Transparency ensures system changes maintain prior external interfaces, shielding users from disruption. Example: Network File System (NFS) lets users access files identically despite backend changes, unlike FTP which exposes implementation details."
+    "answer": "Transparency ensures system changes maintain prior external interfaces, shielding users from disruption. Example: Network File System (NFS) lets users access files identically despite backend changes, unlike FTP which exposes implementation details.",
+    "scoring": {
+      "max_score": 1,
+      "components": [
+        {"description": "Core concept", "score": 1}
+      ]
+    }
   },
   {
     "question_de": "Was sind die sieben Handlungsstufen? Zeichnen Sie die Grafik aus der Vorlesung. Was sind die zwei Gulfs? Beziehen Sie die Gulfs auf die sieben Stufen.",
     "question_en": "What are the seven stages of action? Draw the graph from the lecture. What are the two gulfs? Relate the gulfs to the seven stages.",
-    "answer": "Seven stages: 1) Form goal, 2) Form intention, 3) Specify action sequence, 4) Execute action, 5) Perceive system state, 6) Interpret state, 7) Evaluate outcome. Gulfs: Gulf of Execution (bridging goals to actions; stages 2–4) and Gulf of Evaluation (interpreting system state; stages 5–7). Graph: Goal → Intention → Action Sequence → Execution → World → Perception → Interpretation → Evaluation → Goal."
+    "answer": "Seven stages: 1) Form goal, 2) Form intention, 3) Specify action sequence, 4) Execute action, 5) Perceive system state, 6) Interpret state, 7) Evaluate outcome. Gulfs: Gulf of Execution (bridging goals to actions; stages 2–4) and Gulf of Evaluation (interpreting system state; stages 5–7). Graph: Goal → Intention → Action Sequence → Execution → World → Perception → Interpretation → Evaluation → Goal.",
+    "scoring": {
+      "max_score": 6,
+      "components": [
+        {"description": "4+ stages listed", "score": 2},
+        {"description": "Both gulfs identified", "score": 2},
+        {"description": "Gulf-stage relationships", "score": 2}
+      ]
+    }
   },
   {
     "question_de": "Was sind die vier Komponenten des nutzerzentrierten Designs? Nennen Sie das Ziel jeder Komponente. Geben Sie für jede Komponente eine praktische Methode an und erklären Sie sie.",
     "question_en": "What are the four components of user-centered design? Name the goal of each. Provide one practical method for each component and explain it.",
-    "answer": "1) Specify context of use: Goal—understand users/tasks/environment. Method: Ethnography (observe users in real settings). 2) Specify user requirements: Goal—define needs. Method: Personas (fictional user profiles). 3) Design solutions: Goal—create prototypes. Method: Sketching (rapid visual ideation). 4) Evaluate against requirements: Goal—test usability. Method: Usability testing (observe users with prototypes)."
+    "answer": "1) Specify context of use: Goal—understand users/tasks/environment. Method: Ethnography (observe users in real settings). 2) Specify user requirements: Goal—define needs. Method: Personas (fictional user profiles). 3) Design solutions: Goal—create prototypes. Method: Sketching (rapid visual ideation). 4) Evaluate against requirements: Goal—test usability. Method: Usability testing (observe users with prototypes).",
+    "scoring": {
+      "max_score": 8,
+      "components": [
+        {"description": "Components named", "score": 2},
+        {"description": "Goals described", "score": 2},
+        {"description": "Methods provided", "score": 2},
+        {"description": "Methods explained", "score": 2}
+      ]
+    }
   },
   {
     "question_de": "Was sind horizontale und vertikale Prototypen?",
     "question_en": "What are horizontal and vertical prototypes?",
-    "answer": "Horizontal prototypes cover many features superficially (e.g., wireframes of all app screens). Vertical prototypes explore few features deeply (e.g., a functional login flow). Horizontal tests breadth; vertical tests depth."
+    "answer": "Horizontal prototypes cover many features superficially (e.g., wireframes of all app screens). Vertical prototypes explore few features deeply (e.g., a functional login flow). Horizontal tests breadth; vertical tests depth.",
+    "scoring": {
+      "max_score": 2,
+      "components": [
+        {"description": "Horizontal definition", "score": 1},
+        {"description": "Vertical definition", "score": 1}
+      ]
+    }
   },
   {
     "question_de": "Erklären Sie den Unterschied zwischen „das Design richtig machen“ und „das richtige Design finden“.",
     "question_en": "Explain the difference between “getting the design right” and “getting the right design.”",
-    "answer": "\"Getting the right design\" explores ideas to find the best solution (divergent; e.g., brainstorming). \"Getting the design right\" refines a chosen solution (convergent; e.g., polishing a prototype). The first ensures innovation; the second ensures usability."
+    "answer": "\"Getting the right design\" explores ideas to find the best solution (divergent; e.g., brainstorming). \"Getting the design right\" refines a chosen solution (convergent; e.g., polishing a prototype). The first ensures innovation; the second ensures usability.",
+    "scoring": {
+      "max_score": 2,
+      "components": [
+        {"description": "First concept explained", "score": 1},
+        {"description": "Second concept explained + differentiation", "score": 1}
+      ]
+    }
   },
   {
     "question_de": "Die Ergebnisse zeigen, dass die unterschiedlichen Stufen der unabhängigen Variablen keinen signifikanten Einfluss auf Fingerbeschwerden hatten. Kann man daraus schließen, dass es definitiv keinen Effekt gibt? Begründen Sie Ihre Argumentation.",
     "question_en": "The results indicate that the different levels of the independent variable had no significant effect on finger discomfort. Can one conclude from this that there is definitely no effect? Justify your reasoning.",
-    "answer": "No. Non-significance (p>0.05) doesn’t prove no effect exists; it may indicate insufficient statistical power (e.g., small sample size, high variability). Type II errors can occur, where a real effect is missed. Further studies or larger samples are needed."
+    "answer": "No. Non-significance (p>0.05) doesn’t prove no effect exists; it may indicate insufficient statistical power (e.g., small sample size, high variability). Type II errors can occur, where a real effect is missed. Further studies or larger samples are needed.",
+    "scoring": {
+      "max_score": 2,
+      "components": [
+        {"description": "Correct conclusion (no)", "score": 1},
+        {"description": "Valid justification", "score": 1}
+      ]
+    }
   },
   {
     "question_de": "Erklären Sie Within-Subject- und Between-Subject-Designs. Nennen Sie einen Nachteil von jedem.",
     "question_en": "Explain within-subject and between-subject designs. Name one disadvantage of each.",
-    "answer": "Within-subject design: Participants experience all conditions. Disadvantage: Learning/fatigue effects. Between-subject design: Participants experience one condition. Disadvantage: Requires more participants to control individual differences."
+    "answer": "Within-subject design: Participants experience all conditions. Disadvantage: Learning/fatigue effects. Between-subject design: Participants experience one condition. Disadvantage: Requires more participants to control individual differences.",
+    "scoring": {
+      "max_score": 4,
+      "components": [
+        {"description": "Within-subject explanation", "score": 1.5},
+        {"description": "Between-subject explanation", "score": 1.5},
+        {"description": "Disadvantages", "score": 1}
+      ]
+    }
   },
   {
     "question_de": "Erklären Sie den Unterschied zwischen einer Laborstudie und einer Feldstudie.",
     "question_en": "Explain the difference between a laboratory study and a field study.",
-    "answer": "Laboratory study: Controlled environment (high internal validity; e.g., testing typing speed in a lab). Field study: Natural environment (high external validity; e.g., observing app use in daily life). Labs isolate variables; fields capture real-world complexity."
+    "answer": "Laboratory study: Controlled environment (high internal validity; e.g., testing typing speed in a lab). Field study: Natural environment (high external validity; e.g., observing app use in daily life). Labs isolate variables; fields capture real-world complexity.",
+    "scoring": {
+      "max_score": 2,
+      "components": [
+        {"description": "Lab study characteristics", "score": 1},
+        {"description": "Field study characteristics + contrast", "score": 1}
+      ]
+    }
   },
   {
     "question_de": "Sind über eine Likert-Skala gesammelte Daten quantitativ oder qualitativ? Begründen Sie.",
     "question_en": "Are data collected via a Likert scale quantitative or qualitative? Justify.",
-    "answer": "Quantitative. Likert scales (e.g., 1–5 ratings) yield ordinal numeric data suitable for statistical analysis (e.g., means, ANOVA). Though capturing attitudes, the output is quantified, unlike open-ended qualitative responses."
+    "answer": "Quantitative. Likert scales (e.g., 1–5 ratings) yield ordinal numeric data suitable for statistical analysis (e.g., means, ANOVA). Though capturing attitudes, the output is quantified, unlike open-ended qualitative responses.",
+    "scoring": {
+      "max_score": 2,
+      "components": [
+        {"description": "Correct classification", "score": 1},
+        {"description": "Valid justification", "score": 1}
+      ]
+    }
   },
   {
     "question_de": "Ein neues Tastaturlayout wurde entwickelt, bei dem die am häufigsten getippten Tasten nebeneinander liegen. Das Entwicklungsteam behauptet, dass dies schnelleres Tippen ermöglicht und die Fingerermüdung reduziert. Dies muss nun getestet werden. a) Identifizieren Sie die unabhängige Variable und nennen Sie drei mögliche Werte, die sie annehmen könnte. b) Wie können die abhängigen Variablen gemessen werden? c) Welche experimentelle Aufgabe könnte zur Messung der abhängigen Variablen verwendet werden? d) Formulieren Sie zwei Hypothesen. e) Nennen Sie eine Kontrollvariable, eine Zufallsvariable und eine Störvariable. f) Sollte ein Within-Subject- oder Between-Subject-Design verwendet werden? Begründen Sie.",
     "question_en": "A new keyboard layout has been developed that places the most frequently typed keys next to each other. The development team claims this allows faster typing and reduces finger fatigue. This now needs to be tested. a) Identify the independent variable and name three possible values it could take. b) How can the dependent variables be measured? c) What experimental task could be used to measure the dependent variable? d) Formulate two hypotheses. e) Name one control variable, one random variable, and one nuisance variable. f) Should a within-subject or between-subject design be used? Justify.",
-    "answer": "a) IV: Keyboard layout. Values: QWERTY, new layout, DVORAK. b) DVs: Typing speed (WPM via logging), finger fatigue (NASA-TLX questionnaire). c) Task: Transcribe a standard text paragraph. d) H1: New layout increases typing speed vs. QWERTY. H2: New layout reduces finger fatigue vs. QWERTY. e) Control: Text difficulty. Random: Time of day. Nuisance: Prior typing experience. f) Within-subject design to control individual differences (e.g., skill), with counterbalancing."
+    "answer": "a) IV: Keyboard layout. Values: QWERTY, new layout, DVORAK. b) DVs: Typing speed (WPM via logging), finger fatigue (NASA-TLX questionnaire). c) Task: Transcribe a standard text paragraph. d) H1: New layout increases typing speed vs. QWERTY. H2: New layout reduces finger fatigue vs. QWERTY. e) Control: Text difficulty. Random: Time of day. Nuisance: Prior typing experience. f) Within-subject design to control individual differences (e.g., skill), with counterbalancing.",
+    "scoring": {
+      "max_score": 12,
+      "components": [
+        {"description": "a) IV identification", "score": 1},
+        {"description": "a) Three values", "score": 1.5},
+        {"description": "b) Speed measurement", "score": 1},
+        {"description": "b) Fatigue measurement", "score": 1},
+        {"description": "c) Experimental task", "score": 1.5},
+        {"description": "d) First hypothesis", "score": 1.5},
+        {"description": "d) Second hypothesis", "score": 1.5},
+        {"description": "e) Variables named", "score": 2},
+        {"description": "f) Design choice + justification", "score": 2}
+      ]
+    }
   },
   {
     "question_de": "Wie sollte ein häufig geklicktes UI-Element gemäß Fitts’ Gesetz in einer PC-Anwendung platziert werden? Geben Sie eine Begründung an.",
     "question_en": "How should a frequently clicked UI element be placed in a PC application according to Fitts’ Law? Provide justification.",
-    "answer": "Place it at screen edges/corners (e.g., Start menu). Justification: Edges act as \"infinite targets\"—cursor movement stops at screen bounds, reducing pointing time (Fitts’ Law: MT = a + b log2(D/W + 1)). Corners maximize effective width (W), minimizing movement time (MT)."
+    "answer": "Place it at screen edges/corners (e.g., Start menu). Justification: Edges act as \"infinite targets\"—cursor movement stops at screen bounds, reducing pointing time (Fitts’ Law: MT = a + b log2(D/W + 1)). Corners maximize effective width (W), minimizing movement time (MT).",
+    "scoring": {
+      "max_score": 2,
+      "components": [
+        {"description": "Placement principle", "score": 1},
+        {"description": "Fitts' Law justification", "score": 1}
+      ]
+    }
   },
   {
     "question_de": "Ändert sich dies bei Touch-Eingabe anstelle einer Maus? Erklären Sie.",
     "question_en": "Does this change for touch input instead of a mouse? Explain.",
-    "answer": "Yes. Touch lacks mouse acceleration and suffers from occlusion/fatigue. Avoid screen edges (hard to reach on large devices). Place frequent targets within the thumb zone (e.g., bottom-center for phones). Fitts’ Law still applies, but W (target size) matters more than edge leverage."
+    "answer": "Yes. Touch lacks mouse acceleration and suffers from occlusion/fatigue. Avoid screen edges (hard to reach on large devices). Place frequent targets within the thumb zone (e.g., bottom-center for phones). Fitts’ Law still applies, but W (target size) matters more than edge leverage.",
+    "scoring": {
+      "max_score": 2,
+      "components": [
+        {"description": "Correct yes/no + core reason", "score": 1},
+        {"description": "Touch-specific placement", "score": 1}
+      ]
+    }
   }
 ]

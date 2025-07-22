@@ -11,7 +11,6 @@ import google.generativeai as genai
 from pages import page_config
 from dotenv import load_dotenv
 import os
-
 # ──────────────────────────────────────────────────────────────────────────────
 #  Configurations
 # ──────────────────────────────────────────────────────────────────────────────
@@ -25,7 +24,7 @@ QUESTIONS_FOLDER = PROJECT_ROOT / "questions_md"
 
 # Rate limit: max 15 calls per minute
 SECONDS_BETWEEN_CALLS = 60.0 / 15.0
-EXAM_TIME = 0.1 #in minutes
+EXAM_TIME = 90 #in minutes
 
 total_score = 0.0
 total_max_score = 0.0
@@ -69,86 +68,51 @@ def load_qna(folder_path):
 
 
 # Call the LLM for grading given specific prompt for grading
-def grade_with_llm(question: str, correct: str, student: str) -> str:
+def grade_with_llm(question: str, correct: str, student: str, scoring: dict) -> str:
     global total_score, total_max_score
-
+    
+    # Build scoring components description
+    components_str = "\n".join(
+        f"- {comp['description']} ({comp.get('score', 1)} point(s))" 
+        for comp in scoring.get("components", [])
+    )
+    
+    max_score = scoring.get("max_score", 1)
+    
     prompt = f"""
-        You are an {MODULE} professor grading a short-answer exam.  For each question:
+        You are an {MODULE} professor grading a short-answer exam. For this question:
 
-        1. **Determine the maximum score** from the question text:
-            - “Name N items” → 0.5 pt each → max = N × 0.5 (e.g., *Name 2 parts of…*)
-            - “Define M items” → 1 pt each → max = M
-            - “Give examples of X things” → 1 pt each → max = X
-            - Mixed tasks (definition + example, etc.) → add the relevant point values.  
-                • Example: *Define an item (1 pt) and give an example (1 pt)* → max = 2 pts.  
-                • Example: *Name 4 laws and define 2* → naming = 4 × 0.5 = 2 pts; definitions = 2 pts → total = 4 pts.
+        1. **Scoring Rubric** (Total: {max_score} points):
+        {components_str}
 
-        2. **Grade** the student’s answer out of the calculated maximum.  
-            - Full credit may be given if the answer captures the concept in the model answer.  
-            - If a student lists more than requested, cap their credit at the maximum.
+        2. **Grading Rules**:
+           - Award FULL credit for a component if the concept is correctly explained
+           - Award PARTIAL credit (50-100%) if partially correct but missing key aspects
+           - Be LENIENT - accept equivalent phrasings and alternative valid examples
+           - Focus on conceptual understanding rather than exact wording
 
-        3.  **Explain** briefly what's missing or incorrect.
-
-        4. **Format your output exactly like this** (omit lines that don’t apply to the question):
+        3. **Output Format**:
             ```
-            Grade: <score>/<max>
-
-            Your Answer:\n
-            {student!r}
+            Grade: <score>/{max_score}
 
             Feedback:
-            - Feedback <what is good or what is missing from the given answer> on one question point<naming, defining, example, etc> **Score/max**(refer to point 1)
-            - Feedback <what is good or what is missing from the given answer> on another question point<naming, defining, example, etc>, !!IF APPLICABLE!!, **Score/max**(refer to point 1)
-            - More feedbacks if necessary
-            ```
-            Only include the lines for parts the question actually asks.
-            Output should be in text format!
-            If the student leaves a part blank, award 0 for that part but keep the maximum.
-
-        5. GRADING EXAMPLE :
-            ```
-            Question 1 :
-            Name 4 parts of XYZ, give explanation for 2 of them
-
-            Given/Student's answer :
-            Parts of XYZ are X, Y, Z and A. X is x and Y is y
-
-            Output :
-            Grade: 3/4
-
-            Feedback:
-            - You named the parts correctly (2/2)
-            - Definition for X is correct, but the definition of Y is missing something <explain what is missing> (1/2)
-
-            Question 2 :
-            Name 2 type of ABC, give explanation for 2 of them and lastly give an example of their implementations.
-
-            Given/Student's answer :
-            Parts of ABC are A and B. A is a and B is b. Example of A is X.
-
-            Output :
-            Grade: 4/5
-
-            Your Answer:\n
-            {student!r}
-
-            Feedback:
-            - You named the parts correctly (1/1)
-            - Definition for A is correct, B is a little bit of the mark but still accepted <explain what is missing> (2/2)
-            - Example of A is correct, but B is missing (1/2)            
-
+            - [Component 1]: <feedback> (Score: <component_score>/<max_component_score>)
+            - [Component 2]: <feedback> (Score: <component_score>/<max_component_score>)
+            ...
             ```
 
-        Here is the question, key, and given answer:
+        4. **Examples**:
+           Good: 
+             - "Correctly explained memory limit (1/1)"
+             - "Good menu example but missed CLI application (0.5/1)"
+           Bad:
+             - "Wrong answer" (too vague)
+             - "Missing key point" (not helpful)
 
-        Question:
-        {question!r}
-
-        Model Answer:
-        {correct!r}
-
-        Given's Answer:
-        {student!r}
+        ---
+        **Question**: {question!r}
+        **Model Answer**: {correct!r}
+        **Student's Answer**: {student!r}
         """.strip()
 
     model = genai.GenerativeModel(MODEL)
@@ -158,13 +122,11 @@ def grade_with_llm(question: str, correct: str, student: str) -> str:
     m = re.search(r"Grade:\s*([\d.]+)\s*/\s*([\d.]+)", text)
     if m:
         score = float(m.group(1))
-        max_score = float(m.group(2))
         total_score += score
         total_max_score += max_score
 
     time.sleep(SECONDS_BETWEEN_CALLS)
     return text
-
 
 # ──────────────────────────────────────────────────────────────────────────────
 #  UI Shenanigans
@@ -186,12 +148,12 @@ disabled = st.session_state.manual_submit
 
 #--------------------- Back & Retake button -------------------------------------------------
 exam_in_progress = st.session_state.start_time is not None 
-study_disabled     = exam_in_progress and not st.session_state.grading_done
 
 back_col, retake_col = st.columns(2)
 
 with back_col:
     if st.button(label=f"Study: {page_config.module_name}", icon="◀️"):
+        page_config.NEW_SCORE = False
         st.switch_page("pages/main_page.py")
 
 with retake_col:
@@ -314,6 +276,7 @@ if st.session_state.auto_submit or st.button("Submit", type="primary", disabled=
     if st.session_state.auto_submit:
         st.warning("⏳ Time is up! Your answers have been submitted automatically.")
     st.session_state.manual_submit = True
+    page_config.NEW_SCORE = True
 
 if st.session_state.manual_submit:
     st.header("Grades")
@@ -323,13 +286,15 @@ if st.session_state.manual_submit:
             st.warning(f"Q{idx+1}: No answer provided.")
             st.divider()
             continue
-
+        
         with st.spinner(f"Grading Q{idx + 1}..."):
             result = grade_with_llm(
                 question=pair["question_en"],
                 correct=pair["answer"],
                 student=student_ans,
+                scoring=pair.get("scoring", {"max_score": 1, "components": []})
             )
+
         st.markdown(f"**Q{idx + 1} Grade & Feedback:**  \n{result}")
         expander = st.expander("See actual answer")
         expander.write(f"**Q : {pair['question_en']}**")
@@ -348,14 +313,22 @@ if st.session_state.manual_submit:
             final_grade = note(score_percentage)
     
     #------------------------ Final Sidebar and Grades ------------------------------------------------
-    st.sidebar.markdown(f"""
-                        🏆 **Total Score: {total_score:.1f} / {total_max_score:.1f}** \n
-                        💯 **Note : {final_grade}
-                        """)
     st.success(f"🏆 **Total Score: {total_score:.1f} / {total_max_score:.1f}**")
-    st.success(f"💯 **Note : {final_grade}**")
+    st.success(f"💯 **Note :** {final_grade}")
+
+    back_col, retake_col = st.columns(2)
+
+    with back_col:
+        if st.button(label=f"Study: {page_config.module_name}", icon="◀️", key="back_bot"):
+            page_config.NEW_SCORE = False
+            st.switch_page("pages/main_page.py")
+
+    with retake_col:
+        if st.button("Retake Exam", type="primary", icon="🔁", use_container_width=True, key="retake_bot"):
+            streamlit_js_eval(js_expressions="parent.window.location.reload()")
 
     if st.session_state.grading_done:
         page_config.EXAM_DONE = True
-        page_config.LATEST_GRADE = final_grade
-        page_config.LATEST_SCORE = f"Score: {total_score}/{total_max_score}"
+        if page_config.NEW_SCORE:
+            page_config.LATEST_GRADE = final_grade
+            page_config.LATEST_SCORE = f"Score: {total_score}/{total_max_score}"

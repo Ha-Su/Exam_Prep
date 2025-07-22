@@ -55,7 +55,7 @@
 
 ## Visual Perception
 - **Eye anatomy**: light → retina → optic nerve → brain; lens adjusts focus (accommodation); fovea is high-resolution region. (Slide 38)  
-- **Helmholtz’s Unconscious Inference**: Retinal image is ambiguous; we perceive what is most likely to have caused the stimuli via unconscious assumptions. (Slide 44)  
+- **Helmholtz’s Unconscious Inference**: Perception is the result of unconscious assumptions based on past experiences. we perceive what is most likely to have caused the stimuli via unconscious assumptions. (Slide 44)  
 - **Illusions**: Examples include checker shadow (Slide 46), Ponzo (Slide 47), and ambiguous figures (Slide 44).  
 
 ## Gestalt Laws (Bottom-Up)

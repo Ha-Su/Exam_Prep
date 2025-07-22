@@ -11,6 +11,7 @@ module_name_ab = None
 EXAM_DONE = False
 LATEST_GRADE = None
 LATEST_SCORE = None
+NEW_SCORE = False
 
 #API related
 API_KEY = ""
