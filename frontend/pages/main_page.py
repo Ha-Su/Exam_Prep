@@ -1,6 +1,11 @@
 import streamlit as st
 from style import main_style
 from pages import page_config
+from pathlib import Path
+from PIL import Image
+
+
+ROOT = Path(__file__).parent.parent  # → Project_Test/frontend
 
 st.markdown(main_style.HOME_BUTTON, unsafe_allow_html=True)
 
@@ -41,12 +46,13 @@ with column4:
                 """
         st.markdown(html, unsafe_allow_html=True)
         if 1 <= float(value) <= 2:
-            gif = "frontend/gifs/bear_success.gif"
+            gif = ROOT / "gifs" / "bear_success.gif"
         elif 2.3 <= float(value) <= 3.7:
-            gif = "frontend/gifs/nice.gif"
+            gif = ROOT / "gifs" / "nice.gif"
         else:
-            gif = "frontend/gifs/trash.gif"
+            gif = ROOT / "gifs" / "trash.gif"
         st.image(gif)
     else:
         st.markdown(main_style.TEXT_NO_EXAM, unsafe_allow_html=True)
-        st.image(image="frontend/gifs/bear_nosucc.gif")
+        no_exam_gif = ROOT / "gifs" / "bear_nosucc.gif"
+        st.image(no_exam_gif)

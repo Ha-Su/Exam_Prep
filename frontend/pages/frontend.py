@@ -4,8 +4,9 @@ import pathlib
 import glob
 import json
 import time
-from streamlit_autorefresh import st_autorefresh
 from streamlit_js_eval import streamlit_js_eval
+from streamlit.components.v1 import html
+from streamlit_autorefresh import st_autorefresh
 import google.generativeai as genai
 from pages import page_config
 from dotenv import load_dotenv
@@ -24,6 +25,7 @@ QUESTIONS_FOLDER = PROJECT_ROOT / "questions_md"
 
 # Rate limit: max 15 calls per minute
 SECONDS_BETWEEN_CALLS = 60.0 / 15.0
+EXAM_TIME = 0.1 #in minutes
 
 total_score = 0.0
 total_max_score = 0.0
@@ -239,23 +241,65 @@ if st.session_state.start_time is None :
     st.stop()
 
 elapsed = time.time() - st.session_state.start_time
-remaining_seconds = max(0, 90*60 - int(elapsed))
+remaining_seconds = max(0, EXAM_TIME*60 - int(elapsed))
 remaining_minutes = remaining_seconds // 60
 if remaining_seconds == 0:
     st.session_state.auto_submit = True
 
-#--------------------------- Sidebar Shenanigans --------------------------------------------------
+#------------------------------------------- Timer -------------------------------------------------
+def start_js_timer(duration_seconds):
+    js = f"""
+    <script>
+    function startTimer(duration) {{
+        let timer = duration;
+        const timerElement = parent.document.getElementById('timer-display');
+        
+        function updateTimer() {{
+            const minutes = Math.floor(timer / 60);
+            const seconds = timer % 60;
+            
+            if (timerElement) {{
+                timerElement.innerText = `⏱ Time Remaining: ${{minutes}}m ${{seconds}}s`;
+            }}
+            
+            if (--timer < 0) {{
+                clearInterval(interval);
+
+                const rEvent = new KeyboardEvent('keydown', {{
+                    key: 'r',
+                    code: 'KeyR',
+                    keyCode: 82,
+                    which: 82,
+                    bubbles: true,
+                    cancelable: true
+                }});
+
+                parent.document.dispatchEvent(rEvent);
+            }}
+        }}
+        
+        // Initial update
+        updateTimer();
+        const interval = setInterval(updateTimer, 1000);
+    }}
+    
+    // Start the timer with the specified duration
+    startTimer({duration_seconds});
+    </script>
+    """
+    return js
+
 timer_slot = st.empty
 if not disabled and st.session_state.start_time:
-    timer_slot = st.sidebar.markdown(f"## ⏱ Time Remaining : **{remaining_minutes} minutes**")
-elif disabled and not st.session_state.grading_done:
-    timer_slot = st.sidebar.empty()
-
-#--------------------- Disable Timer -------------------------------------------------
-if not disabled:
-    st_autorefresh(interval=5000, limit=None, key="timer_refresh")
+    # Create a container for the timer display
+    st.sidebar.markdown('<div id="timer-display"></div>', unsafe_allow_html=True)
+    
+    # Start the JavaScript timer
+    html(start_js_timer(remaining_seconds), height=0)
 
 #--------------------------- Load questions -----------------------------------------------
+if st.session_state.auto_submit :
+    st.header("TIMES UP")
 
 for idx, qna_pair in enumerate(questions):
     st.markdown(f"**{idx + 1} )**")

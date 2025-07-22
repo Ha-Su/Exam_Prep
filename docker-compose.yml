@@ -6,7 +6,6 @@ services:
     ports:
       - "8502:8502"
     volumes:
-      - ./.streamlit:/app/.streamlit 
       - ./answers_generated:/app/answers_generated
       - ./study_material:/app/study_material
     environment:
