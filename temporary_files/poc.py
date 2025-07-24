@@ -9,6 +9,8 @@ from sentence_transformers import SentenceTransformer, CrossEncoder
 import faiss
 import google.generativeai as genai
 
+import streamlit as st
+
 # ──────────────────────────────────────────────────────────────────────────────
 #  CONFIGURATION
 # ──────────────────────────────────────────────────────────────────────────────
@@ -74,7 +76,7 @@ def build_index(slide_tuples, model_name="paraphrase-multilingual-MiniLM-L12-v2"
     dim   = embeddings.shape[1]
     index = faiss.IndexFlatIP(dim)
     index.add(embeddings)
-    return index, passages, metadata, embedder
+    return index, passages, metadata, embedder  
 
 # ──────────────────────────────────────────────────────────────────────────────
 #   Load exam questions (bullets or numbered items), parsed using markdown symbols
@@ -156,45 +158,61 @@ def generate_answer(question, contexts):
 # ──────────────────────────────────────────────────────────────────────────────
 #  MAIN PIPELINE
 # ──────────────────────────────────────────────────────────────────────────────
+slides  = extract_slides_from_md(MD_FOLDER)
+index, passages, metadata, embedder = build_index(slides)
+
 if __name__ == "__main__":
     # 1) Read & index slides
-    slides  = extract_slides_from_md(MD_FOLDER)
-    index, passages, metadata, embedder = build_index(slides)
+    # slides  = extract_slides_from_md(MD_FOLDER)
 
     # 2) Load questions
-    questions = load_questions(QUESTIONS_FOLDER)
-    if not questions:
-        print(f"No questions found in {QUESTIONS_FOLDER}")
-        exit(1)
+    # questions = load_questions(QUESTIONS_FOLDER)
+    # if not questions:
+    #     print(f"No questions found in {QUESTIONS_FOLDER}")
+    #     exit(1)
 
-    # 3) Retrieve + answer each
-    qa_pairs = []
-    for q in questions:
-        hits = retrieve_and_rerank(
-                q,
-                index,
-                passages,
-                metadata,
-                embedder,
-                cross_encoder,
-                initial_k=20,   # bump this up so your relevant slide is in the pool
-                final_k=5       # Gemini still only sees top 5
-        )
-        contexts = [h["text"] for h in hits]
-        ans      = generate_answer(q, contexts)
-        qa_pairs.append({
-            "question": q,
-            "answer": ans,
-            "sources": [
-                {"topic": h["topic"], "slide": h["slide"], "score": h["score"]}
-                for h in hits
-            ]
-        })
-        print("✓", q)
+    # # 3) Retrieve + answer each
+    # qa_pairs = []
+    # for q in questions:
+    #     hits = retrieve_and_rerank(
+    #             q,
+    #             index,
+    #             passages,
+    #             metadata,
+    #             embedder,
+    #             cross_encoder,
+    #             initial_k=20,   # bump this up so your relevant slide is in the pool
+    #             final_k=5       # Gemini still only sees top 5
+    #     )
+    #     contexts = [h["text"] for h in hits]
+    #     ans      = generate_answer(q, contexts)
+    #     qa_pairs.append({
+    #         "question": q,
+    #         "answer": ans,
+    #         "sources": [
+    #             {"topic": h["topic"], "slide": h["slide"], "score": h["score"]}
+    #             for h in hits
+    #         ]
+    #     })
+    #     print("✓", q)
 
 
-    # 4) Write to JSON
-    with open(OUTPUT_JSON, "w", encoding="utf-8") as fp:
-        json.dump(qa_pairs, fp, ensure_ascii=False, indent=2)
+    # # 4) Write to JSON
+    # with open(OUTPUT_JSON, "w", encoding="utf-8") as fp:
+    #     json.dump(qa_pairs, fp, ensure_ascii=False, indent=2)
 
-    print(f"\n Wrote {len(qa_pairs)} Q&A pairs to '{OUTPUT_JSON}'")
+    # print(f"\n Wrote {len(qa_pairs)} Q&A pairs to '{OUTPUT_JSON}'")
+
+    quest = "Name Gestalt Laws"
+    hits = retrieve_and_rerank(quest, index, passages, metadata, embedder, cross_encoder, initial_k=10, final_k=5)
+    contexts = [h["text"] for h in hits]
+    ans      = generate_answer(quest, contexts)
+
+    print(ans)
+
+    quest2 = "Give me an example of dark design pattenr"
+    hits2 = retrieve_and_rerank(quest2, index, passages, metadata, embedder, cross_encoder, initial_k=10, final_k=5)
+    contexts2 = [h["text"] for h in hits2]
+    ans2      = generate_answer(quest2, contexts2)
+    
+    print(ans2)

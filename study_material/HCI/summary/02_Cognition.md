@@ -38,9 +38,9 @@
 - **Affordances** (Gibson 1977): properties of an artifact that indicate possible uses; when good, no labels needed. (Slides 24, 30)  
 - **Perceived Affordances** (Norman): what users believe they can do with an object, guiding actions. (Slide 24)  
 - **Types of Affordances** (Gaver 1991):  
-  - Perceptible (e.g., door handle)  
-  - Hidden (e.g., undiscovered menus)  
-  - False (e.g., underlined non-link text)  
+  - Perceptible : Perceptual characteristics of the object itself indicate what action possibilities are available and desired  (e.g., door handle)  
+  - Hidden : Users often must rely on experience and/or trial and error to determine possible action (e.g., undiscovered menus)  
+  - False : An object's characteristics suggest users can do something they can't (e.g., underlined non-link text)  
   (Slide 31)  
 - **Norman Door**: Bad design requiring labels due to conflicting affordances (pull handle vs. push door). (Slide 27)  
 
@@ -51,6 +51,7 @@
 ## Overview
 - **Perception**: experiences resulting from stimulation of the senses (sight, hearing, taste, smell, touch). (Slide 37)  
 - Always a combination of **bottom-up** (sensory input) and **top-down** (knowledge, expectation) processing; best interpretation of stimulus. (Slide 39)  
+  <!-- ![Perception demo](./perception_13.png) -->
 - **Visual Dominance**: Visual sense often overrides other senses. (Slide 38)  
 
 ## Visual Perception
