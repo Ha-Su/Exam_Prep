@@ -2,12 +2,17 @@ from pathlib import Path
 import streamlit as st
 from streamlit_pdf_viewer import pdf_viewer
 from pages import page_config
+from pages.session_manager import initialize_session, get_user_module
 from style import study_style
 import random
 import json
 
-# Config
-MODULE = page_config.module_name_ab
+# Initialize session state for this user
+initialize_session()
+
+# Get user's module from their session
+user_module_name, user_module_ab = get_user_module()
+MODULE = user_module_ab
 
 
 @st.cache_data
@@ -17,10 +22,10 @@ def load_markdown(path: str) -> str:
 
 st.markdown(study_style.BACK_BUTTON, unsafe_allow_html=True)
 
-if st.button(label=f"Study: {page_config.module_name}", icon="◀️", type="primary"):
+if st.button(label=f"Study: {user_module_name}", icon="◀️", type="primary"):
     st.switch_page("pages/main_page.py")
 
-main_title = study_style.make_main_title(page_config.module_name_ab)
+main_title = study_style.make_main_title(user_module_ab)
 
 st.markdown(main_title, unsafe_allow_html=True)
 

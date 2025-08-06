@@ -1,18 +1,51 @@
 import streamlit as st
 from style import main_style
 from pages import page_config
+from pages.session_manager import initialize_session, get_user_module
 from pathlib import Path
 from PIL import Image
+import sys
+import pathlib
 
+PROJECT_ROOT = pathlib.Path(__file__).resolve().parent.parent.parent
+sys.path.append(str(PROJECT_ROOT))
 
-ROOT = Path(__file__).parent.parent  # → Project_Test/frontend
+from leaderboard.leaderboard import load_leaderboard
+
+initialize_session()
+
+ROOT = Path(__file__).parent.parent 
+
+def generate_leaderboard_html() -> str:
+    leaderboard = load_leaderboard()
+
+    html = f"""
+                <div class="custom-metric-wrapper">
+                <div class="metric-container">
+                    <div class="metric-label">{leaderboard[0]["name"]}</div>
+                    <div class="metric-value">{leaderboard[0]["grade"]}</div>
+                    <div class="metric-delta">Score : {leaderboard[0]["total_score"]}/{leaderboard[0]["total_max_score"]}</div>
+                    <div class="metric-label">-------------------</div>
+                    <div class="metric-label">{leaderboard[1]["name"]}</div>
+                    <div class="metric-value">{leaderboard[1]["grade"]}</div>
+                    <div class="metric-delta">Score : {leaderboard[1]["total_score"]}/{leaderboard[1]["total_max_score"]}</div>
+                    <div class="metric-label">-------------------</div>
+                    <div class="metric-label">{leaderboard[2]["name"]}</div>
+                    <div class="metric-value">{leaderboard[2]["grade"]}</div>
+                    <div class="metric-delta">Score : {leaderboard[2]["total_score"]}/{leaderboard[2]["total_max_score"]}</div>
+                </div>
+                </div>
+                """
+    return html
 
 st.markdown(main_style.HOME_BUTTON, unsafe_allow_html=True)
 
 if st.button(label="🏠", key="home-button", type="primary"):
     st.switch_page("app.py")
 
-main_title = main_style.make_main_title(page_config.module_name)
+# Get user's module from their session
+user_module_name, user_module_ab = get_user_module()
+main_title = main_style.make_main_title(user_module_name)
 
 st.markdown(main_title, unsafe_allow_html=True)
 
@@ -28,13 +61,13 @@ with column2:
     if st.button(label="Mock Exams", icon="📣", use_container_width=True, key="exam-button", type="tertiary"):
         st.switch_page("pages/frontend.py")
 
-column3, column4, column5 = st.columns(3, gap=None, vertical_alignment="center")
+latest_private_score, leaderboard_top3 = st.columns(2, gap='large', vertical_alignment="center")
 
-with column4:
-    if page_config.EXAM_DONE:
+with latest_private_score:
+    if st.session_state.get("exam_done", False):
         st.markdown(main_style.METRIC_CSS, unsafe_allow_html=True)
-        value = page_config.LATEST_GRADE
-        delta = page_config.LATEST_SCORE
+        value = st.session_state.get("latest_grade", "No score")
+        delta = st.session_state.get("latest_score", "No score")
         html = f"""
                 <div class="custom-metric-wrapper">
                   <div class="metric-container">
@@ -45,9 +78,9 @@ with column4:
                 </div>
                 """
         st.markdown(html, unsafe_allow_html=True)
-        if 1 <= float(value) <= 2:
+        if value != "N/A" and 1 <= float(value) <= 2:
             gif = ROOT / "gifs" / "bear_success.gif"
-        elif 2.3 <= float(value) <= 3.7:
+        elif value != "N/A" and 2.3 <= float(value) <= 3.7:
             gif = ROOT / "gifs" / "nice.gif"
         else:
             gif = ROOT / "gifs" / "trash.gif"
@@ -56,3 +89,9 @@ with column4:
         st.markdown(main_style.TEXT_NO_EXAM, unsafe_allow_html=True)
         no_exam_gif = ROOT / "gifs" / "bear_nosucc.gif"
         st.image(no_exam_gif)
+
+with leaderboard_top3:
+
+    st.markdown(main_style.METRIC_CSS, unsafe_allow_html=True)
+    html = generate_leaderboard_html()
+    st.markdown(html, unsafe_allow_html=True)

@@ -53,11 +53,10 @@
     "question_en": "Explain the two directions of perception (Bottom-Up and Top-Down). Describe them in detail using the example of the image [figure 13 from the lecture].",
     "answer": "Bottom-Up processing starts with sensory input (e.g., light patterns on the retina) and builds perception from raw data. Top-Down processing uses prior knowledge/expectations to interpret input. In figure 13 (ambiguous rectangles), Bottom-Up detects edges/colors, while Top-Down infers depth (e.g., blue rectangle occluding red) based on experience with overlapping objects.",
     "scoring": {
-      "max_score": 4,
+      "max_score": 3,
       "components": [
         {"description": "Bottom-Up explanation", "score": 1.5},
-        {"description": "Top-Down explanation", "score": 1.5},
-        {"description": "Image application", "score": 1}
+        {"description": "Top-Down explanation", "score": 1.5}
       ]
     }
   },
@@ -155,18 +154,6 @@
         {"description": "Three patterns named", "score": 1.5},
         {"description": "First pattern explained", "score": 1.5},
         {"description": "Second pattern explained", "score": 2}
-      ]
-    }
-  },
-  {
-    "question_de": "Identifizieren Sie für jedes der folgenden Bilder, welches Dark Pattern verwendet wird. [Das „Nagging“-Beispiel aus der Vorlesung und das „Obstruction“-Beispiel aus der Vorlesung]",
-    "question_en": "For each of the following images, identify which dark pattern is used. [The “Nagging” example from the lecture and the “Obstruction” example from the lecture]",
-    "answer": "1) Nagging: Image showing persistent notifications requests (e.g., \"Allow notifications?\" with only \"Not now\" and \"OK\"). 2) Obstruction: Image with a hidden \"Unsubscribe\" link (e.g., white text on white background).",
-    "scoring": {
-      "max_score": 2,
-      "components": [
-        {"description": "First image correct", "score": 1},
-        {"description": "Second image correct", "score": 1}
       ]
     }
   },

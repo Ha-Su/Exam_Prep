@@ -4,35 +4,55 @@ import pathlib
 import glob
 import json
 import time
+import sys
 from streamlit_js_eval import streamlit_js_eval
 from streamlit.components.v1 import html
 from streamlit_autorefresh import st_autorefresh
 import google.generativeai as genai
+
+PROJECT_ROOT = pathlib.Path(__file__).resolve().parent.parent.parent
+sys.path.append(str(PROJECT_ROOT))
+
 from pages import page_config
+from pages.session_manager import (
+    initialize_session, get_user_api_key, set_user_api_key, get_user_module, reset_exam_state,
+    store_grading_result, get_grading_result, has_grading_result,
+    add_to_total_score, get_total_scores, reset_total_scores,
+    store_student_answer, get_student_answer, get_user_name, set_user_name
+)
+from leaderboard.leaderboard import add_new_entry
 from dotenv import load_dotenv
 import os
+
+# Initialize session state for this user
+initialize_session()
+
 # ──────────────────────────────────────────────────────────────────────────────
 #  Configurations
 # ──────────────────────────────────────────────────────────────────────────────
-MODEL = os.getenv("MODEL", "gemini-2.5-flash-lite-preview-06-17")
+MODEL = page_config.DEFAULT_MODEL
 
-MODULE = page_config.module_name
+# Get user's module from their session
+user_module_name, user_module_ab = get_user_module()
+MODULE = user_module_name
 
 PAGES_DIR = pathlib.Path(__file__).resolve().parent               # …/Exam_Prep/frontend/pages
 PROJECT_ROOT = PAGES_DIR.parent.parent                            # …/Exam_Prep
 QUESTIONS_FOLDER = PROJECT_ROOT / "questions_md"
 
-# Rate limit: max 15 calls per minute
-SECONDS_BETWEEN_CALLS = 60.0 / 15.0
-EXAM_TIME = 90 #in minutes
+# Get constants from config
+SECONDS_BETWEEN_CALLS = page_config.SECONDS_BETWEEN_CALLS
+EXAM_TIME = page_config.EXAM_TIME
 
-total_score = 0.0
-total_max_score = 0.0
-final_grade = 0.0
+# Scores are now managed in session state - no global variables needed
 
 def check_key_validity() -> bool:
-    if not st.session_state.api_key.strip():
+    user_key = get_user_api_key()
+    if not user_key.strip():
         return False
+    
+    # Configure genai with user's specific key
+    genai.configure(api_key=user_key)
     model = genai.GenerativeModel(MODEL)
     try:
         response = model.generate_content("Hello")
@@ -69,7 +89,6 @@ def load_qna(folder_path):
 
 # Call the LLM for grading given specific prompt for grading
 def grade_with_llm(question: str, correct: str, student: str, scoring: dict) -> str:
-    global total_score, total_max_score
     
     # Build scoring components description
     components_str = "\n".join(
@@ -95,6 +114,9 @@ def grade_with_llm(question: str, correct: str, student: str, scoring: dict) -> 
             ```
             Grade: <score>/{max_score}
 
+            Given Answer: 
+            {student!r}
+
             Feedback:
             - [Component 1]: <feedback> (Score: <component_score>/<max_component_score>)
             - [Component 2]: <feedback> (Score: <component_score>/<max_component_score>)
@@ -119,11 +141,11 @@ def grade_with_llm(question: str, correct: str, student: str, scoring: dict) -> 
     response = model.generate_content(prompt)
     text = response.text.strip()
 
+    # Extract score and add to session totals
     m = re.search(r"Grade:\s*([\d.]+)\s*/\s*([\d.]+)", text)
     if m:
         score = float(m.group(1))
-        total_score += score
-        total_max_score += max_score
+        add_to_total_score(score, max_score)
 
     time.sleep(SECONDS_BETWEEN_CALLS)
     return text
@@ -131,18 +153,18 @@ def grade_with_llm(question: str, correct: str, student: str, scoring: dict) -> 
 # ──────────────────────────────────────────────────────────────────────────────
 #  UI Shenanigans
 # ──────────────────────────────────────────────────────────────────────────────
-if "api_key" not in st.session_state:
-    st.session_state.api_key = page_config.API_KEY
-if "start_time" not in st.session_state:
-    st.session_state.start_time = None
-if "auto_submit" not in st.session_state:
-    st.session_state.auto_submit = False
-if "manual_submit" not in st.session_state:
-    st.session_state.manual_submit = False
-if "grading_done" not in st.session_state:
-    st.session_state.grading_done = False
+# if "api_key" not in st.session_state:
+#     st.session_state.api_key = page_config.API_KEY
+# if "start_time" not in st.session_state:
+#     st.session_state.start_time = None
+# if "auto_submit" not in st.session_state:
+#     st.session_state.auto_submit = False
+# if "manual_submit" not in st.session_state:
+#     st.session_state.manual_submit = False
+# if "grading_done" not in st.session_state:
+#     st.session_state.grading_done = False
 
-api_key_help = f"Use the default API key : {os.getenv("GOOGLE_API_KEY")}"
+api_key_help = f"Use the default API key : {os.getenv('GOOGLE_API_KEY')}"
 
 disabled = st.session_state.manual_submit
 
@@ -152,13 +174,32 @@ exam_in_progress = st.session_state.start_time is not None
 back_col, retake_col = st.columns(2)
 
 with back_col:
-    if st.button(label=f"Study: {page_config.module_name}", icon="◀️"):
-        page_config.NEW_SCORE = False
+    if st.button(label=f"Study: {user_module_name}", icon="◀️"):
+        # Stop the timer when navigating away
+        stop_timer_js = """
+        <script>
+        if (window.stopExamTimer) {
+            window.stopExamTimer();
+        }
+        </script>
+        """
+        html(stop_timer_js, height=0)
+        st.session_state.new_score = False
         st.switch_page("pages/main_page.py")
 
 with retake_col:
     if st.button("Retake Exam", type="primary", icon="🔁", use_container_width=True):
-        streamlit_js_eval(js_expressions="parent.window.location.reload()")
+        # Stop the timer before resetting
+        stop_timer_js = """
+        <script>
+        if (window.stopExamTimer) {
+            window.stopExamTimer();
+        }
+        </script>
+        """
+        html(stop_timer_js, height=0)
+        reset_exam_state()
+        st.rerun()
 
 # Load questions
 questions = load_qna(f"{QUESTIONS_FOLDER}/updated_QnA_pairs.json")
@@ -170,13 +211,22 @@ if st.session_state.start_time is None :
     KEY_IS_INVALID = True
     #================================= API Key configuration =====================================================
     with st.form("api"):
+        form_user_name = st.text_input("**Enter your name :**", value=get_user_name())
+        st.divider()
         st.markdown("**Get your Gemini API key** [here](%s)." % page_config.API_KEY_URL) 
-        USER_API_KEY = st.text_input("**Enter API Key :**", placeholder="API Key Please", key="api_key", help=api_key_help)
+        USER_API_KEY = st.text_input(
+            "**Enter API Key :**", 
+            placeholder="API Key Please", 
+            value=get_user_api_key(),
+            help=api_key_help
+        )
         col1,col2,col3 = st.columns(3)
         with col2:
             check_valid = st.form_submit_button("Set Key", use_container_width=True)
-            page_config.API_KEY = st.session_state.api_key
-            genai.configure(api_key=st.session_state.api_key)
+            if check_valid:
+                set_user_api_key(USER_API_KEY)
+                set_user_name(form_user_name) 
+                genai.configure(api_key=USER_API_KEY)
     if check_valid:
         with st.spinner("Checking validity…"):
             if check_key_validity():
@@ -212,11 +262,27 @@ if remaining_seconds == 0:
 def start_js_timer(duration_seconds):
     js = f"""
     <script>
+    // Global variables
+    window.examTimerInterval = null;
+    window.timerShouldStop = false;
+    
     function startTimer(duration) {{
         let timer = duration;
         const timerElement = parent.document.getElementById('timer-display');
         
         function updateTimer() {{
+            // Check if timer should be stopped (via session state changes)
+            if (window.timerShouldStop) {{
+                clearInterval(window.examTimerInterval);
+                window.examTimerInterval = null;
+                
+                if (timerElement) {{
+                    timerElement.innerText = `⏱ Timer Stopped - Exam Submitted`;
+                    timerElement.style.color = '#28a745'; // Green color
+                }}
+                return;
+            }}
+            
             const minutes = Math.floor(timer / 60);
             const seconds = timer % 60;
             
@@ -225,8 +291,9 @@ def start_js_timer(duration_seconds):
             }}
             
             if (--timer < 0) {{
-                clearInterval(interval);
-
+                clearInterval(window.examTimerInterval);
+                window.examTimerInterval = null;
+                
                 const rEvent = new KeyboardEvent('keydown', {{
                     key: 'r',
                     code: 'KeyR',
@@ -242,7 +309,14 @@ def start_js_timer(duration_seconds):
         
         // Initial update
         updateTimer();
-        const interval = setInterval(updateTimer, 1000);
+        
+        // Store interval ID globally
+        window.examTimerInterval = setInterval(updateTimer, 1000);
+    }}
+    
+    // Global function to stop the timer
+    window.stopExamTimer = function() {{
+        window.timerShouldStop = true;
     }}
     
     // Start the timer with the specified duration
@@ -259,10 +333,7 @@ if not disabled and st.session_state.start_time:
     # Start the JavaScript timer
     html(start_js_timer(remaining_seconds), height=0)
 
-#--------------------------- Load questions -----------------------------------------------
-if st.session_state.auto_submit :
-    st.header("TIMES UP")
-
+#--------------------------- Load questions -------------------------------------------
 for idx, qna_pair in enumerate(questions):
     st.markdown(f"**{idx + 1} )**")
     st.markdown(f"**🇩🇪 : {qna_pair['question_de']}**")  # German questions
@@ -275,60 +346,98 @@ for idx, qna_pair in enumerate(questions):
 if st.session_state.auto_submit or st.button("Submit", type="primary", disabled=st.session_state.manual_submit):
     if st.session_state.auto_submit:
         st.warning("⏳ Time is up! Your answers have been submitted automatically.")
+    else:
+        # Manual submission - stop the timer using HTML injection
+        stop_timer_js = """
+        <script>
+        if (window.stopExamTimer) {
+            window.stopExamTimer();
+        }
+        </script>
+        """
+        html(stop_timer_js, height=0)
+        
     st.session_state.manual_submit = True
-    page_config.NEW_SCORE = True
+    st.session_state.new_score = True
 
 if st.session_state.manual_submit:
     st.header("Grades")
-    for idx, pair in enumerate(questions):
-        student_ans = st.session_state[f"ans_{idx}"].strip()
-        if not student_ans:
-            st.warning(f"Q{idx+1}: No answer provided.")
-            st.divider()
-            continue
+    
+    # Only reset and grade if not already done
+    if not st.session_state.grading_done:
+        # Reset totals before grading
+        reset_total_scores()
         
-        with st.spinner(f"Grading Q{idx + 1}..."):
-            result = grade_with_llm(
-                question=pair["question_en"],
-                correct=pair["answer"],
-                student=student_ans,
-                scoring=pair.get("scoring", {"max_score": 1, "components": []})
-            )
-
-        st.markdown(f"**Q{idx + 1} Grade & Feedback:**  \n{result}")
-        expander = st.expander("See actual answer")
-        expander.write(f"**Q : {pair['question_en']}**")
-        expander.divider()
-        expander.write(f"A : {pair['answer']}")
-
-        st.divider()
+        # Store all answers first
+        for idx, pair in enumerate(questions):
+            student_ans = st.session_state[f"ans_{idx}"].strip()
+            store_student_answer(idx, student_ans)
+        
+        # Grade all questions
+        for idx, pair in enumerate(questions):
+            student_ans = get_student_answer(idx)
+            if not student_ans:
+                # Store empty result for empty answers
+                store_grading_result(idx, f"❌ **Q{idx+1}: No answer provided.**")
+                add_to_total_score(0, pair.get("scoring", {"max_score": 1})["max_score"])
+                continue
+            
+            with st.spinner(f"Grading Q{idx + 1}..."):
+                genai.configure(api_key=get_user_api_key())
+                result = grade_with_llm(
+                    question=pair["question_en"],
+                    correct=pair["answer"],
+                    student=student_ans,
+                    scoring=pair.get("scoring", {"max_score": 1, "components": []})
+                )
+                # Store the grading result
+                store_grading_result(idx, result)
+        
+        # Mark grading as complete
+        st.session_state.grading_done = True
+    
+    # Display all stored results (whether just graded or from previous session)
+    for idx, pair in enumerate(questions):
+        if has_grading_result(idx):
+            result = get_grading_result(idx)
+            st.markdown(f"**Q{idx + 1} Grade & Feedback:**  \n{result}")
+            
+            expander = st.expander("See actual answer")
+            expander.write(f"**Q : {pair['question_en']}**")
+            expander.divider()
+            expander.write(f"A : {pair['answer']}")
+            
+            # Show student's answer too
+            student_ans = get_student_answer(idx)
+            if student_ans:
+                expander.write(f"**Your Answer:** {student_ans}")
+            
+            st.divider()
     
     #--------------------------- Grading Done -----------------------------------------------------
-    st.session_state.grading_done = True
-    if isinstance(total_score, float) and isinstance(total_max_score, float):
-        if total_max_score == 0:
-                final_grade = 5.0
-        else:
-            score_percentage = (total_score / total_max_score) * 100
-            final_grade = note(score_percentage)
+    # Calculate final grade using session state scores
+    total_score, total_max_score = get_total_scores()
+    
+    if total_max_score == 0:
+        final_grade = 5.0
+    else:
+        score_percentage = (total_score / total_max_score) * 100
+        final_grade = note(score_percentage)
+    
+    # Store results in user's session
+    st.session_state.latest_grade = final_grade
+    st.session_state.latest_score = f"Score: {total_score}/{total_max_score}"
     
     #------------------------ Final Sidebar and Grades ------------------------------------------------
     st.success(f"🏆 **Total Score: {total_score:.1f} / {total_max_score:.1f}**")
     st.success(f"💯 **Note :** {final_grade}")
-
-    back_col, retake_col = st.columns(2)
-
-    with back_col:
-        if st.button(label=f"Study: {page_config.module_name}", icon="◀️", key="back_bot"):
-            page_config.NEW_SCORE = False
-            st.switch_page("pages/main_page.py")
-
-    with retake_col:
-        if st.button("Retake Exam", type="primary", icon="🔁", use_container_width=True, key="retake_bot"):
-            streamlit_js_eval(js_expressions="parent.window.location.reload()")
+    new_entry = {
+        "name": get_user_name(),
+        "grade": final_grade,
+        "total_score": total_score,
+        "total_max_score": total_max_score
+        }
+    add_new_entry(new_entry)
 
     if st.session_state.grading_done:
-        page_config.EXAM_DONE = True
-        if page_config.NEW_SCORE:
-            page_config.LATEST_GRADE = final_grade
-            page_config.LATEST_SCORE = f"Score: {total_score}/{total_max_score}"
+        st.session_state.exam_done = True
